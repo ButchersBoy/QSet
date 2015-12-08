@@ -13,7 +13,8 @@ This is a C#/WinForms project.
 Features:
 
 * Easily send (and repeat send) messages using a variety of formatters
-* Inspect messages with hex, text & (custom) XSLT viewers
+* Inspect messages with hex, text, XML & custom HTML viewers
+* Drag and drop messages between queues
 * Search across a domain for queues
 * Custom grouping of queues
 * Monitoring of queue sizes
