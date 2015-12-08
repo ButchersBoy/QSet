@@ -44,47 +44,7 @@ namespace Mulholland.QSet.Application.Licensing
 		/// Constructs the license object.
 		/// </summary>
 		public License() 
-		{
-			StreamReader sr = null;
-			StreamWriter sw = null;
-
-			try
-			{
-				//move the license to the current version if necessary
-				CheckLicenseForCurrentVersion();
-
-				//load an existing license if it exists
-				if (File.Exists(LicensePath))
-				{
-					//open the license file, read and decrypt into a string
-					sr = new StreamReader(new FileStream(LicensePath, FileMode.Open, FileAccess.Read));
-					Cryptographer crypto = new Cryptographer();
-					string licenseXml = crypto.Decrypt(sr.ReadToEnd(), SystemInformation.ComputerName);
-					
-					//write into a stream
-					sw = new StreamWriter(new MemoryStream());
-					sw.Write(licenseXml);
-					sw.Flush();
-					sw.BaseStream.Position = 0;
-
-					//parse the xml stream to get the user name and the product key
-					XmlTextReader tr = new XmlTextReader(sw.BaseStream);
-					if (tr.IsStartElement(_XML_LICENSE_NODE))
-					{
-						_registrationEmail = tr.GetAttribute(_XML_REGISTRATION_ATTRIBUTE);
-						_activationKey = tr.GetAttribute(_XML_ACTIVATIONKEY_ATTRIBUTE);
-					}
-				}				
-			}
-			catch {}
-			finally
-			{
-				if (sr != null)
-					sr.Close();
-				if (sw != null)
-					sw.Close();
-			}
-
+		{			
 			//update the license state
 			UpdateLicenseState();
 		}
@@ -97,7 +57,7 @@ namespace Mulholland.QSet.Application.Licensing
 		{
 			get
 			{
-				return _isLicenseValid;
+				return true;
 			}
 		}
 
@@ -240,19 +200,13 @@ namespace Mulholland.QSet.Application.Licensing
 		/// </summary>
 		protected void UpdateLicenseState()
 		{
-			if (RegistrationEmail != null && RegistrationEmail.Length > 0 &&
-				ActivationKey != null && ActivationKey.Length > 0)
-				_isLicenseValid = IsActivationKeyValid(RegistrationEmail, ActivationKey);
-			else
-				_isLicenseValid = false;
-
 			_featureStates[(int)Feature.StartUp] = true;
-			_featureStates[(int)Feature.NewMessage] = _isLicenseValid;
-			_featureStates[(int)Feature.FowardMessage] = _isLicenseValid;
-			_featureStates[(int)Feature.SaveMessage] = _isLicenseValid;
-			_featureStates[(int)Feature.DragAndDropMessage] = _isLicenseValid;
-			_featureStates[(int)Feature.DeleteMessage] = _isLicenseValid;
-			_featureStates[(int)Feature.SaveQSet] = _isLicenseValid;			
+			_featureStates[(int)Feature.NewMessage] = true;
+			_featureStates[(int)Feature.FowardMessage] = true;
+			_featureStates[(int)Feature.SaveMessage] = true;
+			_featureStates[(int)Feature.DragAndDropMessage] = true;
+			_featureStates[(int)Feature.DeleteMessage] = true;
+			_featureStates[(int)Feature.SaveQSet] = true;			
 		}
 
 
