@@ -1,0 +1,3704 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SandBar</name>
+    </assembly>
+    <members>
+        <member name="T:TD.SandBar.ContainerBar">
+            <summary>
+            Extends the ToolBar class to provide a control capable of containing other controls.
+            </summary>
+            <remarks>
+            <para>This control is designed to mimic the Task Panes seen in later version of Microsoft Office. It is an extended toolbar with a different layout
+            engine that allows controls to be placed at arbitrary locations within the toolbar.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.ToolBar">
+            <summary>
+            A toolbar that contains buttons, labels and other items.
+            </summary>
+            <remarks>
+            <para>A SandBar layout is usually made up of one menubar and one or more toolbars. Toolbars consist of many tools laid out in a strip. These tools
+            can be buttons, labels, dropdown menus and even other windows forms controls. Toolbars are normally parented to ToolBarContainer instances. When
+            parented to these, toolbars can become movable by the user.</para>
+            <para>Toolbars can also be used in a standalone state, i.e. parented to something other than a ToolBarContainer instance. In this mode, they are
+            not movable. Also, they will not inherit rendering settings from the layout manager.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.IPopupMenuHost">
+            <summary>
+            Provides an interface for retrieving information about how a menu should be displayed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IPopupMenuHost.Font">
+            <summary>
+            The font with which to draw and lay out menu items.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IPopupMenuHost.RightToLeft">
+            <summary>
+            Whether to present the menu system in right-to-left layout.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IPopupMenuHost.Renderer">
+            <summary>
+            The Renderer to use to draw the menu system.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IPopupMenuHost.MenuImageList">
+            <summary>
+            The ImageList that will provide images to be displayed by the menu system.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IPopupMenuHost.ToolBar">
+            <summary>
+            The ToolBar that owns the top-level menu item being shown.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IPopupMenuHost.Flow">
+            <summary>
+            Whether items should be extended from objects vertically.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IPopupMenuHost.MenuAnimation">
+            <summary>
+            The kind of animation to apply to menus as they are displayed.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.#ctor">
+            <summary>
+            Initializes a new instance of the ToolBar class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.SetVisibleCore(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnButtonClick(TD.SandBar.ToolBarItemEventArgs)">
+            <summary>
+            Raises the ButtonClick event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnEnterMenuLoop">
+            <summary>
+            Raises the EnterMenuLoop event.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnExitMenuLoop">
+            <summary>
+            Raises the ExitMenuLoop event.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnCloseButtonPressed">
+            <summary>
+            Called when the close button applying to the toolbar is pressed.
+            </summary>
+            <remarks>
+            <para>The default implementation of this method simply calls the Hide method of the toolbar.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnRendererChanged">
+            <summary>
+            Occurs when the effective renderer changes.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.Redock(System.Windows.Forms.Control)">
+            <summary>
+            Docks the ToolBar in the specified container.
+            </summary>
+            <param name="container">The container to dock the toolbar in.</param>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.Float(TD.SandBar.SandBarManager,System.Drawing.Point)">
+            <summary>
+            Floats the toolbar at the specified position on the desktop.
+            </summary>
+            <param name="manager">The SandBarManager controlling the layout.</param>
+            <param name="desktopLocation">The location of the upper left corner of the toolbar.</param>
+            <remarks>
+            <para>This method removes the toolbar from its current parent if applicable.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnItemPush(TD.SandBar.ToolbarItemBase,System.Drawing.Point)">
+            <summary>
+            Called when a toolbar item is pushed with the mouse.
+            </summary>
+            <param name="item">The item that was pushed.</param>
+            <param name="position">The position of the mouse, in client coordinates.</param>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnItemRelease(TD.SandBar.ToolbarItemBase,System.Drawing.Point)">
+            <summary>
+            Called when a toolbar item is released after being pushed with the mouse.
+            </summary>
+            <param name="item">The item that was released.</param>
+            <param name="position">The position of the mouse, in client coordinates.</param>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnMouseLeave(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnHandleCreated(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnFontChanged(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.GetItemAt(System.Drawing.Point)">
+            <summary>
+            Retreives the item at the specified location.
+            </summary>
+            <param name="position">The location to check, in client coordinates.</param>
+            <returns>The item at the specified position. If there is no item at the specified location, the method returns null.</returns>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnResize(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnParentChanged(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.ProcessMnemonic(System.Char)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.ToolBar.EnterMenuLoop">
+            <summary>
+            Occurs just before the application enters the menu loop.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.ToolBar.ExitMenuLoop">
+            <summary>
+            Occurs just after the application exits the menu loop.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.ToolBar.ButtonClick">
+            <summary>
+            Occurs when a toolbar button is activated.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.BackColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.BackgroundImage">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Anchor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Dock">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.ForeColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.AllowMerge">
+            <summary>
+            Indicates whether the ToolBar will allow itself to be merged with another.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.MergedToolBar">
+            <summary>
+            Indicates whether the toolbar has been merged with another.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.AllowRightToLeft">
+            <summary>
+            Indicates whether right to left layout of items in the toolbar is permitted.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.StretchItem">
+            <summary>
+            Designates one toolbar item to be stretched to occupy all available space.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.FlipLastItem">
+            <summary>
+            Indicates whether the last item on the toolbar is flipped to the far side of the button space.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.MenuAnimation">
+            <summary>
+            Indicates the animation performed on menu items as they are displayed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.ShowShortcutsInToolTips">
+            <summary>
+            Indicates whether keyboard shortcuts are shown in tooltips.
+            </summary>
+            <remarks>
+            Keyboard shortcuts are retrieved from the menu associated with a button.
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.AddRemoveButtonsVisible">
+            <summary>
+            Indicates whether the add/remove buttons option will be visible in the actions menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.MinimumFloatingSize">
+            <summary>
+            The minimum desired size of the toolbar when floating.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.MaximumFloatingSize">
+            <summary>
+            The maximum desired size of the toolbar when floating.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Stretch">
+            <summary>
+            Indicates whether the toolbar will take up the full extent of its row, where possible.
+            </summary>
+            <remarks>
+            <para>Normally more than one toolbar can share a row within a ToolBarContainer instance. Setting this property to true will ensure that this
+            toolbar will occupy the full extent of its row and will therefore not share with others.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.AllowVerticalDock">
+            <summary>
+            Indicates whether the user will be able to dock this toolbar at the left or right edge of the form.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.AllowHorizontalDock">
+            <summary>
+            Indicates whether the user will be able to dock this toolbar at the top or bottom edge of the form.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Guid">
+            <summary>
+            The unique identifier for this toolbar.
+            </summary>
+            <remarks>
+            <para>All toolbars within a layout should have their own unique identifier if the layout will be persisted. Beware of copying and pasting toolbars
+            within a layout as this could result in duplicate Guids. A toolbar is assigned a new guid when it is created, but can be assigned a new one at any
+            time through this property.</para>
+            <para>If the layout serialization engine is not working as expected, it is likely there is a duplicate guid in the toolbar layout.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Overflow">
+            <summary>
+            Indicates how toolbar items that flow off the toolbar's normal width are treated.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Flow">
+            <summary>
+            Indicates how items are laid out within the toolbar.
+            </summary>
+            <remarks>
+            <para>When a toolbar is docked in a ToolBarContainer this property will return a value depending on the side on which the container is docked.
+            When a toolbar is floating it will always return a horizontal layout.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.IsOpen">
+            <summary>
+            Indicates whether the toolbar is open (visible) or not.
+            </summary>
+            <remarks>
+            <para>This property should always be used instead of the Visible property because its implementation extends to floating toolbars. Reading from
+            this property will return the correct result whether the toolbar in question is docked or floating.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.DockLine">
+            <summary>
+            Indicates the line of toolbars in the container that this toolbar will be on.
+            </summary>
+            <remarks>
+            <para>The SandBar toolbar layout engine uses the DockLine property to set which line within a ToolBarContainer to place a toolbar on. Any
+            integer value is acceptable, and toolbars are sorted by this value and laid out top to bottom (or left to right in a vertical container).</para>
+            <para>In the course of extensive rearranging by a user, it is not unusual for these values to become negative or fragmented. This is normal
+            behaviour and will not affect the speed of the layout engine.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.DockOffset">
+            <summary>
+            Indicates the offset, in pixels, of this toolbar in the line of toolbars it belongs to.
+            </summary>
+            <remarks>
+            <para>The SandBar toolbar layout engine uses the DockOffset property to set the offset of a toolbar in a row. If the offset is not available (i.e.
+            there is another toolbar in the way, or screen space is limited) the offset is adjusted to best fit its surroundings. Toolbar cannot overlap.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.DrawActionsButton">
+            <summary>
+            Indicates whether a thin extra button is drawn for chevron and add/remove items functionality.
+            </summary>
+            <remarks>
+            <para>The actions button shows the actions menu when pressed. By default this menu shows one submenu, giving the user the opportunity
+            to show and hide individual buttons on the toolbar. Also, when space is limited and buttons have been chopped off the end of the toolbar, the user
+            can access them through this menu.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.TextAlign">
+            <summary>
+            Controls how the text is positioned relative to the image in each button.
+            </summary>
+            <remarks>
+            <para>When text is set to reside underneath the image on a button, every button is forced to be of equal width within the toolbar.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Resizable">
+            <summary>
+            Indicates whether the ToolBar is resizable by the user.
+            </summary>
+            <remarks>
+            <para>Except for ContainerBars, this property only applies to floating toolbars.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Movable">
+            <summary>
+            Indicates whether the toolbar will display a grab handle and let the user move it within its container.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Tearable">
+            <summary>
+            Indicates whether the toolbar will allow the user to tear it out of its container in to a floating state.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Closable">
+            <summary>
+            Indicates whether, when floating, the toolbar will display a close button.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.ImageList">
+            <summary>
+            Gets or sets the collection of images available to the toolbar button items.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Situation">
+            <summary>
+            The type of positioning and layout observed by the toolbar.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.TopLevelMenuItems">
+            <summary>
+            Retrieves all top level menu items on the toolbar.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Renderer">
+            <summary>
+            The renderer used by the toolbar when in a standalone state.
+            </summary>
+            <remarks>
+            <para>If the toolbar is within a ToolBarContainer associated with a SandBarManager, the manager's renderer will be effective instead of the toolbar's.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.WorkingRenderer">
+            <summary>
+            The renderer being used by the toolbar.
+            </summary>
+            <remarks>
+            <para>Although the toolbar has its own renderer, if it is part of a SandBar layout it will use the renderer belonging to the SandBarManager in charge
+            of the layout. Use this property to obtain the renderer the toolbar is currently using.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.LeftPadding">
+            <summary>
+            The amount of padding, in pixels, to allow before layout of items starts.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.RightPadding">
+            <summary>
+            The amount of padding, in pixels, to allow after layout of items finishes.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.ActionsButton">
+            <summary>
+            Retrieves the actions button of the toolbar.
+            </summary>
+            <remarks>
+            <para>This can be used to customise the menu shown when this button is dropped down.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.LastFixedContainer">
+            <summary>
+            The last fixed container the toolbar belonged to.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Cursor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBar.Items">
+            <summary>
+            Gets the collection of toolbar items assigned to the toolbar control.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBar.ButtonClickEventHandler">
+            <summary>
+            Represents the method that will handle the ButtonClick event.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBar.ToolBarItemCollection">
+            <summary>
+            A collection of items belonging to a toolbar.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolbarItemBaseCollection">
+            <summary>
+            A collection of ToolbarItemBase instances belonging to a toolbar.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.OnClear">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.OnClearComplete">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.OnInsertComplete(System.Int32,System.Object)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.OnRemoveComplete(System.Int32,System.Object)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.AddRange(TD.SandBar.ToolbarItemBase[])">
+            <summary>
+            Adds an array of toolbar items in to the collection.
+            </summary>
+            <param name="items">The array of toolbar items to add.</param>
+            <remarks>
+            <para>When adding more than one toolbar item at a time you should use this method, as some logic is postponed until after the whole batch
+            has been added, making it more efficient.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.Add(TD.SandBar.ToolbarItemBase)">
+            <summary>
+            Adds a toolbar item to the collection.
+            </summary>
+            <param name="item">The toolbar item to add.</param>
+            <returns>The new index of the toolbar item in the collection.</returns>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.Insert(System.Int32,TD.SandBar.ToolbarItemBase)">
+            <summary>
+            Inserts a toolbar item in to the collection at a given offset.
+            </summary>
+            <param name="index">The position to insert the toolbar item at.</param>
+            <param name="item">The toolbar item to insert.</param>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.Remove(TD.SandBar.ToolbarItemBase)">
+            <summary>
+            Removes the specified toolbar item from the collection.
+            </summary>
+            <param name="item">The toolbar item to remove.</param>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.Contains(TD.SandBar.ToolbarItemBase)">
+            <summary>
+            Examines the collection to see if it contains the specified toolbar item.
+            </summary>
+            <param name="item">The toolbar item to look for.</param>
+            <returns>A value indicating whether the toolbar item was found.</returns>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.IndexOf(TD.SandBar.ToolbarItemBase)">
+            <summary>
+            Returns the index of a toolbar item in the collection.
+            </summary>
+            <param name="item">The toolbar item to look for.</param>
+            <returns>The index of the toolbar item if found; otherwise -1.</returns>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBaseCollection.CopyTo(TD.SandBar.ToolbarItemBase[],System.Int32)">
+            <summary>
+            Copies the contents of the collection in to the given array, starting at the specified offset.
+            </summary>
+            <param name="array">The array to be copied in to.</param>
+            <param name="index">The index to start at.</param>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBaseCollection.Item(System.Int32)">
+            <summary>
+            Returns the toolbar item at the specified index in the collection.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBar.ToolBarItemCollection.IsComponentSuitableForToolBar(TD.SandBar.ToolbarItemBase)">
+            <summary>
+            Determines whether an item is suitable for adding to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+            <returns>A value indicating the item would be suitable.</returns>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.#ctor">
+            <summary>
+            Initializes a new instance of the ContainerBar class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnItemRelease(TD.SandBar.ToolbarItemBase,System.Drawing.Point)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnRendererChanged">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnEnter(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.OnLeave(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBar.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.ClientPanel">
+            <summary>
+            The control that is being used to host other controls in the container bar.
+            </summary>
+            <remarks>
+            <para>The client area of a container bar is represented with another control, an instance of ContainerBarClientPanel. This control inherits
+            from Panel and is added automatically by the designer when adding a container bar. It should be used to contain any controls to go
+            within the container bar.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.Flow">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.Closable">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.Overflow">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.Dock">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.Stretch">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContainerBar.MinimumSize">
+            <summary>
+            Indicates the minimum desired size of this container.
+            </summary>
+            <remarks>
+            <para>This property should be used to control the size of the container bar. By default the container bar can be stretched but its size will
+            always be greater than the value of this property.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.ContainerBarClientPanel">
+            <summary>
+            Represents the client area of a ContainerBar.
+            </summary>
+            <remarks>
+            <para>See the documentation on ContainerBar.ClientPanel for more information.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ContainerBarClientPanel.#ctor">
+            <summary>
+            Initializes a new instance of the ContainerBarClientPanel class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContainerBarClientPanel.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.FlatComboBox">
+            <summary>
+            An extended combobox control with support for custom rendering and default text.
+            </summary>
+            <remarks>
+            <para>This control is derived from the standard windows forms combobox control and adds custom rendering to give it a flat appearance.</para>
+            <para>It also allows default text to be specified for the combobox, to give the user a hint what text should be typed within.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.#ctor">
+            <summary>
+            Initializes a new instance of the FlatComboBox class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.OnDefaultTextChanged">
+            <summary>
+            Called when the default text has been changed.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.OnEnabledChanged(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.OnGotFocus(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.OnLostFocus(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.FlatComboBox.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.FlatComboBox.DefaultTextChanged">
+            <summary>
+            Occurs when the default text is changed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.FlatComboBox.DefaultText">
+            <summary>
+            The text to display in the control when no data has yet been entered.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.FlatComboBox.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuBar">
+            <summary>
+            Extends the ToolBar class to provide menuing functionality.
+            </summary>
+            <remarks>
+            <para>The MenuBar is responsible for MDI functionality and keyboard accelerators within the SandBar toolbar layout.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.#ctor">
+            <summary>
+            Initializes a new instance of the MenuBar class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.OnDoubleClick(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.GetSandBarContextMenu(System.Windows.Forms.NotifyIcon)">
+            <summary>
+            Finds the context menu associated with the specified notification icon.
+            </summary>
+            <param name="icon">The notification icon to search.</param>
+            <returns>The context menu if one was found; otherwise null.</returns>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.SetSandBarContextMenu(System.Windows.Forms.NotifyIcon,TD.SandBar.MenuBarItem)">
+            <summary>
+            Assigns a context menu to a notification icon.
+            </summary>
+            <param name="icon">The icon you wish to display a SandBar menu on.</param>
+            <param name="value">The top level menu to display.</param>
+            <remarks>
+            <para>To remove a context menu from a notification icon pass a null reference to the value parameter.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.GetSandBarMenu(System.Windows.Forms.Control)">
+            <summary>
+            Finds the context menu associated with the specified control.
+            </summary>
+            <param name="control">The control to search.</param>
+            <returns>The context menu if one was found; otherwise null.</returns>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.SetSandBarMenu(System.Windows.Forms.Control,TD.SandBar.MenuBarItem)">
+            <summary>
+            Assigns a context menu to a windows forms control.
+            </summary>
+            <param name="control">The control that will show the context menu.</param>
+            <param name="value">The menu that will be shown as a context menu.</param>
+            <remarks>
+            <para>This method should always be used to assign context menus to controls. A common mistake is to rely on the MouseUp event of the
+            control and show a menu manually if the right button was pressed. This method is flawed in many ways, most of all it will not work if the
+            user presses the context menu button on their keyboard.</para>
+            <para>To remove a context menu from a control pass a null reference to the value parameter.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.OnHandleCreated(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBar.OnItemRelease(TD.SandBar.ToolbarItemBase,System.Drawing.Point)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.ShowMdiSystemMenu">
+            <summary>
+            Indicates whether the MDI system menu will be shown for maximized MDI children.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.MdiButtonDisplay">
+            <summary>
+            Indicates which mdi buttons will be displayed when an mdi child form is maximized.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.OwnerForm">
+            <summary>
+            The form to which this menu bar belongs.
+            </summary>
+            <remarks>
+            <para>This property must be set to take advantage of many of the features the menu bar provides, including MDI functionality and certain
+            methods of menu navigation via the keyboard.</para>
+            <para>If the menu bar is part of a toolbar layout this property will be set automatically by the SandBarManager. However if the menu bar is
+            being used in a standalone state you will need to set this property in code.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.Site">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.ShortcutListener">
+            <summary>
+            The instance of ShortcutListener that the MenuBar is using to intercept keyboard accelerators.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.AlwaysShowMnemonics">
+            <summary>
+            Indicates whether keyboard mnemonics are always shown on the menu bar.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.AllowRightToLeft">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.DrawActionsButton">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.LeftPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.RightPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.Closable">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.Overflow">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBar.Stretch">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuBar.MdiButtonDisplayMode">
+            <summary>
+            Indicates possible combinations of MDI system buttons to display on the menubar.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuBar.MdiButtonDisplayMode.None">
+            <summary>
+            Do not display any MDI system buttons.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuBar.MdiButtonDisplayMode.All">
+            <summary>
+            Display the minimize, restore and close system buttons.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuBar.MdiButtonDisplayMode.CloseOnly">
+            <summary>
+            Display only the close system button.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.SandBarLanguage">
+            <summary>
+            Contains global text strings used by SandBad in rendering.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.RestoreMenuText">
+            <summary>
+            The text displayed for the restore menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.MoveMenuText">
+            <summary>
+            The text displayed for the move menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.SizeMenuText">
+            <summary>
+            The text displayed for the size menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.MinimizeMenuText">
+            <summary>
+            The text displayed for the minimize menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.MaximizeMenuText">
+            <summary>
+            The text displayed for the maximize menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.CloseMenuText">
+            <summary>
+            The text displayed for the close menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.MinimizeWindowText">
+            <summary>
+            The text displayed in the tooltip over mdi minimize buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.RestoreWindowText">
+            <summary>
+            The text displayed in the tooltip over mdi restore buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.CloseWindowText">
+            <summary>
+            The text displayed in the tooltip over mdi close buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.AddRemoveButtonsText">
+            <summary>
+            The text displayed in the toolbar actions button for adding and removing buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarLanguage.ToolbarOptionsText">
+            <summary>
+            The text displayed in the tooltip for toolbar actions buttons.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.SandBarManager">
+            <summary>
+            A manager responsible for linking instances of ToolBarContainer and ToolBar together in to one layout.
+            </summary>
+            <remarks>
+            <para>A manager is necessary if toolbars will be moved, torn off or have their layout persisted. A toolbar layout should consist of four ToolBarContainer
+            instances, one docked to each side of a form. These should be assigned to the manager with the LeftContainer, RightContainer, TopContainer and
+            BottomContainer properties.</para>
+            <para>Once a SandBar layout is constructed in this manner, toolbars can be added to the ToolBarContainer instances and they will be movable by
+            the user. Layout persistance is achieved with the GetLayout and SetLayout methods of this class.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.#ctor">
+            <summary>
+            Initializes a new instance of the SandBarManager class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.FindSuitableContainer(System.Windows.Forms.DockStyle)">
+            <summary>
+            Finds a ToolBarContainer docked at the specified side of a container.
+            </summary>
+            <param name="dockStyle">The side on which to find a container.</param>
+            <returns>The ToolBarContainer found.</returns>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.GetToolBars">
+            <summary>
+            Returns an array containing all toolbars in the toolbar layout.
+            </summary>
+            <returns>An array of toolbars.</returns>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.GetContainers">
+            <summary>
+            Returns an array containing all containers in the toolbar layout.
+            </summary>
+            <returns>An array of containers.</returns>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.AddToolbar(TD.SandBar.ToolBar)">
+            <summary>
+            Adds a toolbar to the layout system without adding it to a container.
+            </summary>
+            <param name="toolbar">The toolbar to add.</param>
+            <remarks>
+            <para>In some circumstances you will want to give the manager knowledge of a toolbar without making it visible anywhere. For instance, in a
+            large application that loads toolbars dynamically from plugins, this method would be called for each toolbar before finally calling SetLayout to
+            load a stored toolbar layout. The manager would then recognise the toolbars referred to in the persisted layout.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.RemoveToolbar(TD.SandBar.ToolBar)">
+            <summary>
+            Removes a toolbar from the layout system.
+            </summary>
+            <param name="toolbar">The toolbar to remove.</param>
+            <remarks>
+            <para>See the documentation for the AddToolbar method for why this method is necessary.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.SetLayout(System.String)">
+            <summary>
+            Restores a toolbar layout retrieved previously with the GetLayout method.
+            </summary>
+            <param name="layout">The layout to restore.</param>
+            <remarks>
+            <para>You should ensure your form is visible prior to calling this method, as it has the potential to load floating toolbars. Floating toolbars cannot
+            be loaded correctly unless they are assigned an owner form, which must be visible.</para>
+            <para>The recommended practice for restoring a stored toolbar layout is to wait until all other form initialization code is complete (i.e. after the
+            InitializeComponent call), then call Show(), then call SetLayout.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.FindToolbar(System.Guid)">
+            <summary>
+            Finds the toolbar with the specified guid in the toolbar layout.
+            </summary>
+            <param name="guid">The guid to search for.</param>
+            <returns>The toolbar with the specified guid. If no toolbar was found, the method returns null.</returns>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.FindContainer(System.Guid)">
+            <summary>
+            Finds the toolbar container with the specified guid in the toolbar layout.
+            </summary>
+            <param name="guid">The guid to search for.</param>
+            <returns>The toolbar container with the specified guid. If no container was found, the method returns null.</returns>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.GetLayout">
+            <summary>
+            Returns a string containing XML representing the current layout of toolbars within the layout system.
+            </summary>
+            <returns>A string containing layout information.</returns>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.GetLayout(System.Boolean)">
+            <summary>
+            Returns a string containing XML representing the current layout of toolbars within the layout system.
+            </summary>
+            <param name="includeItemVisibility">If true, instructs the method to include toolbar item visibility information.</param>
+            <returns>A string containing layout information.</returns>
+            <remarks>
+            <para>SandBar by default allows users to show and hide buttons on a toolbar via the actions button. If the includeItemVisibility parameter is
+            true, button visibility information is persisted along with toolbar layout status.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.GetScreenBounds">
+            <summary>
+            Returns the outer boundaries of the toolbar layout system, in screen coordinates.
+            </summary>
+            <returns>A rectangle representing the boundaries of the layout system.</returns>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.Merge(TD.SandBar.ToolBar,TD.SandBar.ToolBar)">
+            <summary>
+            Merges items from the one toolbar in to another, governed by the MergeAction and MergeIndex properties of items.
+            </summary>
+            <param name="source">The toolbar containing the source items to merge.</param>
+            <param name="target">The toolbar containing the destination items to merge with.</param>
+        </member>
+        <member name="M:TD.SandBar.SandBarManager.UndoMerge(TD.SandBar.ToolBar)">
+            <summary>
+            Reverts the specified toolbar to its state before the last merge operation.
+            </summary>
+            <param name="toolbar">The toolbar to revert.</param>
+            <remarks>
+            <para>The toolbar merged with the specified toolbar is also reverted to its former state.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.SandBarManager.MenuBar">
+            <summary>
+            Retrieves the menubar associated with this toolbar layout.
+            </summary>
+            <remarks>
+            <para>A toolbar layout should have at most one menubar. Menubars are given special treatment in several circumstances.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.SandBarManager.EnableContextMenu">
+            <summary>
+            Indicates whether the manager will display a context menu allowing the user to show and hide toolbars.
+            </summary>
+            <remarks>
+            <para>This feature is enabled by default, and allows the user to choose which toolbars are visible in the application. They will only be able to
+            change a toolbar's visible state if its Closable property is set to true.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.SandBarManager.OwnerForm">
+            <summary>
+            Identifies the form associated with this toolbar layout.
+            </summary>
+            <remarks>
+            <para>This property should always be assigned to before a layout is complete. Knowledge of the form the layout is displayed on is essential for
+            correct behaviour of SandBar.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.SandBarManager.Renderer">
+            <summary>
+            The renderer currently in use by the toolbar layout.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SandBarManager.Site">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuButtonItem">
+            <summary>
+            A menu item belonging to another menu item.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuItemBase">
+            <summary>
+            A base class for menu items to derive from.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ButtonItemBase">
+            <summary>
+            A base class for toolbar items that support images, icons and activation.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolbarItemBase">
+            <summary>
+            A base class providing common functionality for toolbar items.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBase.#ctor">
+            <summary>
+            Initializes a new instance of the ToolbarItemBase class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBase.CreateClonedItem">
+            <summary>
+            Creates a clone of the item.
+            </summary>
+            <returns>The new item with properties matching the original.</returns>
+            <remarks>
+            <para>Implementors should create a new instance of the item type.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBase.CloneItem">
+            <summary>
+            Creates a copy of the item with the same properties and event bindings.
+            </summary>
+            <returns>A clone of the item.</returns>
+            <remarks>
+            <para>Implementors should also override CreateClonedItem to ensure the item created is of the correct type. After calling the base method, you
+            should copy all properties and event bindings to the new object before returning it.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBase.ApplyLayout(System.Drawing.Rectangle,System.Drawing.Graphics,System.Boolean,System.Boolean)">
+            <summary>
+            Calculates the layout boundaries of components within the toolbar item based on the bounds specified.
+            </summary>
+            <param name="buttonBounds">The boundaries of the item within its container.</param>
+            <param name="graphics">A Graphics object used to calculate metrics on the toolbar.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <param name="rightToLeft">Whether the layout of the object should be right to left.</param>
+            <remarks>
+            <para>Once the bounds for an item have been calculated, it knows about the rectangle onscreen that it will occupy. However there may still
+            be layout logic to do - for instance a button must then work out the bounds of its image and text.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBase.Invalidate">
+            <summary>
+            Causes this item to redraw itself.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBase.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolbarItemBase.Clone">
+            <summary>
+            Creates a clone of the toolbar item.
+            </summary>
+            <returns>The new item that is cloned from the original.</returns>
+            <remarks>
+            <para>This method implements ICloneable, and simply calls the CloneItem method.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.MergeAction">
+            <summary>
+            How to merge this item with the equivalent collection of items on a merge target.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.MergeIndex">
+            <summary>
+            The index of the matching menu item on the target.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.Importance">
+            <summary>
+            Indicates the importance of this item. Items with lower importance values will be hidden first when short of space.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.Tag">
+            <summary>
+            Gets or sets the object that contains data about the toolbar item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.Padding">
+            <summary>
+            Gets the padding associated with the toolbar item.
+            </summary>
+            <remarks>
+            <para>Padding is applied around the edges of a toolbar item. The space added by this padding is used to display the highlight when the item
+            is selected or hovered over.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ToolBar">
+            <summary>
+            The toolbar this item belongs to.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ButtonBounds">
+            <summary>
+            The boundaries of this toolbar item, in client coordinates.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ButtonInnerBounds">
+            <summary>
+            The inner boundaries of this toolbar item, in client coordinates.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.Text">
+            <summary>
+            The text associated with this toolbar item.
+            </summary>
+            <remarks>
+            <para>Text is usually displayed next to the image or control hosted by the item.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.Visible">
+            <summary>
+            Gets or sets a value indicating whether the toolbar item is visible.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ToolTipText">
+            <summary>
+            Gets or sets the text that appears as a ToolTip for the toolbar item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the item is enabled.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.BeginGroup">
+            <summary>
+            Indicates whether the item will be preceeded by a separator.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolbarItemBase.ToolBarItemImportance">
+            <summary>
+            The importance of a toolbar item within a toolbar.
+            </summary>
+            <remarks>
+            <para>When the size of a toolbar is not great enough to accommodate all its items, some items disappear. The order in which they disappear
+            can be controlled via item importance. The least important items disappear first, the most important last.</para>
+            </remarks>
+        </member>
+        <member name="F:TD.SandBar.ToolbarItemBase.ToolBarItemImportance.Lowest">
+            <summary>
+            The lowest level of importance.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolbarItemBase.ToolBarItemImportance.Low">
+            <summary>
+            A low level of importance.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolbarItemBase.ToolBarItemImportance.Medium">
+            <summary>
+            Medium importance. This the default value.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolbarItemBase.ToolBarItemImportance.High">
+            <summary>
+            A high level of importance.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolbarItemBase.ToolBarItemImportance.Highest">
+            <summary>
+            The highest level of importance.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolbarItemBase.ItemPadding">
+            <summary>
+            A class representing the padding around a toolbar item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ItemPadding.Top">
+            <summary>
+            The padding above the toolbar item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ItemPadding.Left">
+            <summary>
+            The padding to the left of the toolbar item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ItemPadding.Bottom">
+            <summary>
+            The padding underneath the toolbar item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolbarItemBase.ItemPadding.Right">
+            <summary>
+            The padding to the right of the toolbar item.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ButtonItemBase.OnActivate">
+            <summary>
+            Raises the Activate event.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ButtonItemBase.Dispose(System.Boolean)">
+            <summary>
+            Overridden. Releases the resources associated with the ButtonItemBase.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ButtonItemBase.CloneItem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ButtonItemBase.ApplyLayout(System.Drawing.Rectangle,System.Drawing.Graphics,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ButtonItemBase.LayoutImageAndText(System.Drawing.Rectangle,System.Boolean,System.Boolean)">
+            <summary>
+            Lays out the image and text portions of the button within the specified bounds.
+            </summary>
+            <param name="bounds">The bounds to contain the image and text.</param>
+            <param name="vertical">Whether the item is aligned vertically.</param>
+            <param name="rightToLeft">Whether the item is laid out right to left.</param>
+        </member>
+        <member name="M:TD.SandBar.ButtonItemBase.#ctor">
+            <summary>
+            Initializes a new instance of the ButtonItemBase class.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.ButtonItemBase.Activate">
+            <summary>
+            Occurs when the menu item is activated.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ButtonItemBase.ImageList">
+            <summary>
+            Gets the imagelist that will provide the images available to the button.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ButtonItemBase.Checked">
+            <summary>
+            Indicates the state of the item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ButtonItemBase.ImageIndex">
+            <summary>
+            Gets or sets the index value of the image assigned to the button.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ButtonItemBase.Image">
+            <summary>
+            The image assigned to the button.
+            </summary>
+            <remarks>
+            <para>This property is for direct assignment of images to buttons, without going through an imagelist. This can provide a better model to work with
+            in some cases, and circumvents certain bugs pertaining to loss or corruption of alpha channels with the imagelist component.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ButtonItemBase.IconSize">
+            <summary>
+            Gets ot sets the desired icon size to extract from the icon.
+            </summary>
+            <remarks>
+            <para>Windows icon files can contain more than one size of icon. When an icon file is assigned to a button, this property may need to be changed
+            to ensure that the correct sized icon is extracted from the icon file and drawn.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ButtonItemBase.Icon">
+            <summary>
+            The icon to show in place of an image.
+            </summary>
+            <remarks>
+            <para>If alpha-channel information is needed, you may wish to use this property to assign an icon to a button rather than use the ImageList
+            and ImageIndex system.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.#ctor">
+            <summary>
+            Initializes a new instance of the MenuItemBase class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the MenuItemBase class, with the specified text.
+            </summary>
+            <param name="text">The text to associate with this menu item.</param>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.CreatePopupMenu(TD.SandBar.IPopupMenuHost)">
+            <summary>
+            Creates a user interface for the MenuItem that can be displayed.
+            </summary>
+            <param name="host">The IPopupMenuHost that will support the menu display.</param>
+            <returns>The user interface for the MenuItem.</returns>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.ApplyLayout(System.Drawing.Rectangle,System.Drawing.Graphics,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.CloneItem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.HasVisibleSubitems">
+            <summary>
+            Determines whether or not a menu item contains any visible children.
+            </summary>
+            <returns>A boolean value indicating whether any visible children were found.</returns>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.OnBeforePopup(TD.SandBar.MenuPopupEventArgs)">
+            <summary>
+            Raises the BeforePopup event.
+            </summary>
+            <param name="e">The arguments representing the menu about to be displayed.</param>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.OnAfterPopup(System.EventArgs)">
+            <summary>
+            Called when the menu is dismissed.
+            </summary>
+            <param name="e">The arguments to be passed to the event (no event is currently implemented).</param>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.MenuItemBase.BeforePopup">
+            <summary>
+            Occurs just before a menu is displayed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.Popup">
+            <summary>
+            Retrieves the PopupMenu being used to display the menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.DefaultChildType">
+            <summary>
+            Indicates the type of menu item that will be created at design time as a new child of the menu.
+            </summary>
+            <remarks>
+            <para>The type must derive from MenuButtonItem.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.MenuDirection">
+            <summary>
+            The direction in which this menu is projecting from its parent.
+            </summary>
+            <remarks>
+            <para>This property should be used by renderers when deciding how to draw the border of the displayed menu.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.Parent">
+            <summary>
+            Gets a value indicating the menu that contains this menu item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.ToolTipText">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.HasChildren">
+            <summary>
+            Indicates whether this menu item has any children.
+            </summary>
+            <remarks>
+            <para>This property should be used instead of checking the MenuItems.Count property, as the MenuItems collection is created the first time
+            that property is accessed.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.Items">
+            <summary>
+            Gets a value indicating the collection of menu items associated with the menu.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuItemBase.MenuPopupMode">
+            <summary>
+            Represents the ways in which a menu can be displayed.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuItemBase.MenuPopupMode.TopLevelMenu">
+            <summary>
+            The menu is a top-level menu item.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuItemBase.MenuPopupMode.ContextMenu">
+            <summary>
+            The menu is being displayed as a context menu over a control.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuItemBase.MenuPopupMode.SubMenu">
+            <summary>
+            The menu is a child of another menu.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuItemBase.BeforePopupEventHandler">
+            <summary>
+            Represents the method that will handle the BeforePopup event.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuItemBase.MenuItemCollection">
+            <summary>
+            A collection of MenuButtonItems belonging to a menu.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.MenuItemCollection.Add(System.String)">
+            <summary>
+            Adds a new menu item to the collection, with the specified text.
+            </summary>
+            <param name="text">The text that will be associated with the new menu item.</param>
+            <returns>The new index of the menu item in the collection.</returns>
+        </member>
+        <member name="M:TD.SandBar.MenuItemBase.MenuItemCollection.Add(System.String,System.EventHandler)">
+            <summary>
+            Adds a new menu item to the collection, with the specified text and bound to the specified event handler.
+            </summary>
+            <param name="text">The text that will be associated with the new menu item.</param>
+            <param name="eventHandler">The event handler that will handle the Activate event.</param>
+            <returns>The new index of the menu item in the collection.</returns>
+        </member>
+        <member name="P:TD.SandBar.MenuItemBase.MenuItemCollection.Item(System.Int32)">
+            <summary>
+            Returns the MenuButtonItem at the specified index.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuButtonItem.#ctor">
+            <summary>
+            Initializes a new instance of the MenuButtonItem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuButtonItem.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the MenuButtonItem class, with the specified text.
+            </summary>
+            <param name="text">The text to associate with this menu item.</param>
+        </member>
+        <member name="M:TD.SandBar.MenuButtonItem.CloneItem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuButtonItem.#ctor(System.String,System.EventHandler)">
+            <summary>
+            Initializes a new instance of the MenuButtonItem class, with the specified text and bound to the specified event handler.
+            </summary>
+            <param name="text">The text to associate with this menu item.</param>
+            <param name="eventHandler">The event handler to bind to the Activate event.</param>
+        </member>
+        <member name="M:TD.SandBar.MenuButtonItem.OnSelect">
+            <summary>
+            Raises the Select event.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuButtonItem.Invalidate">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.MenuButtonItem.Select">
+            <summary>
+            Occurs when the menu item is focused with the mouse or keyboard.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.Importance">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.Shortcut">
+            <summary>
+            Indicates the key combination that will activate this menu item.
+            </summary>
+            <remarks>
+            <para>This property is a more user friendly way of assigning to the PrimaryShortcut property and will eventually be phased out.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.Shortcut2">
+            <summary>
+            The second key combination that will activate the item after the first is activated.
+            </summary>
+            <remarks>
+            <para>This property is a more user friendly way of assigning to the SecondaryShortcut property and will eventually be phased out.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.PrimaryShortcut">
+            <summary>
+            The combination of keys that will activate this item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.SecondaryShortcut">
+            <summary>
+            The second key combination that will activate the item after the first is activated.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.ImageList">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.Checked">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuButtonItem.Enabled">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBarTextAlign">
+            <summary>
+            Specifies the alignment of text relative to the image in a toolbar button.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarTextAlign.Side">
+            <summary>
+            The text will be displayed by the side of the image.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarTextAlign.Underneath">
+            <summary>
+            The text will be displayed underneath the image.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBarContainer">
+            <summary>
+            A control responsible for layout out toolbars and linking them with a SandBarManager instance.
+            </summary>
+            <remarks>
+            <para>Four of these controls should exist in each SandBar layout. Their Manager property should be set immediate after creating them.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.#ctor">
+            <summary>
+            Initializes a new instance of the ToolBarContainer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.GetNextFreeDockLine">
+            <summary>
+            Find the next available dock line in this container.
+            </summary>
+            <returns>The next available dock line.</returns>
+            <remarks>
+            <para>When adding several toolbars to a container it can be useful to ensure that the toolbar ends up at the bottom, after any other toolbars that
+            are present. Use this method to find the next available dock line and then assign it to the DockLine property of the toolbar once you have added it.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.OnHandleCreated(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.CreateControlsInstance">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarContainer.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBarContainer.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBarContainer.BackColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBarContainer.BackgroundImage">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBarContainer.ForeColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ToolBarContainer.Guid">
+            <summary>
+            A unique identifier for the ToolBarContainer.
+            </summary>
+            <remarks>
+            <para>ToolBarContainers need unique identifiers for layout serialization purposes. If any containers have the same identifier serialization will not
+            work correctly.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ToolBarContainer.Manager">
+            <summary>
+            The SandBarManager instance associated with this ToolBarContainer.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ContextMenuBarItem">
+            <summary>
+            A menu item that will be displayed as a context menu on another control.
+            </summary>
+            <remarks>
+            <para>Any toplevel menu item can be displayed as a context menu, however this class extends MenuBarItem to give it the default properties most
+            commonly used by context menus.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.MenuBarItem">
+            <summary>
+            A top-level menu item that will be displayed on a menu bar.
+            </summary>
+            <remarks>
+            This class adds Mdi Window functionality to the standard top level menu class.
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.TopLevelMenuItemBase">
+            <summary>
+            A base class for top-level menu items.
+            </summary>
+            <remarks>
+            <para>This class contains functionality common to both MenuBarItem and DropDownMenuItem.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.TopLevelMenuItemBase.#ctor">
+            <summary>
+            Initializes a new instance of the TopLevelMenuItemBase class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.TopLevelMenuItemBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the TopLevelMenuItemBase class, with the specified text.
+            </summary>
+            <param name="text">The text to associate with this menu item.</param>
+        </member>
+        <member name="M:TD.SandBar.TopLevelMenuItemBase.ShowIndependent(System.Drawing.Point)">
+            <summary>
+            Shows the menu at the specified screen coordinates, without depending on any particular control.
+            </summary>
+            <param name="position">The position in screen coordinates at which to show the menu.</param>
+            <returns>The menu item that was picked by the user. If no menu item was picked, the method returns null.</returns>
+        </member>
+        <member name="M:TD.SandBar.TopLevelMenuItemBase.Show(System.Windows.Forms.Control,System.Drawing.Point)">
+            <summary>
+            Shows the menu over the specified control, at the specified position.
+            </summary>
+            <param name="control">The control to display the menu on.</param>
+            <param name="position">The position to display the menu at, in client coordinates.</param>
+            <returns>The menu item that was picked by the user. If no menu item was picked, the method returns null.</returns>
+            <remarks>
+            <para>This method requires that the menu item belong to a menubar.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.TopLevelMenuItemBase.Show(TD.SandBar.IPopupMenuHost,System.Windows.Forms.Control,System.Drawing.Point)">
+            <summary>
+            Shows the menu over the specified control, at the specified position.
+            </summary>
+            <param name="host">The IPopupMenuHost object that will provide information on how the menu is to be displayed.</param>
+            <param name="control">The control to display the menu on.</param>
+            <param name="position">The position to display the menu at, in client coordinates.</param>
+            <returns>The menu item that was picked by the user. If no menu item was picked, the method returns null.</returns>
+            <remarks>
+            <para>This method is the only overload that does not require the menu item to belong to a menubar, since you will have to implement
+            IPopupMenuHost in one of your own classes.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.TopLevelMenuItemBase.Show(System.Boolean)">
+            <summary>
+            Shows the menu, with keyboard focus if necessary.
+            </summary>
+            <param name="select">Whether to highlight the first item in the menu for keyboard navigation.</param>
+            <returns>The menu item that was picked by the user. If no menu item was picked, the method returns null.</returns>
+        </member>
+        <member name="M:TD.SandBar.TopLevelMenuItemBase.Show">
+            <summary>
+            Shows the menu.
+            </summary>
+            <returns>The menu item that was picked by the user. If no menu item was picked, the method returns null.</returns>
+        </member>
+        <member name="P:TD.SandBar.TopLevelMenuItemBase.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.TopLevelMenuItemBase.MenuAnimation">
+            <summary>
+            Specifies a type of animation to apply to a menu as it is displayed.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.TopLevelMenuItemBase.MenuAnimation.None">
+            <summary>
+            No animation is performed.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.TopLevelMenuItemBase.MenuAnimation.System">
+            <summary>
+            The menu animation is decided by the operating system, which can be None, Fade or Slide.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.TopLevelMenuItemBase.MenuAnimation.Fade">
+            <summary>
+            The menu appears to fade in.
+            </summary>
+            <remarks>
+            <para>This method does not work with Windows 98 and Windows ME.</para>
+            </remarks>
+        </member>
+        <member name="F:TD.SandBar.TopLevelMenuItemBase.MenuAnimation.Slide">
+            <summary>
+            The menu appears to slide in.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.TopLevelMenuItemBase.MenuAnimation.Unfold">
+            <summary>
+            The menu appears to unfold.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBarItem.#ctor">
+            <summary>
+            Initializes a new instance of the MenuBarItem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBarItem.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the MenuBarItem class, with the specified text.
+            </summary>
+            <param name="text">The text to associate with this menu item.</param>
+        </member>
+        <member name="M:TD.SandBar.MenuBarItem.CloneItem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBarItem.OnBeforePopup(TD.SandBar.MenuPopupEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.MenuBarItem.OnAfterPopup(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.ShowIconsOnMdiWindowList">
+            <summary>
+            Indicates whether form icons should be shown in the mdi window list.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.MdiWindowList">
+            <summary>
+            Indicates whether this item will show a list of mdi children.
+            </summary>
+            <remarks>
+            <para>If set to true, this menu bar item will present a list of mdi children when dropped down, if the menubar is in an mdi environment. The user
+            can then pick an mdi child form from the list and it will be brought to the front.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.BeginGroup">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.Checked">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.Image">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.ImageIndex">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.Icon">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuBarItem.IconSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ContextMenuBarItem.#ctor">
+            <summary>
+            Initializes a new instance of the ContextMenuBarItem class.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContextMenuBarItem.Visible">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ContextMenuBarItem.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.DropDownMenuItem">
+            <summary>
+            A menu item that will be placed on a toolbar and dropped down to reveal child menuitems.
+            </summary>
+            <remarks>
+            <para>This class should be used when a dropdown button is required on a standard toolbar. It provides an extra image list property to override the
+            default image list used by the menu.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.DropDownMenuItem.#ctor">
+            <summary>
+            Initializes a new instance of the DropDownMenuItem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.DropDownMenuItem.ApplyLayout(System.Drawing.Rectangle,System.Drawing.Graphics,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.DropDownMenuItem.CloneItem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.DropDownMenuItem.MenuImageList">
+            <summary>
+            Gets or sets the collection of images available to the child menu items.
+            </summary>
+            <remarks>
+            <para>By default, menu items use the toolbar's image list to display their images. However in some instances you may wish to have a different
+            set of images for the dropdown menu, especially if the toolbar uses large images.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.DropDownMenuItem.ToolTipText">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ButtonItem">
+            <summary>
+            A toolbar button.
+            </summary>
+            <remarks>
+            <para>This is the standard class to be used for buttons on a toolbar.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ButtonItem.#ctor">
+            <summary>
+            Initializes a new instance of the ButtonItem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ButtonItem.OnActivate">
+            <summary>
+            Overridden. Calls the OnActivate method of the BuddyMenu if one is present.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ButtonItem.BuddyMenu">
+            <summary>
+            The MenuItem to invoke when the user clicks this button.
+            </summary>
+            <remarks>
+            <para>Using the BuddyMenu property to associate the toolbar button with a menu item is a great way to cut down on repeated code. Once you
+            have bound the button to a menu in this way, the menu's Activate event will be called instead of the toolbar's ButtonClick event when the button
+            is clicked.</para>
+            <para>Also, when the Enabled and Checked properties of the menu item are changed these will be automatically reflected in the toolbar button
+            too.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.ComboBoxItem">
+            <summary>
+            A toolbar item that contains a windows forms combobox control.
+            </summary>
+            <remarks>
+            <para>This item is meant to contain a combobox, not necessarily reflect all its properties. It only exposes the most common properties of the
+            contained combobox control. For access to any other properties, events and methods, you should use the ComboBox property that exposes
+            the contained combobox.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.ControlContainerItem">
+            <summary>
+            A base class for implementing toolbar items that contain windows forms controls.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ControlContainerItem.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            Initializes a new instance of the ControlContainerItem class, with the specified control.
+            </summary>
+            <param name="control">The control to host in the toolbar.</param>
+        </member>
+        <member name="M:TD.SandBar.ControlContainerItem.ApplyLayout(System.Drawing.Rectangle,System.Drawing.Graphics,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ControlContainerItem.DrawDesignTimeControl(TD.SandBar.IToolBarRenderer,System.Drawing.Graphics,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Draws a representation of the contained control at design time.
+            </summary>
+            <param name="renderer">The renderer in use by the toolbar.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="state">The state of the toolbar item.</param>
+            <remarks>
+            <para>At design time, the hosted control is not hosted in the toolbar. Instead, a class deriving from ControlContainerItem should override this
+            method and draw a suitable representation of the control to the design surface. The default implementation of this method simply draws a
+            rectangle representing the bounds of the control.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ControlContainerItem.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ControlContainerItem.ToolTipText">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ControlContainerItem.ControlText">
+            <summary>
+            The text contained in the control.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ControlContainerItem.MinimumControlWidth">
+            <summary>
+            Sets the minimum acceptable width of the hosted control.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ControlContainerItem.ContainedControl">
+            <summary>
+            The control contained within this item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ControlContainerItem.Enabled">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ControlContainerItem.Visible">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ComboBoxItem.#ctor">
+            <summary>
+            Initializes a new instance of the ComboBoxItem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ComboBoxItem.CloneItem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ComboBoxItem.DrawDesignTimeControl(TD.SandBar.IToolBarRenderer,System.Drawing.Graphics,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ComboBoxItem.ComboBox">
+            <summary>
+            Gets the windows forms combobox control contained by this item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ComboBoxItem.DefaultText">
+            <summary>
+            Gets or sets the default text to display in the combobox.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ComboBoxItem.Items">
+            <summary>
+            Gets the collection of items contained in this combobox.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ComboBoxItem.DropDownStyle">
+            <summary>
+            Gets or sets a value specifying the style of the combo box.
+            </summary>
+            <remarks>
+            <para>The ComboBoxStyle.Simple style is not available through this property.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.LabelItem">
+            <summary>
+            An item for displaying text on a toolbar.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.LabelItem.#ctor">
+            <summary>
+            Initializes a new instance of the LabelItem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.LabelItem.CloneItem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.LabelItem.MinimumSize">
+            <summary>
+            The minimum amount of toolbar space the item will occupy.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.LabelItem.ForeColor">
+            <summary>
+            The colour used to draw the text on the toolbar.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.LabelItem.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuPopupEventArgs">
+            <summary>
+            Provides data for the BeforePopup event on MenuItemBase instances.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuPopupEventArgs.Keyboard">
+            <summary>
+            Indicates whether the menu is being shown using the keyboard, and hence may need its position adjusting manually.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuPopupEventArgs.Mode">
+            <summary>
+            The mode in which the menu is being displayed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuPopupEventArgs.Control">
+            <summary>
+            The control on which the menu is being displayed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.MenuPopupEventArgs.Position">
+            <summary>
+            The point, in screen coordinates, around which the menu will be aligned.
+            </summary>
+            <remarks>
+            <para>This property is only used for a menu being displayed standalone, i.e. a context menu.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandBar.PopupMenu">
+            <summary>
+            Provides the user interface for a menu dropdown.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.#ctor(TD.SandBar.MenuItemBase,TD.SandBar.IPopupMenuHost)">
+            <summary>
+            Initializes a new instance of the PopupMenu class, for the specified menu and using the specified IPopupMenuHost.
+            </summary>
+            <param name="menuItem">The menu whose children will be drawn.</param>
+            <param name="host">The IPopupMenuHost to govern drawing and layout.</param>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.EnableToolTips">
+            <summary>
+            Enables tooltips to be shown on items that have them.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.GetItemAt(System.Drawing.Point)">
+            <summary>
+            Retreives the item at the specified location.
+            </summary>
+            <param name="position">The location to check, in client coordinates.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.OnResize(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.LayoutChildItems(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Lays out the children of the menu item within the bounds of the user interface.
+            </summary>
+            <param name="graphics">A Graphics object to calculate metrics with.</param>
+            <param name="itemDisplayArea">The boundaries of the area the children must reside in.</param>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.PaintChildItems(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Paints the items belonging to the menu.
+            </summary>
+            <param name="e">A PaintEventArgs containing required objects.</param>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.ShouldHighlightItem(TD.SandBar.MenuButtonItem)">
+            <summary>
+            Indicates whether the specified MenuButtonItem should be drawn with a highlight.
+            </summary>
+            <param name="item">The MenuButtonItem that could be highlighted.</param>
+            <returns>A value indicating whether a highlight is necessary.</returns>
+            <remarks>
+            <para>This method will return true in different circumstances depending on whether the menu is running in design mode or not.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.PopupMenu.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.PopupMenu.MenuItem">
+            <summary>
+            The menu that the PopupMenu is showing the items for.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.PopupMenu.DesiredClientSize">
+            <summary>
+            The ideal size of the client area for displaying child items.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.PopupMenu.ItemDisplayArea">
+            <summary>
+            Retrieves the area of the menu in which items should be displayed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.PopupMenu.ScrollOffset">
+            <summary>
+            The offset, in pixels, of the child items in the menu.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.PopupMenu.Host">
+            <summary>
+            The IPopupMenuHost that supports drawing of and laying out of the menu item.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.PopupMenu.CreateParams">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.SecondaryShortcutEventHandler">
+            <summary>
+            Represents the method that will handle the SecondaryShortcutReceived event of the ShortcutListener class.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ShortcutListener">
+            <summary>
+            Provides functionality to listen for keyboard shortcuts and trigger associated menu items.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ShortcutListener.#ctor">
+            <summary>
+            Initializes a new instance of the ShortcutListener class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ShortcutListener.OnSecondaryShortcutAction(TD.SandBar.SecondaryShortcutEventArgs)">
+            <summary>
+            Raises the SecondaryShortcutAction event.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ShortcutListener.Dispose">
+            <summary>
+            Overridden. Stops the ShortcutListener from listening, if it is currently doing so.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ShortcutListener.UpdateAcceleratorTable(TD.SandBar.TopLevelMenuItemBase[])">
+            <summary>
+            Repopulates the accelerator table from an array of menu items.
+            </summary>
+            <param name="menus">The menu items containing shortcuts.</param>
+        </member>
+        <member name="M:TD.SandBar.ShortcutListener.UpdateAcceleratorTable(TD.SandBar.ToolBar)">
+            <summary>
+            Repopulates the accelerator table from eligible items in a toolbar or menubar.
+            </summary>
+            <param name="toolbar">The toolbar containing one or more menu items.</param>
+        </member>
+        <member name="M:TD.SandBar.ShortcutListener.ShortcutActivated(System.Windows.Forms.Keys,System.Boolean)">
+            <summary>
+            Locates the MenuButtonItem associated with a keyboard shortcut and activates it.
+            </summary>
+            <param name="keys">The keys that triggered the shortcut.</param>
+            <param name="primary">Whether this is a primary shortcut.</param>
+            <returns>A value indicating whether the shortcut was processed.</returns>
+            <remarks>
+            <para>The shortcut will not be processed if a corresponding menu item cannot be found, or if the menu item or any of its parents is disabled.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.ShortcutListener.IsShortcutWithinScope(System.Windows.Forms.Keys)">
+            <summary>
+            Tests to see if a shortcut is within the scope of the ShortcutListener.
+            </summary>
+            <param name="keys">The keys that triggered the shortcut.</param>
+            <returns>A value indicating whether further processing is required.</returns>
+            <remarks>
+            <para>Keyboard shortcuts are caught on an application-wide basis. This method should return whether or not a shortcut should be passed on to its
+            corresponding menu item. The default implementation of this method checks to see whether the currently active form is the one that has been
+            assigned to the listener via its OwnerForm property, or one owned by it.</para>
+            </remarks>
+        </member>
+        <member name="E:TD.SandBar.ShortcutListener.SecondaryShortcutAction">
+            <summary>
+            Raised when the first key combination in a dual chord is pressed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ShortcutListener.OwnerForm">
+            <summary>
+            The Form that owns the ShortcutListener.
+            </summary>
+            <remarks>
+            <para>The default implementation of ShortcutListener will not process shortcuts unless this property is assigned and the form passed is or owns the
+            foreground window when a shortcut is triggered.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.ShortcutListener.Listening">
+            <summary>
+            Indicates whether the ShortcutListener is currently listening for shortcuts.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.ShortcutListener.IsAwaitingSecondaryShortcut">
+            <summary>
+            Indicates whether the ShortcutListener is waiting for the second key combination of a chord to be activated.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.IComboBoxRenderer">
+            <summary>
+            Provides an interface for custom drawing of combobox controls.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.IComboBoxRenderer.DrawComboBox(System.Windows.Forms.ComboBox,System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws a combo box.
+            </summary>
+            <param name="comboBox">The ComboBox that will be drawn.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="state">The state of the combobox.</param>
+            <param name="rightToLeft">Whether to draw the combobox in a right-to-left layout.</param>
+        </member>
+        <member name="T:TD.SandBar.IContainerBarRenderer">
+            <summary>
+            Provides an interface for drawing elements of a container bar.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.IContainerBarRenderer.LayoutContainerBar(System.Drawing.Rectangle,System.Drawing.Size,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Calculates the positions of the child elements within the container bar.
+            </summary>
+            <param name="bounds">The bounds to use as a base for calculation.</param>
+            <param name="toolbarSize">The size required for the toolbar portion of the bar.</param>
+            <param name="titlebarBounds">The bounds of the titlebar.</param>
+            <param name="toolbarBounds">The bounds of the toolbar.</param>
+            <param name="clientBounds">The bounds of the client area.</param>
+            <param name="gripperBounds">The bounds of the gripper.</param>
+        </member>
+        <member name="M:TD.SandBar.IContainerBarRenderer.DrawContainerBarText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            Draws the text in the titlebar of a container bar.
+            </summary>
+            <param name="text">The text to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to draw text with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+        </member>
+        <member name="M:TD.SandBar.IContainerBarRenderer.DrawContainerBarBackground(TD.SandBar.ContainerBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of a container bar.
+            </summary>
+            <param name="containerBar">The ContainerBar whose background will be drawn.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="clientBounds">The bounds around the client area of the container bar.</param>
+            <remarks>
+            <para>Implementors should ensure that everything within the bounds specified is filled.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.IContainerBarRenderer.DrawContainerBarClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of the client area of a container bar.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+        </member>
+        <member name="M:TD.SandBar.IContainerBarRenderer.DrawContainerBarTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws the background of the titlebar in a container bar.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="active">Whether the container bar contains the focus.</param>
+        </member>
+        <member name="M:TD.SandBar.IContainerBarRenderer.DrawContainerBarToolBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of the toolbar in a container bar.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+        </member>
+        <member name="T:TD.SandBar.IMenuRenderer">
+            <summary>
+            Provides an interface for drawing elements of a SandBar menu system.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.IMenuRenderer.DrawMenuBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,System.Int32,TD.SandBar.MenuProjection,System.Boolean)">
+            <summary>
+            Draws the background of a menu.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="marginWidth">The width, in pixels, of the menu margin.</param>
+            <param name="breakOffset">The offset, in pixels, of the break in the menu border.</param>
+            <param name="breakSize">The size, in pixels, of the break in the menu border.</param>
+            <param name="menuDirection">The direction this menu item is projecting from its parent.</param>
+            <param name="rightToLeft">Whether to draw the menu in right-to-left layout.</param>
+        </member>
+        <member name="M:TD.SandBar.IMenuRenderer.DrawMenuItem(System.Drawing.Graphics,TD.SandBar.MenuButtonItem,TD.SandBar.IPopupMenuHost,System.Int32,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws a menu item.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="item">The menu item to draw.</param>
+            <param name="host">The IPopupMenuHost to provide drawing information and services.</param>
+            <param name="marginWidth">The width, in pixels, of the menu margin.</param>
+            <param name="state">The state of the menu item.</param>
+            <param name="drawSpecial">Whether this is an item displayed in a persistant menu.</param>
+        </member>
+        <member name="M:TD.SandBar.IMenuRenderer.DrawMenuSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Boolean)">
+            <summary>
+            Draws a separator between two menu items.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw the separator in.</param>
+            <param name="marginWidth">The width, in pixels, of the menu margin.</param>
+            <param name="rightToLeft">Whether to draw the separator in right-to-left layout.</param>
+        </member>
+        <member name="M:TD.SandBar.IMenuRenderer.DrawMenuActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws the actions item in a menu.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="marginWidth">The width, in pixels, of the menu margin.</param>
+            <param name="state">The state of the actions button.</param>
+            <param name="designMode">Whether the menu is being displayed in design mode.</param>
+        </member>
+        <member name="P:TD.SandBar.IMenuRenderer.MenuTextStringFormat">
+            <summary>
+            Gets the string formatter used to calculate menu metrics for standard text.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IMenuRenderer.MenuShortcutStringFormat">
+            <summary>
+            Gets the string formatter used to calculate menu metrics for shortcut text.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IMenuRenderer.ShadowColor">
+            <summary>
+            Gets the colour used as a base to draw menu shadows.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBarGlyphType">
+            <summary>
+            A type of glyph that is shown on or around a toolbar.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarGlyphType.Close">
+            <summary>
+            A close glyph.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarGlyphType.Minimize">
+            <summary>
+            A minimize glyph.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarGlyphType.Restore">
+            <summary>
+            A restore glyph.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarGlyphType.Actions">
+            <summary>
+            An actions glyph.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.IToolBarRenderer">
+            <summary>
+            Provides an interface for drawing elements of a ToolBar layout system.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.StartToolBarRender(TD.SandBar.ToolBar,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a renderer by preparing it for a rendering session.
+            </summary>
+            <param name="toolbar">The toolbar that will be rendered.</param>
+            <param name="vertical">Whether the toolbar is aligned vertically.</param>
+            <param name="rightToLeft">Whether items should be drawn right-to-left.</param>
+            <remarks>
+            <para>Implementors should initialize any shared objects used throughout the render process in this method.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.FinishToolBarRender">
+            <summary>
+            Cleans up any objects created in the StartToolBarRender method.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawToolBarBackground(TD.SandBar.ToolBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws the background of a toolbar.
+            </summary>
+            <param name="toolbar">The toolbar whose background will be drawn.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <remarks>
+            <para>Implementors should ensure that everything within the bounds specified is filled.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawMenuBarBackground(TD.SandBar.MenuBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws the background of a menubar.
+            </summary>
+            <param name="menubar">The menubar whose background will be drawn.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <remarks>
+            <para>Implementors should ensure that everything within the bounds specified is filled.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawToolBarGrabHandle(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws a toolbar grab handle.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawSystemButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandBar.ToolBarGlyphType,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws a system button on a toolbar.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="glyphType">The type of glyph to draw in the button.</param>
+            <param name="state">The state of the button.</param>
+            <param name="floating">Whether the toolbar is floating.</param>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of a toolbar container.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="layoutBounds">The bounds of the toolbar layout system, in client coordinates.</param>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawToolBarSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws a separator on a toolbar.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawToolBarActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.Boolean,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws the actions button on a toolbar.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <param name="chevron">Whether to display a chevron marker on the button.</param>
+            <param name="state">The state of the button.</param>
+            <param name="designMode">Whether the toolbar is in design mode.</param>
+            <remarks>
+            <para>Implementors may wish to draw an alternative glyph on the button while the toolbar is in design mode, as at this time clicking the button
+            adds a new button to the toolbar.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawToolBarItem(TD.SandBar.ToolbarItemBase,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState,TD.SandBar.ToolBarTextAlign)">
+            <summary>
+            Draws a toolbar item.
+            </summary>
+            <param name="item">The toolbar item to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to draw text with.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <param name="state">The state of the item.</param>
+            <param name="textAlign">The alignment of text relative to any image in the button.</param>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawFloatingFormBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of a floating form, including titlebar and border.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+        </member>
+        <member name="M:TD.SandBar.IToolBarRenderer.DrawFloatingFormText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            Draws text on to the caption of a floating form.
+            </summary>
+            <param name="text">The text to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to draw text with.</param>
+            <param name="bounds">The bounds that will contain the text.</param>
+        </member>
+        <member name="E:TD.SandBar.IToolBarRenderer.RedrawRequired">
+            <summary>
+            Occurs when the renderer has changed.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IToolBarRenderer.LeftStringFormat">
+            <summary>
+            The string formatter to be applied to text aligned to the left of images in buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.IToolBarRenderer.CenterStringFormat">
+            <summary>
+            The string formatter to be applied to text aligned underneath the images in buttons.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.Office2002Renderer">
+            <summary>
+            A renderer that mimics the appearance of Microsoft Office 2002.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.OfficeRendererBase">
+            <summary>
+            A base class for Microsoft Office style renderers to inherit from.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.#ctor">
+            <summary>
+            Initializes a new instance of the OfficeRendererBase class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.CalculateBaseColors">
+            <summary>
+            Forces the renderer to recalculate all its colours.
+            </summary>
+            <remarks>
+            <para>After customising colours it is sometimes desirable to have the renderer go back to its original colours which are often derived from
+            system or theme colours. Calling this method should recalculate such colours.</para>
+            <para>This method is automatically called when the system colours change (if the user has not customised colours already) or when the
+            CustomColors property is set back to false.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.OnRedrawRequired">
+            <summary>
+            Raises the RedrawRequired event.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.Dispose">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawButtonHighlight(System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws a coloured square indicating a highlight around a button.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <param name="state">The state of the highlight.</param>
+            <param name="dropDown">Whether to draw a dropdown section in the highlight.</param>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawImageCore(System.Drawing.Image,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Draws an image within the specified bounds, and in the specified state.
+            </summary>
+            <param name="image">The image to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="state">The state of the image.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawImageCore(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Draws an image from an ImageList within the specified bounds, and in the specified state.
+            </summary>
+            <param name="imageList">The ImageList that contains the image to draw.</param>
+            <param name="imageIndex">The index of the image within the ImageList.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="state">The state of the image.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <remarks>
+            <para>This method should be used as the primary method of drawing an image. It should use the Draw method of the ImageList passed
+            to save the temporary bitmap created from using the Images collection. Only if the image needs to be changed in some way before drawing
+            (i.e. disabled or faded) should this method revert to the other overload.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawIconCore(System.Drawing.Icon,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Draws an icon within the specified bounds, and in the specified state.
+            </summary>
+            <param name="icon">The icon to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="state">The state of the image.</param>
+            <param name="bounds">The bounds around the area to draw.</param>
+            <remarks>
+            <para>Where the image to be drawn is coming from an ImageList, the other overload of this function should be used first.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawToolBarItem(TD.SandBar.ToolbarItemBase,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState,TD.SandBar.ToolBarTextAlign)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawButtonItem(TD.SandBar.ButtonItemBase,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState,TD.SandBar.ToolBarTextAlign)">
+            <summary>
+            Draws a toolbar button item.
+            </summary>
+            <param name="item">The button item to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to use for drawing text.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <param name="state">The state of the button.</param>
+            <param name="textAlign">The alignment of text relative to images in the button.</param>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawMenuBarItem(TD.SandBar.MenuBarItem,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Draws a menu bar item.
+            </summary>
+            <param name="item">The menu bar item to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to use for drawing text.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <param name="state">The state of the item.</param>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawContainerItem(TD.SandBar.ControlContainerItem,System.Drawing.Graphics,System.Drawing.Font,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Draws a control container item.
+            </summary>
+            <param name="item">The control container item to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to use for drawing text.</param>
+            <param name="state">The state of the item.</param>
+            <remarks>
+            <para>This method is only called at design time and should be used to draw glyphs that indicate the item is selected.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawLabelItem(TD.SandBar.LabelItem,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Draws a label item.
+            </summary>
+            <param name="item">The label item to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to use for drawing text.</param>
+            <param name="vertical">Whether the toolbar is vertically aligned.</param>
+            <param name="state">The state of the item.</param>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Brush,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle,System.Drawing.StringFormat)">
+            <summary>
+            Draws a string of text within the specified bounds, in the specified state.
+            </summary>
+            <param name="text">The string of text to draw.</param>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="font">The font to use for drawing text.</param>
+            <param name="brush">The brush to use for drawing text.</param>
+            <param name="state">The state of the text.</param>
+            <param name="bounds">The bounds that contain the text.</param>
+            <param name="textFormat">The StringFormat that controls how the text is drawn.</param>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.StartToolBarRender(TD.SandBar.ToolBar,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.FinishToolBarRender">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawToolBarBackground(TD.SandBar.ToolBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawMenuBarBackground(TD.SandBar.MenuBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawToolBarGrabHandle(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawSystemButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandBar.ToolBarGlyphType,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawToolBarSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawToolBarActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.Boolean,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawFloatingFormBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawFloatingFormText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawComboBox(System.Windows.Forms.ComboBox,System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawMenuBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,System.Int32,TD.SandBar.MenuProjection,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawMenuItem(System.Drawing.Graphics,TD.SandBar.MenuButtonItem,TD.SandBar.IPopupMenuHost,System.Int32,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawMenuSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawMenuActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawContainerBarClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawContainerBarText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawContainerBarBackground(TD.SandBar.ContainerBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.LayoutContainerBar(System.Drawing.Rectangle,System.Drawing.Size,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawContainerBarTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.OfficeRendererBase.DrawContainerBarToolBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="E:TD.SandBar.OfficeRendererBase.RedrawRequired">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.OfficeRendererBase.CustomColors">
+            <summary>
+            Gets/sets a value indicating whether custom colours have been used in this renderer.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.OfficeRendererBase.LeftStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.OfficeRendererBase.CenterStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.OfficeRendererBase.ShadowColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.OfficeRendererBase.MenuTextStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.OfficeRendererBase.MenuShortcutStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.#ctor">
+            <summary>
+            Initializes a new instance of the Office2002Renderer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawSystemButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandBar.ToolBarGlyphType,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.Dispose">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.CalculateBaseColors">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.CalculateDerivedColors">
+            <summary>
+            Calculates colours that are automatically derived from the base renderer colours and are non-customisable.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.InterpolateColors(System.Drawing.Color,System.Drawing.Color,System.Single)">
+            <summary>
+            Mixes two colours together to form a new colour.
+            </summary>
+            <param name="color1">The first source colour.</param>
+            <param name="color2">The second source colour.</param>
+            <param name="percentage">A value that lies between 0 and 1, 0 being the first colour and 1 being the second.</param>
+            <returns>The new colour produced after mixing.</returns>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.IncreaseBrightness(System.Drawing.Color,System.Int32)">
+            <summary>
+            Increases the brightness of a colour.
+            </summary>
+            <param name="color1">The colour whose brightness will increase.</param>
+            <param name="level">A value to alter the RGB components of the colour by, from -255 to 255.</param>
+            <returns>The new colour produced after brightness alteration.</returns>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawButtonHighlight(System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Brush,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle,System.Drawing.StringFormat)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawIconCore(System.Drawing.Icon,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawImageCore(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawImageCore(System.Drawing.Image,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.StartToolBarRender(TD.SandBar.ToolBar,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.FinishToolBarRender">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuBarBackground(TD.SandBar.MenuBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawToolBarBackground(TD.SandBar.ToolBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawToolBarGrabHandle(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawContainerItem(TD.SandBar.ControlContainerItem,System.Drawing.Graphics,System.Drawing.Font,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawLabelItem(TD.SandBar.LabelItem,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawButtonItem(TD.SandBar.ButtonItemBase,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState,TD.SandBar.ToolBarTextAlign)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawToolBarSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawToolBarActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.Boolean,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawFloatingFormBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawFloatingFormText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuBarItem(TD.SandBar.MenuBarItem,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,System.Int32,TD.SandBar.MenuProjection,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuItemHighlight(System.Drawing.Graphics,TD.SandBar.MenuButtonItem,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuItemCheck(System.Drawing.Graphics,TD.SandBar.MenuButtonItem,System.Boolean,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuItem(System.Drawing.Graphics,TD.SandBar.MenuButtonItem,TD.SandBar.IPopupMenuHost,System.Int32,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawMenuSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawComboBox(System.Windows.Forms.ComboBox,System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawContainerBarText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawContainerBarClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawContainerBarBackground(TD.SandBar.ContainerBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawContainerBarTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.DrawContainerBarToolBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.LayoutContainerBar(System.Drawing.Rectangle,System.Drawing.Size,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2002Renderer.ToString">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.HighlightBorderColor">
+            <summary>
+            The colour used to draw highlights behind buttons.
+            </summary>
+            <remarks>
+            <para>This colour may not be the exact colour used; SandBar may extrapolate additional colours using this as a base.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.BackgroundColor">
+            <summary>
+            The colour used to draw the background of toolbars.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.MenuBackgroundColor">
+            <summary>
+            The colour used to draw the background of menus.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.LeftStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.CenterStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.ShadowColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.MenuTextStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2002Renderer.MenuShortcutStringFormat">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.Office2003Renderer">
+            <summary>
+            A renderer that mimics the appearance of Microsoft Office 2003.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.#ctor">
+            <summary>
+            Initializes a new instance of the Office2003Renderer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.CalculateBaseColors">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.CalculateDerivedColors">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawSystemButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandBar.ToolBarGlyphType,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Brush,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle,System.Drawing.StringFormat)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawImageCore(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawImageCore(System.Drawing.Image,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawIconCore(System.Drawing.Icon,System.Drawing.Graphics,System.Windows.Forms.DrawItemState,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawButtonHighlight(System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawFloatingFormBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawFloatingFormText(System.String,System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawToolBarBackground(TD.SandBar.ToolBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawToolBarSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawToolBarGrabHandle(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawToolBarActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.Boolean,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawMenuBarItem(TD.SandBar.MenuBarItem,System.Drawing.Graphics,System.Drawing.Font,System.Boolean,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawMenuActionsButton(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawMenuBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,System.Int32,TD.SandBar.MenuProjection,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawMenuItemHighlight(System.Drawing.Graphics,TD.SandBar.MenuButtonItem,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawMenuItemCheck(System.Drawing.Graphics,TD.SandBar.MenuButtonItem,System.Boolean,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawMenuSeparator(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawContainerBarTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawContainerBarClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawContainerBarBackground(TD.SandBar.ContainerBar,System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.LayoutContainerBar(System.Drawing.Rectangle,System.Drawing.Size,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.DrawContainerBarToolBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.Office2003Renderer.ToString">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ColorScheme">
+            <summary>
+            The Office 2003 colour scheme used to render toolbars.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.FormCaptionForeColor">
+            <summary>
+            Gets/sets the colour used to draw the text of the titlebar on a floating toolbar.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.FormCaptionBackColor">
+            <summary>
+            Gets/sets the colour used to draw the background of the titlebar on a floating toolbar.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ContainerBarToolBarBackgroundColor">
+            <summary>
+            Gets/sets the colour used to draw the background of toolbars within a container bar.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ContainerBarBackgroundColor1">
+            <summary>
+            Gets/sets the colour used to draw the start of the container bar background gradient.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ContainerBarBackgroundColor2">
+            <summary>
+            Gets/sets the colour used to draw the finish of the container bar background gradient.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ContainerBarBorderColor">
+            <summary>
+            Gets/sets the colour used to draw the border of container bars.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.GrabHandleColor">
+            <summary>
+            Gets/sets the colour used to draw grab handles.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.BorderColor">
+            <summary>
+            Gets/sets the colour used to draw the border at the bottom of toolbars.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ActionsButtonColor1">
+            <summary>
+            Gets/sets the colour used to draw the top of the toolbar actions button.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ActionsButtonColor2">
+            <summary>
+            Gets/sets the colour used to draw the bottom of the toolbar actions button.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.HighlightBorderColor">
+            <summary>
+            Gets/sets the colour used to draw the border around button highlights.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ToolBarGradientColor1">
+            <summary>
+            Gets/sets the colour used to draw the start of toolbar background gradients.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ToolBarGradientColor2">
+            <summary>
+            Gets/sets the colour used to draw the finish of toolbar background gradients.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.BackgroundGradientColor1">
+            <summary>
+            Gets/sets the colour used to draw the start of toolbar container background gradients.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.BackgroundGradientColor2">
+            <summary>
+            Gets/sets the colour used to draw the finish of toolbar container background gradients.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.Office2003Renderer.ShadowColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.Office2003Renderer.Office2003ColorScheme">
+            <summary>
+            A colour scheme to be used with the Office 2003 renderer.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.Office2003Renderer.Office2003ColorScheme.Automatic">
+            <summary>
+            SandBar will use the current Windows XP theme if available, otherwise fall back to standard Windows colours.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.Office2003Renderer.Office2003ColorScheme.Standard">
+            <summary>
+            SandBar will use standard windows colours.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.Office2003Renderer.Office2003ColorScheme.LunaBlue">
+            <summary>
+            SandBar will use colours from the Luna Blue theme in Windows XP.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.Office2003Renderer.Office2003ColorScheme.LunaOlive">
+            <summary>
+            SandBar will use colours from the Luna Olive theme in Windows XP.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.Office2003Renderer.Office2003ColorScheme.LunaSilver">
+            <summary>
+            SandBar will use colours from the Luna Silver theme in Windows XP.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.WhidbeyRenderer">
+            <summary>
+            A renderer that mimics the appearance of Microsoft Visual Studio 2005.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.WhidbeyRenderer.#ctor">
+            <summary>
+            Initializes a new instance of the WhidbeyRenderer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.WhidbeyRenderer.ToString">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.MenuProjection">
+            <summary>
+            Specifies the direction of a menu relative to its parent.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuProjection.Top">
+            <summary>
+            The menu is displayed on top of its parent.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuProjection.Bottom">
+            <summary>
+            The menu is displayed underneath its parent.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuProjection.Left">
+            <summary>
+             The menu is displayed to the left of its parent.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.MenuProjection.Right">
+            <summary>
+            The menu is displayed to the right of its parent.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ItemMergeAction">
+            <summary>
+            Describes how an item item interacts with the equivalent collection of items on a target.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ItemMergeAction.Add">
+            <summary>
+            The item is added to the end of the collection.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ItemMergeAction.Insert">
+            <summary>
+            The item is inserted before the item at MergeIndex.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ItemMergeAction.MergeChildren">
+            <summary>
+            The item's children are merged with the children of the item at MergeIndex.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ItemMergeAction.Remove">
+            <summary>
+            The item at MergeIndex is removed from its collection.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ItemMergeAction.Replace">
+            <summary>
+            The item at MergeIndex is replaced with the source item.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBarOverflow">
+            <summary>
+            Indicates the behaviour of toolbar items that would normally overflow past the end of the toolbar.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarOverflow.Hide">
+            <summary>
+            Items are hidden from view and are not available.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarOverflow.Chevron">
+            <summary>
+            Items are accessible via a dropdown menu.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarOverflow.Wrap">
+            <summary>
+            Items are wrapped to the next line within the toolbar.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBarLayout">
+            <summary>
+            Indicates the flow of toolbar items in the client area of a toolbar.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarLayout.Horizontal">
+            <summary>
+            Items are laid out horizontally.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarLayout.Vertical">
+            <summary>
+            Items are laid out vertically.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBarSituation">
+            <summary>
+            Indicates the type of positioning observed by a toolbar.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarSituation.Standalone">
+            <summary>
+            The toolbar is not subject to external layout.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarSituation.Contained">
+            <summary>
+            The toolbar is laid out in a group of other toolbars.
+            </summary>
+        </member>
+        <member name="F:TD.SandBar.ToolBarSituation.Floating">
+            <summary>
+            The toolbar is floating.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.SecondaryShortcutEventArgs">
+            <summary>
+            Provides data for the SecondaryShortcutReceived event on ShortcutListener instances.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SecondaryShortcutEventArgs.Primary">
+            <summary>
+            Indicates whether this is the first or second shortcut in the chord.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SecondaryShortcutEventArgs.PrimaryShortcut">
+            <summary>
+            The first shortcut in the chord.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SecondaryShortcutEventArgs.SecondaryShortcut">
+            <summary>
+            The second shortcut in the chord.
+            </summary>
+        </member>
+        <member name="P:TD.SandBar.SecondaryShortcutEventArgs.Item">
+            <summary>
+            The item that is about to be activated, if any.
+            </summary>
+        </member>
+        <member name="T:TD.SandBar.ToolBarItemEventArgs">
+            <summary>
+            Provides data for the ButtonClick event on ToolBar instances.
+            </summary>
+        </member>
+        <member name="M:TD.SandBar.ToolBarItemEventArgs.#ctor(TD.SandBar.ToolbarItemBase)">
+            <summary>
+            Initializes a new instance of the ToolBarItemEventArgs class.
+            </summary>
+            <param name="item">The toolbar item that was activated.</param>
+        </member>
+        <member name="P:TD.SandBar.ToolBarItemEventArgs.Item">
+            <summary>
+            The toolbar item that was activated.
+            </summary>
+        </member>
+    </members>
+</doc>

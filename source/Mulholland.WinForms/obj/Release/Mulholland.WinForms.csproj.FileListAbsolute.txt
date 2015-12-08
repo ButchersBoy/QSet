@@ -1,0 +1,9 @@
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\bin\Release\Mulholland.WinForms.dll
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\bin\Release\Mulholland.Core.dll
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\obj\Release\ResolveAssemblyReference.cache
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\obj\Release\Mulholland.WinForms.Controls.BinaryViewer.resources
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\obj\Release\Mulholland.WinForms.Controls.XmlTextBox.resources
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\obj\Release\Mulholland.WinForms.Controls.XmlViewer.resources
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\obj\Release\ResGen.read.1.tlog
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\obj\Release\ResGen.write.1.tlog
+D:\MulhollandSource\NameSpaces\Mulholland.WinForms\obj\Release\Mulholland.WinForms.dll

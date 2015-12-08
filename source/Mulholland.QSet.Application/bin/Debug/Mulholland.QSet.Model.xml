@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mulholland.QSet.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Mulholland.QSet.Model.ItemDirtiedEvent">
+            <summary>
+            Event signature for the ItemDirtied of a Q Set item.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.ItemRenamedEvent">
+            <summary>
+            ItemRenamedEvent event delegate.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.AfterItemAddedEvent">
+            <summary>
+            Delegate for AfterItemAdded event.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.BeforeItemRemovedEvent">
+            <summary>
+            Delegate for BeforeItemRemoved event.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.ItemRepositionedEvent">
+            <summary>
+            Delegate for ItemRepositioned event.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetModelEventArgs">
+            <summary>
+            Event arguments abstract base class for QSet Model events
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetModelEventArgs.#ctor">
+            <summary/>
+        </member>
+        <member name="T:Mulholland.QSet.Model.AssociateItemEventArgs">
+            <summary>
+            Event arguments abstract base class for QSet Model events which have an associated item.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.AssociateItemEventArgs.#ctor(Mulholland.QSet.Model.QSetItemBase)">
+            <summary>
+            Constructs object.
+            </summary>
+            <param name="item">Item associated with the event.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.AssociateItemEventArgs.Item">
+            <summary>
+            Item associated with the event.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.ItemDirtiedEventArgs">
+            <summary>
+            Event arguments associated with ItemDirtied event.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.ItemDirtiedEventArgs.#ctor(Mulholland.QSet.Model.QSetItemBase)">
+            <summary>
+            COnstructs event arguments class.
+            </summary>
+            <param name="item">Item which has become dirty.</param>
+        </member>
+        <member name="T:Mulholland.QSet.Model.ItemRenamedEventArgs">
+            <summary>
+            Event arguments for ItemRenamedEvent event delegate.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.ItemRenamedEventArgs.#ctor(Mulholland.QSet.Model.QSetItemBase,System.String)">
+            <summary>
+            Constructs object.
+            </summary>
+            <param name="item">Item which was renamed.</param>
+            <param name="previousName">The previous name of the item.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.ItemRenamedEventArgs.PreviousName">
+            <summary>
+            The previous name of the item.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.AfterItemAddedEventArgs">
+            <summary>
+            Event arguments for AfterItemAdded event.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.AfterItemAddedEventArgs.#ctor(Mulholland.QSet.Model.QSetItemBase,System.Int32)">
+            <summary>
+            Constructs the object with the minum requirements.
+            </summary>
+            <param name="item">Item that was added.</param>
+            <param name="insertedAt">Gets the index at which the item as added.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.AfterItemAddedEventArgs.InsertedAt">
+            <summary>
+            Gets the index at which the item as added.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.BeforeItemRemovedEventArgs">
+            <summary>
+            Event arguments for BeforeItemRemoved events.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.BeforeItemRemovedEventArgs.#ctor(Mulholland.QSet.Model.QSetItemBase,System.Int32)">
+            <summary>
+            Constructs the object with the minum requirements.
+            </summary>
+            <param name="item">Item that was added or removed.</param>
+            <param name="removedAt">Gets the index from which the item was removed.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.BeforeItemRemovedEventArgs.RemovedAt">
+            <summary>
+            Gets the index from which the item was removed.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.ItemRepositionedEventArgs">
+            <summary>
+            Event arguments for ItemRepositioned event.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.ItemRepositionedEventArgs.#ctor(Mulholland.QSet.Model.QSetItemBase,System.Int32,System.Int32)">
+            <summary>
+            Constructs the object with the minum requirements.
+            </summary>
+            <param name="item">Item that was repositioned.</param>
+            <param name="previousPosition">The previous index of the item in the collection.</param>
+            <param name="newPosition">The new index of the item in the collection.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.ItemRepositionedEventArgs.PreviousPosition">
+            <summary>
+            The previous index of the item in the collection.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.ItemRepositionedEventArgs.NewPosition">
+            <summary>
+            The new index of the item in the collection.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetItemCollection">
+            <summary>
+            Summary description for QSetItemCollection.
+            </summary>	
+        </member>
+        <member name="E:Mulholland.QSet.Model.QSetItemCollection.AfterItemAdded">
+            <summary>
+            Raised when an item is added to the collection.
+            </summary>
+        </member>
+        <member name="E:Mulholland.QSet.Model.QSetItemCollection.BeforeItemRemoved">
+            <summary>
+            Raised when an item is removed from the collection.
+            </summary>
+        </member>
+        <member name="E:Mulholland.QSet.Model.QSetItemCollection.ItemRepositioned">
+            <summary>
+            Raised when an item within the collection is repositioned.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.OnAfterItemAdded(Mulholland.QSet.Model.AfterItemAddedEventArgs)">
+            <summary>
+            Raises the AfterItemAdded event.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.OnBeforeItemRemoved(Mulholland.QSet.Model.BeforeItemRemovedEventArgs)">
+            <summary>
+            Raises the BeforeItemRemoved event.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.OnItemRepositioned(Mulholland.QSet.Model.ItemRepositionedEventArgs)">
+            <summary>
+            Raises the OnItemRepositioned event.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.GetEnumerator">
+            <summary>
+            Provides foreach enumeration support.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.#ctor">
+            <summary>
+            Constructs an empty QSetItemCollection.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.#ctor(Mulholland.QSet.Model.QSetFolderItem)">
+            <summary>
+            Constructs an empty QSetItemCollection, specifying an owner item.
+            </summary>
+            <param name="ownerItem">The item which owns the collection.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemCollection.OwnerItem">
+            <summary>
+            Gets ot sets the item which owns the collection.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.Add(Mulholland.QSet.Model.QSetItemBase)">
+            <summary>
+            Adds a QSetItemBase object to the collection.
+            </summary>
+            <param name="qSetItem">QSetItemBase object to add.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if any arguments are set to null.</exception>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.Remove(System.String)">
+            <summary>
+            Removes the QSetItemBase object with the specified key.
+            </summary>
+            <param name="key">Key of QSetItemBase object to remove.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the QSetItemBase object at the specified index.
+            </summary>
+            <param name="index">Index to remove at.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.Exists(System.String)">
+            <summary>
+            Checks to see if an item with the given key exists.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemCollection.Item(System.String)">
+            <summary>
+            Gets or sets the QSetItemBase object at/with the specified key.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the QSetItemBase object at/with the specified index.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.InsertItemOrdered(Mulholland.QSet.Model.QSetItemBase,System.Int32@)">
+            <summary>
+            Alphabetically inserts a new item into the collection.
+            </summary>
+            <param name="qSetItem">Item to insert.</param>
+            <param name="insertedAt">Returns the index of where the item was inserted.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.GetInsertPosition(Mulholland.QSet.Model.QSetItemBase)">
+            <summary>
+            Returns the position where an item should be inserted in the queue.
+            </summary>
+            <param name="item">Item which requires inserting.</param>
+            <returns>Position where the item should be inserted.</returns>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.GetIndexOfKey(System.String)">
+            <summary>
+            Returns the index of a key in the collection
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemCollection.qSetItem_ItemRenamed(System.Object,Mulholland.QSet.Model.ItemRenamedEventArgs)">
+            <summary>
+            Handles event raised when any Q Set item is renamed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetItemBase">
+            <summary>
+            Abstract base class for QSetItems.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.Clone">
+            <summary>
+            Clones the object.
+            </summary>
+            <returns>A cloned copy of the object.</returns>
+        </member>
+        <member name="E:Mulholland.QSet.Model.QSetItemBase.ItemRenamed">
+            <summary>
+            Raised when the item is renamed.
+            </summary>
+        </member>
+        <member name="E:Mulholland.QSet.Model.QSetItemBase.ItemDirtied">
+            <summary>
+            Raised when the model becomes dirty.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.OnItemDirtied(Mulholland.QSet.Model.ItemDirtiedEventArgs)">
+            <summary>
+            Raises the ItemDirtiedEvent event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.OnItemRenamed(Mulholland.QSet.Model.ItemRenamedEventArgs)">
+            <summary>
+            Raises the ItemRenamed event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.#ctor(System.Guid,System.String,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Constructs the object with the minumum requirements.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">Name of QSet item.</param>
+            <param name="icon">Index of icon related to item.</param>		
+            <remarks>This method is marked as public for cloning purposes.</remarks>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.#ctor(System.Guid,System.String,Mulholland.QSet.Resources.Images.IconType,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Constructs the object with the minumum requirements, and an additional icon to use when the item is open.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">Name of QSet item.</param>
+            <param name="icon">Index of icon related to item.</param>
+            <param name="openIcon">Icon related to the items open state.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.#ctor(System.String,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Constructs the object with the minumum requirements.  A new ID (GUID) will be created for the item.
+            </summary>
+            <param name="name">Name of QSet item.</param>
+            <param name="icon">Index of icon related to item.</param>		
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.#ctor(System.String,Mulholland.QSet.Resources.Images.IconType,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Constructs the object with the minumum requirements, and an additional icon 
+            to use when the item is open. A new ID (GUID) will be created for the object.
+            </summary>
+            <param name="name">Name of QSet item.</param>
+            <param name="icon">Index of icon related to item.</param>
+            <param name="openIcon">Icon related to the items open state.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemBase.Name">
+            <summary>
+            Gets or sets the name of the item.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemBase.Icon">
+            <summary>
+            Index of icon related to item.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemBase.OpenIcon">
+            <summary>
+            Index of icon related to item in its open form..
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemBase.ParentItem">
+            <summary>
+            Gets the parent of the item if the item has a parent, else null.
+            </summary>
+            <remarks>Only a <see cref="T:Mulholland.QSet.Model.QSetItemCollection">QSetItemCollection</see> can modify this property.</remarks>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemBase.DisableParentItemSetCheck">
+            <summary>
+            Gets or sets the flag which if set to true, stops the ParentItem property validating that it has been set correctly.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemBase.IsDirty">
+            <summary>
+            Gets or sets the value which indicates that the object is dirty.
+            </summary>
+            <remarks>
+            If the flag is set to true, the parent item (if available) 
+            will also be set to true,cascading to the top of the tree.
+            </remarks>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetItemBase.ID">
+            <summary>
+            Gets the ID (GUID) of the item.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetItemBase.GetFromDataObject(System.Windows.Forms.IDataObject)">
+            <summary>
+            Attempts to extract a QSetItemBase object from a DataObject.
+            </summary>
+            <param name="data">DataObject.</param>
+            <returns>QSetItemBase object if extract was succesful, else null.</returns>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetFolderItem">
+            <summary>
+            Queue set item which is a folder, or container for other queue set items.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetFolderItem.#ctor(System.String)">
+            <summary>
+            Constructs the folder item.  A new ID (GUID) will be created for the item.
+            </summary>
+            <param name="name">Folder name.</param>		
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetFolderItem.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructs the folder item.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">Folder name.</param>		
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetFolderItem.#ctor(System.String,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Allows inherited classes to construct the object, overiding default icons.
+            </summary>
+            <param name="name">Name of item.</param>
+            <param name="icon">Index of icon related to item.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetFolderItem.#ctor(System.String,Mulholland.QSet.Resources.Images.IconType,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Allows inherited classes to construct the object, overiding default icons.
+            </summary>
+            <param name="name">Name of item.</param>
+            <param name="icon">Index of icon related to item.</param>
+            <param name="openIcon">Icon related to the items open state.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetFolderItem.#ctor(System.Guid,System.String,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Allows inherited classes to construct the object, overiding default icons.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">Name of item.</param>
+            <param name="icon">Index of icon related to item.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetFolderItem.#ctor(System.Guid,System.String,Mulholland.QSet.Resources.Images.IconType,Mulholland.QSet.Resources.Images.IconType)">
+            <summary>
+            Allows inherited classes to construct the object, overiding default icons.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">Name of item.</param>
+            <param name="icon">Index of icon related to item.</param>
+            <param name="openIcon">Icon related to the items open state.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetFolderItem.TypeName">
+            <summary>
+            Gets a simple description of the item type.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetFolderItem.ChildItems">
+            <summary>
+            Gets the collection of child items.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetFolderItem.CreateChildItemsCollection">
+            <summary>
+            Creates the collection which contains the folder items child items.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetMachineItem">
+            <summary>
+            Queue set item which is a machine, and container for queues.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetMachineItem.#ctor(System.String)">
+            <summary>
+            Constructs the machine item.  A new ID (GUID) will be created for the item.
+            </summary>
+            <param name="name">Machine name.</param>		
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetMachineItem.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructs the machine item.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">Machine name.</param>		
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetMachineItem.TypeName">
+            <summary>
+            Gets a simple description of the item type.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetQueueItem">
+            <summary>
+            Queue set item which represents a message queue.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetQueueItem.#ctor(System.String)">
+            <summary>
+            Constructs the queue item.  A new ID (GUID) will be created for the item.
+            </summary>
+            <param name="name">Full path/ name of queue.</param>		
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetQueueItem.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructs the queue item.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">Full path/ name of queue.</param>		
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetQueueItem.TypeName">
+            <summary>
+            Gets a simple description of the item type.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetQueueItem.QSetMessageQueue">
+            <summary>
+            Gets the message queue associated with the item
+            </summary>		
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetQueueItem.MessageViewerXslt">
+            <summary>
+            Gets or sets an XSLT file which can be used to transform and view messages as HTML in the message viewer.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetWebServiceItem">
+            <summary>
+            Web service Q Set item.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetWebServiceItem.#ctor(System.String)">
+            <summary>
+            Constructs the item.
+            </summary>
+            <param name="name">User friendly name of web service.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetWebServiceItem.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructs the queue item.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">User friendly name of web service.</param>		
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetWebServiceItem.TypeName">
+            <summary>
+            Gets a simple description of the item type.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetWebServiceItem.Uri">
+            <summary>
+            Gets or sets the URI of the web service.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetModel">
+            <summary>
+            Main QSet class.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetModel.#ctor(System.String)">
+            <summary>
+            Constructs a new QSet item.  A new ID is automatically generated.
+            </summary>
+            <param name="name">QSet name.</param>		
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetModel.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructs the QSet item.
+            </summary>
+            <param name="guid">The items ID (GUID).</param>
+            <param name="name">QSet name.</param>		
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetModel.FileName">
+            <summary>
+            Gets or sets the filename associated with the Q Set.
+            </summary>
+            <remarks>If a file name has not been set, this property may return null.</remarks>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetModel.CreateQSet(System.String)">
+            <summary>
+            Creates a new Q Set given the content of a .qset file.
+            </summary>
+            <param name="qSetFileContent">qset file content, as an XML string.</param>
+            <returns>New Q Set.</returns>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetModel.ToXml">
+            <summary>
+            Serialises the QSet to XML.
+            </summary>
+            <returns>XML string representing the Q Set.</returns>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetModel.TypeName">
+            <summary>
+            Gets a simple description of the item type.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetModel.CreateChildItems(Mulholland.QSet.Model.QSetFolderItem,System.Xml.XPath.XPathNodeIterator)">
+            <summary>
+            Recursively creates all of the child items of a Q Set item.
+            </summary>
+            <param name="parentItem">Parent item.</param>
+            <param name="parentNodeIterator">XPathNodeIterator positioned at the parent item. </param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetModel.WriteChildItems(Mulholland.QSet.Model.QSetFolderItem,System.Xml.XmlTextWriter)">
+            <summary>
+            Writes child item XML to the provided writer.
+            </summary>
+            <param name="folderItem">Parent item.</param>
+            <param name="xmlWriter">XmlTextWriter to output to.</param>
+        </member>
+        <member name="T:Mulholland.QSet.Model.QSetMessageQueue">
+            <summary>
+            Derives a standard message queue to provide extra properties.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetMessageQueue.#ctor(Mulholland.QSet.Model.QSetQueueItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Messaging.MessageQueue"/> class. After the default constructor initializes the new instance, you must set the instance's Path property before you can use the instance.
+            </summary>
+            <param name="ownerItem">QSetQueueItem which owns the <see cref="T:System.Messaging.MessageQueue"/>.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetMessageQueue.#ctor(Mulholland.QSet.Model.QSetQueueItem,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Messaging.MessageQueue"/> class that references the Message Queuing queue at the specified path.
+            </summary>
+            <param name="ownerItem">QSetQueueItem which owns the <see cref="T:System.Messaging.MessageQueue"/>.</param>
+            <param name="path">The location of the queue referenced by this <see cref="T:System.Messaging.MessageQueue"/>.</param>
+        </member>
+        <member name="M:Mulholland.QSet.Model.QSetMessageQueue.#ctor(Mulholland.QSet.Model.QSetQueueItem,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Messaging.MessageQueue"/>MessageQueue class that references the Message Queuing queue at the specified path and with the specified read-access restriction.
+            </summary>
+            <param name="ownerItem">QSetQueueItem which owns the <see cref="T:System.Messaging.MessageQueue"/>.</param>
+            <param name="path">The location of the queue referenced by this <see cref="T:System.Messaging.MessageQueue"/>.</param>
+            <param name="sharedModeDenyReceive">true to grant exclusive read access to the first application that accesses the queue; otherwise, false.</param>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetMessageQueue.OwnerItem">
+            <summary>
+            Gets or sets the QSetQueueItem associated with the message queue.  Property may be null.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetMessageQueue.Name">
+            <summary>
+            Gets the name of the message queue.
+            </summary>
+        </member>
+        <member name="P:Mulholland.QSet.Model.QSetMessageQueue.FormatName">
+            <summary>
+            Gets the unique queue name that Message Queuing generated at the time of the queue's creation.
+            </summary>
+        </member>
+    </members>
+</doc>

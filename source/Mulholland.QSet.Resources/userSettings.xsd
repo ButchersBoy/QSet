@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="qset">
+	<xs:element name="qsetUserSettings" type="qsetUserSettingsType"/>
+	<xs:complexType name="qsetUserSettingsType">
+		<xs:sequence>
+			<xs:element name="view" type="viewType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="recentFileList" type="recentFileListType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="viewType">
+		<xs:attribute name="qsetExplorer" type="xs:boolean" use="optional"/>
+		<xs:attribute name="propertiesWindow" type="xs:boolean" use="optional"/>
+		<xs:attribute name="messageViewer" type="xs:boolean" use="optional"/>
+		<xs:attribute name="qsetMonitor" type="xs:boolean" use="optional"/>	
+	</xs:complexType>
+	<xs:complexType name="recentFileListType">
+		<xs:sequence>
+			<xs:element name="file" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>		
+		<xs:attribute name="maximumSize" type="xs:integer" use="optional"/>
+	</xs:complexType>
+</xs:schema>

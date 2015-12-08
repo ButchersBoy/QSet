@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mulholland.QSet.Resources</name>
+    </assembly>
+    <members>
+        <member name="T:Mulholland.QSet.Resources.Constants">
+            <summary>
+            Provides internal application constants.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Constants.QSetXsdResource">
+            <summary>
+            Gets the resource name of the Q Set file XSD.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Constants.MessageViewerDefaultPageResource">
+            <summary>
+            Gets the resource name of the default html page to be displayed in the message viewer.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Constants.SettingsFile">
+            <summary>
+            Gets the filename of the user settings file.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Constants.LicenseFile">
+            <summary>
+            Gets the filename of the license file.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Constants.QSetFileExtension">
+            <summary>
+            Q Set file file extension.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Constants.MessageBrowserColumnExclusionList">
+            <summary>
+            Columns that should not appear in message browser.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.Documents">
+            <summary>
+            Provides access to documents embedded in the assembly.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Resources.Documents.QSetFileXsd">
+            <summary>
+            Returns the contents of the Q Set file XSD.
+            </summary>
+            <returns>Content of the schema.</returns>
+        </member>
+        <member name="M:Mulholland.QSet.Resources.Documents.MessageViewerDefaultPage">
+            <summary>
+            Returns the contents of the Message Viewer default page.
+            </summary>
+            <returns>HTML source.</returns>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.MessageFormatterType">
+            <summary>
+            Enumerates the vailable message formatters.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.MessageFormatterType.ActiveX">
+            <summary>
+            Active X.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.MessageFormatterType.Xml">
+            <summary>
+            XML.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.MessageFormatterType.Binary">
+            <summary>
+            Binary.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.MessageFormatterType.None">
+            <summary>
+            No formatter (used when BodyStream is populated directly).
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat">
+            <summary>
+            Provides constants regarding the Q Set XML file format.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.RootElement">
+            <summary>
+            Root element details.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.RootElement.Name">
+            <summary>
+            Element name.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.FolderElement">
+            <summary>
+            Folder element details.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.FolderElement.Name">
+            <summary>
+            Element name.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.MachineElement">
+            <summary>
+            Machine element details.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.MachineElement.Name">
+            <summary>
+            Element name.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.QueueElement">
+            <summary>
+            Folder element details.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.QueueElement.Name">
+            <summary>
+            Element name.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.QueueElement.Attributes">
+            <summary>
+            Attribute details.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.QueueElement.Attributes.MessageViewerXslt">
+            <summary>
+            MessageFormatterTypeHint attribute.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.WebServiceEelement">
+            <summary>
+            Web Service element details.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.WebServiceEelement.Name">
+            <summary>
+            Element name.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.WebServiceEelement.Attributes">
+            <summary>
+            Attribute details.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.WebServiceEelement.Attributes.Uri">
+            <summary>
+            uri attribute.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.QSetXmlFileFormat.ItemAttributes">
+            <summary>
+            Common item attributes.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.ItemAttributes.Name">
+            <summary>
+            Name attribute.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.QSetXmlFileFormat.ItemAttributes.Guid">
+            <summary>
+            GUID attribute.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.Images">
+            <summary>
+            Summary description for Components.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.Icon16ImageList">
+            <summary>
+            Q Set icons, sized 16 x 16.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Resources.Images.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Constructs the object.
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:Mulholland.QSet.Resources.Images.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Resources.Images.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.Images.IconType">
+            <summary>
+            Enumerates the icons found in the icon image lists.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.QSet">
+            <summary>
+            QSet icon.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.Queue">
+            <summary>
+            Queue icon.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.Folder">
+            <summary>
+            Folder icon.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.FolderOpen">
+            <summary>
+            Open folder icon.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.Message">
+            <summary>
+            Message icon.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.MessageOpen">
+            <summary>
+            Message open icon.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.Server">
+            <summary>
+            Server icon.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.OptionsTab">
+            <summary>
+            Options tab.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Images.IconType.WebService">
+            <summary>
+            Web Service.
+            </summary>
+        </member>
+        <member name="M:Mulholland.QSet.Resources.Images.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.Locale">
+            <summary>
+            Summary description for Locale.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.CompanyName">
+            <summary>
+            Gets the company name.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.ApplicationName">
+            <summary>
+            Gets the name of the application.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.FileDialogQSetFilter">
+            <summary>
+            Gets the file dialog filter which shyould be used when working with Q Set files.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.Locale.Terms">
+            <summary>
+            Contains terms for items which are presented to the user.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.Terms.MessageQueue">
+            <summary>
+            Term for a message queue.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.Terms.OutgoingMessagesCount">
+            <summary>
+            Outbound messages count term.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.Terms.OutgoingBytes">
+            <summary>
+            Outbound messages count term.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.Terms.MessageBrowsingOptionPage">
+            <summary>
+            Message browsing option page.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.Terms.GeneralOptionPage">
+            <summary>
+            General options page.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.Locale.UserMessages">
+            <summary>
+            Provides messages to be displayed to the user.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToOpenFile">
+            <summary>
+            Message to display when a file could not be opened.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.CannotAddItemAsAlreadyExists">
+            <summary>
+            Cannot add existing item message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.SelectedFileNotAQSetFile">
+            <summary>
+            Invalid Q Set file message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToReadQueueDueToInsufficientAccessRights">
+            <summary>
+            Unable to read queue message becuase of access rights message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToReadQueueDueToError">
+            <summary>
+            Unable to read queue message becuase of an error.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToDisplayBinaryMessage">
+            <summary>
+            Unable to display binary message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.RetrievingMessages">
+            <summary>
+            Status bar retrieving messsages message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.RetrievingQueueProperties">
+            <summary>
+            Status bar retrieving properties message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.DeletingMessage">
+            <summary>
+            Status bar retrieving deleting message message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.Ready">
+            <summary>
+            Status bar ready message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.DisplayingMessage">
+            <summary>
+            Displaying message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToSaveUserSettings">
+            <summary>
+            Unable to save user settings file message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.ConfirmQueuePurge">
+            <summary>
+            Confirmation message before purging message queues.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.ConfirmMessageDelete">
+            <summary>
+            Confirmation for deleting messages from a queue.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.ConfirmQueueDelete">
+            <summary>
+            Confirmation for a queue.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToPurgeQueue">
+            <summary>
+            Unable to purge queue error message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToDeleteQueue">
+            <summary>
+            Unable to delete queue error message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.UnableToDeleteMessage">
+            <summary>
+            Unable to delete queue error message.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.PurgingQueue">
+            <summary>
+            Purging queue error message.
+            </summary>
+        </member>
+        <member name="T:Mulholland.QSet.Resources.Locale.UserMessages.OptionsDialog">
+            <summary>
+            Messages displayed in options dialog.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.OptionsDialog.AtLeastOneMessageBrowsingColumnRequired">
+            <summary>
+            Requires at least on display porperty column.
+            </summary>
+        </member>
+        <member name="F:Mulholland.QSet.Resources.Locale.UserMessages.OptionsDialog.RecentlyUsedFielListLengthInvalid">
+            <summary>
+            Invalid value for recently used file list.
+            </summary>
+        </member>
+    </members>
+</doc>

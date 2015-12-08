@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mulholland.WinForms</name>
+    </assembly>
+    <members>
+        <member name="T:Mulholland.WinForms.Controls.BinaryViewer">
+            <summary>
+            Summary description for BinaryViewer.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.BinaryViewer.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.BinaryViewer.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.BinaryViewer.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.BinaryViewer.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.BinaryViewer.DisplayStream(System.IO.MemoryStream)">
+            <summary>
+            Displays the content of a stream in the binary viewer.
+            </summary>
+            <param name="ms"></param>
+        </member>
+        <member name="P:Mulholland.WinForms.Controls.BinaryViewer.BorderStyle">
+            <summary>
+            Gets or sets the border style of the control.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.BinaryViewer.SetBorder">
+            <summary>
+            Configures the way the border is displayed.
+            </summary>
+        </member>
+        <member name="T:Mulholland.WinForms.Controls.SimpleBorderStyle">
+            <summary>
+            Control border styles.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.SimpleBorderStyle.None">
+            <summary>
+            No border.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.SimpleBorderStyle.FixedSingle">
+            <summary>
+            Single pixel border.
+            </summary>
+        </member>
+        <member name="T:Mulholland.WinForms.Controls.XmlColours">
+            <summary>
+            COntains colour settings for formatting XML.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.XmlColours.SpecialCharacter">
+            <summary>
+            Special character colour.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.XmlColours.ElementName">
+            <summary>
+            Element name colour.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.XmlColours.ElementValue">
+            <summary>
+            Element value colour.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.XmlColours.AttributeName">
+            <summary>
+            Attribute name colour.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.XmlColours.AttributeValue">
+            <summary>
+            Attribute value colour.
+            </summary>
+        </member>
+        <member name="T:Mulholland.WinForms.Controls.XmlTextBox">
+            <summary>
+            Summary description for UserControl1.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.XmlTextBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlTextBox.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlTextBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlTextBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Mulholland.WinForms.Controls.XmlTextBox.Text">
+            <summary>
+            Gets ot sets the display text.
+            </summary>
+        </member>
+        <member name="P:Mulholland.WinForms.Controls.XmlTextBox.UnderlyingRichTextBox">
+            <summary>
+            Gets the underlying RichTextBox.
+            </summary>
+        </member>
+        <member name="T:Mulholland.WinForms.Controls.XmlViewer">
+            <summary>
+            Displays pretty-printed XML.
+            </summary>
+        </member>
+        <member name="F:Mulholland.WinForms.Controls.XmlViewer.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlViewer.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlViewer.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlViewer.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Mulholland.WinForms.Controls.XmlViewer.Xml">
+            <summary>
+            Gets and sets the currently displayed XML string.
+            </summary>
+            <exception cref="T:System.Xml.XmlException">There is a load or parse error in the XML.</exception>
+        </member>
+        <member name="P:Mulholland.WinForms.Controls.XmlViewer.XmlColours">
+            <summary>
+            Gets and sets the colour settings for the XML output.
+            </summary>
+        </member>
+        <member name="P:Mulholland.WinForms.Controls.XmlViewer.TabWidth">
+            <summary>
+            Gets or sets the size of a tab, in characters.
+            </summary>
+        </member>
+        <member name="P:Mulholland.WinForms.Controls.XmlViewer.BorderStyle">
+            <summary>
+            Gets or sets the border style of the control.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlViewer.SetBorder">
+            <summary>
+            Configures the way the border is displayed.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlViewer.DisplayXml(System.String)">
+            <summary>
+            Displays XML in the main rich text box.
+            </summary>
+            <param name="xml">XML to display.</param>
+        </member>
+        <member name="M:Mulholland.WinForms.Controls.XmlViewer.GetIndentString(System.Int32)">
+            <summary>
+            Creates a string containing the specified number of tabs.
+            </summary>
+            <param name="tabCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mulholland.WinForms.ProcessVisualizer">
+            <summary>
+            Manages visual feedback given to the user to indicate when a control's processes are being completed.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.ProcessVisualizer.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="owner">The owning control of the visualizer.</param>
+        </member>
+        <member name="P:Mulholland.WinForms.ProcessVisualizer.StatusBarPanel">
+            <summary>
+            Gets or sets the optional status bar panel associated with the object.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.ProcessVisualizer.ProcessStarting(Mulholland.WinForms.VisualizableProcess)">
+            <summary>
+            Starts the visualization of a process.
+            </summary>
+            <param name="process">Process to be visualized.</param>
+        </member>
+        <member name="P:Mulholland.WinForms.ProcessVisualizer.AwaitingText">
+            <summary>
+            Gets or sets the text displayed in the status bar when the are no processes currently being visualized.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.ProcessVisualizer.ProcessCompleted(Mulholland.WinForms.VisualizableProcess)">
+            <summary>
+            Ends the visualization of a process.
+            </summary>
+            <param name="process">Process which has ended.</param>
+        </member>
+        <member name="M:Mulholland.WinForms.ProcessVisualizer.SeizeCursor(System.Windows.Forms.Cursor)">
+            <summary>
+            Enforces the owner control to use a particular mouse pointer until <see cref="M:Mulholland.WinForms.ProcessVisualizer.ReleaseCursor"/> is called.
+            </summary>
+            <param name="cursor">Cursor to use.</param>
+        </member>
+        <member name="M:Mulholland.WinForms.ProcessVisualizer.ReleaseCursor">
+            <summary>
+            Releases a cursor enforced by <see cref="M:Mulholland.WinForms.ProcessVisualizer.SeizeCursor(System.Windows.Forms.Cursor)"/>
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.ProcessVisualizer.VisualizeProcesses">
+            <summary>
+            Sets up the mouse cursor and status bar, according to what is current running.
+            </summary>
+        </member>
+        <member name="T:Mulholland.WinForms.VisualizableProcess">
+            <summary>
+            Allows identification of a process which is to be visualised to the user.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.VisualizableProcess.#ctor">
+            <summary>
+            Constructs the object.  It is assumed that user 
+            interaction is not allowed until the task is completed.
+            </summary>		
+        </member>
+        <member name="M:Mulholland.WinForms.VisualizableProcess.#ctor(System.String)">
+            <summary>
+            Constructs the object.  It is assumed that user 
+            interaction is not allowed until the task is completed.
+            </summary>		
+            <param name="description">A user friendly description of the process.</param>
+        </member>
+        <member name="M:Mulholland.WinForms.VisualizableProcess.#ctor(System.Boolean)">
+            <summary>
+            Constructs the object.  It is assumed that user 
+            interaction is not allowed until the task is completed.
+            </summary>				
+            <param name="allowUserInteraction">Set to true if the arrow hourglass cursor is to be displayed,
+            allowing the user to continue interacting during the duration of a process.</param>
+        </member>
+        <member name="M:Mulholland.WinForms.VisualizableProcess.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructs the object
+            </summary>		
+            <param name="description">A user friendly description of the process.</param>
+            <param name="allowUserInteraction">Set to true if the arrow hourglass cursor is to be displayed,
+            allowing the user to continue interacting during the duration of a process.</param>
+        </member>
+        <member name="P:Mulholland.WinForms.VisualizableProcess.Description">
+            <summary>
+            Gets or sets the description associated with the process.
+            </summary>
+            <remarks>This value may be null.</remarks>
+        </member>
+        <member name="P:Mulholland.WinForms.VisualizableProcess.Guid">
+            <summary>
+            Gets the GUID which is associated with the process. This value is automatically generated.
+            </summary>
+        </member>
+        <member name="P:Mulholland.WinForms.VisualizableProcess.AllowUserInteraction">
+            <summary>
+            Gets whether user interaction is allowed, determining whether 
+            an arrow and hourglass is displayed instead of an hourglass.
+            </summary>
+        </member>
+        <member name="T:Mulholland.WinForms.VisualizableProcessEvent">
+            <summary>
+            Event signature for events which signify the start and end of a job for which the lifetime 
+            of the job can be displayed to the user, using methods such as changing the mouse cursor.
+            </summary>
+        </member>
+        <member name="T:Mulholland.WinForms.VisualizableProcessEventArgs">
+            <summary>
+            Event args for VisualizableProcessEvent event delegate.
+            </summary>
+        </member>
+        <member name="M:Mulholland.WinForms.VisualizableProcessEventArgs.#ctor(Mulholland.WinForms.VisualizableProcess)">
+            <summary>
+            Constructs the object.
+            </summary>
+            <param name="process">Process which can be visualized.</param>
+        </member>
+        <member name="P:Mulholland.WinForms.VisualizableProcessEventArgs.Process">
+            <summary>
+            Gets the process associated with the event arguments
+            </summary>
+        </member>
+    </members>
+</doc>

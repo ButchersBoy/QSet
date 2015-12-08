@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7DC187E3-4BBF-49AA-8264-C30FA68534ED}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>..\..\Graphics\QueueSet.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>Mulholland.QSet.Application</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Mulholland.QSet.Application</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>Mulholland.QSet.Application.QSetEnvironmentForm</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release With Setup|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'License Generator|AnyCPU' ">
+    <OutputPath>bin\License Generator\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mulholland.Core\Mulholland.Core.csproj">
+      <Name>Mulholland.Core</Name>
+      <Project>{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Mulholland.QSet.Model\Mulholland.QSet.Model.csproj">
+      <Name>Mulholland.QSetModel</Name>
+      <Project>{164476FD-846F-4561-8FCD-4F9B850D667F}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Mulholland.QSet.Resources\Mulholland.QSet.Resources.csproj">
+      <Name>Mulholland.QSet.Resources</Name>
+      <Project>{1647DFD0-A07D-4173-87C0-466C3CF92611}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Mulholland.WinForms\Mulholland.WinForms.csproj">
+      <Name>Mulholland.WinForms.Controls</Name>
+      <Project>{8E56C2C6-046B-44D9-956E-8FAB58595519}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="SandBar, Version=1.4.2.1, Culture=neutral, PublicKeyToken=75b7ec17dd7c14c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\3rdPartyControls\Bin\SandBar.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SandDock, Version=3.0.6.1, Culture=neutral, PublicKeyToken=75b7ec17dd7c14c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\3rdPartyControls\Bin\SandDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Management">
+      <Name>System.Management</Name>
+    </Reference>
+    <Reference Include="System.Messaging">
+      <Name>System.Messaging</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Events.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\IQSetItemControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageBrowserCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\QSetExplorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\QSetMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WebServiceClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WebServiceClientControlCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EnvironmentCoordinator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Licensing\Feature.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Licensing\License.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Licensing\LicenseAboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licensing\LicenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuItemBag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MenuStateManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MessageDragContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NewMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewQueueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenQueueDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrimaryControlListenerObjects.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PrimaryControlObjects.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PrimaryObjects.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QSetEnvironmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueueSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueueTaskManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TaskManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebServices\SoapMessageAccessClientExtension.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebServices\WebServiceHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebServices\WebServiceProxyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WebServices\WebServiceProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebServices\WebServiceProxyHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebTaskManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="readme.txt" />
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageBrowser.resx">
+      <DependentUpon>MessageBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageViewer.resx">
+      <DependentUpon>MessageViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\QSetExplorer.resx">
+      <DependentUpon>QSetExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\QSetMonitor.resx">
+      <DependentUpon>QSetMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WebServiceClientControl.resx">
+      <DependentUpon>WebServiceClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licensing\LicenseAboutForm.resx">
+      <DependentUpon>LicenseAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licensing\LicenseForm.resx">
+      <DependentUpon>LicenseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewMessageForm.resx">
+      <DependentUpon>NewMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewQueueForm.resx">
+      <DependentUpon>NewQueueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenQueueDialog.resx">
+      <DependentUpon>OpenQueueDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsDialog.resx">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="QSetEnvironmentForm.resx">
+      <DependentUpon>QSetEnvironmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueueSearchForm.resx">
+      <DependentUpon>QueueSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebServices\WebServiceProxyControl.resx">
+      <DependentUpon>WebServiceProxyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Mulholland.Applications.QSet.exe.manifest" />
+    <None Include="SignReleaseExe.bat" />
+    <None Include="Version History.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

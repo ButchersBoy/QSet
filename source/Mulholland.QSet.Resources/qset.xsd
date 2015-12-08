@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="qset">
+	<xs:element name="qset" type="folderType" />
+	<xs:complexType name="folderType">
+		<xs:sequence>			
+			<xs:element name="folder" type="folderType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="machine" type="folderType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="queue" type="queueType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="webService" type="webServiceType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attributeGroup ref="itemAttributes" />
+	</xs:complexType>
+	<xs:complexType name="queueType">
+		<xs:attributeGroup ref="itemAttributes" />		
+		<xs:attribute name="xslt" type="xs:string" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="webServiceType">
+		<xs:attributeGroup ref="itemAttributes" />		
+		<xs:attribute name="uri" type="xs:string" use="optional" />
+	</xs:complexType>	
+	<xs:attributeGroup name="itemAttributes">
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="guid" type="guidType" use="optional" />
+	</xs:attributeGroup>
+	<xs:simpleType name="guidType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

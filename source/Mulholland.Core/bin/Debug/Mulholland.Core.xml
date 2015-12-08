@@ -1,0 +1,659 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mulholland.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Mulholland.Core.ConfigurationHelper">
+            <summary>
+            Provides setting contained within the Mulholland Software section node and in the config file.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.ConfigurationHelper.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.ConfigurationHelper.GetRoot">
+            <summary>
+            Gets the root node for all configuraiotn settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mulholland.Core.ConfigurationHelper.GetValue(System.String)">
+            <summary>
+            Retrieves a string value from the application's config file.
+            </summary>
+            <param name="node">X-Path to setting node relative to Interactive Items root configuration node.</param>
+            <returns>Setting value.</returns>
+            <exception cref="T:System.Configuration.ConfigurationException">Thrown if setting is not found.</exception>
+            <overloaded/>
+        </member>
+        <member name="M:Mulholland.Core.ConfigurationHelper.GetValue(System.String,System.String)">
+            <summary>
+            Retrieves a string value from the application's config file.
+            </summary>
+            <param name="node">X-Path to node relative to Interactive Items root configuration node.</param>
+            <param name="attribute">Attribute of node which contains setting.</param>
+            <exception cref="T:System.Configuration.ConfigurationException">Thrown if setting is not found and no default is supplied.</exception>
+            <overloaded/>
+        </member>
+        <member name="M:Mulholland.Core.ConfigurationHelper.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            IConfigurationSectionHandler implementation.
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mulholland.Core.Cryptographer">
+            <summary>
+            Provides encryption utilities.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Cryptographer.Encrypt(System.String,System.String)">
+            <summary>
+            Encrypts a string using DES.
+            </summary>
+            <param name="input">Value to encrypt.</param>
+            <param name="key">Key.</param>
+            <returns>Encrypted string.</returns>
+        </member>
+        <member name="M:Mulholland.Core.Cryptographer.Decrypt(System.String,System.String)">
+            <summary>
+            Decrypts a DES encrypted string.
+            </summary>
+            <param name="input">Encrypted string.</param>
+            <param name="key">Key.</param>
+            <returns>Decrypted string.</returns>
+        </member>
+        <member name="M:Mulholland.Core.Cryptographer.Hash(System.String,System.Text.Encoding)">
+            <summary>
+            Generates a hash value using MD5 and the specified encoding.
+            </summary>
+            <param name="key">Key to generate hash on.</param>
+            <param name="encoding">Encoding to use.</param>
+            <returns>Hash.</returns>
+            <overloaded/>
+        </member>
+        <member name="M:Mulholland.Core.Cryptographer.Hash(System.String)">
+            <summary>
+            Generates a hash value using MD5 and ASCII encoding.
+            </summary>
+            <param name="key">Key to generate hash on.</param>
+            <returns>Hash.</returns>
+            <overloaded/>
+        </member>
+        <member name="T:Mulholland.Core.DataHelper">
+            <summary>
+            Provides data operations against a standard Mulholland data source.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.#ctor(System.String)">
+            <summary>
+            Constructs the data provider with the logical database name.
+            </summary>
+            <param name="dataSourceName">The logical name of the database.</param>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.ExecuteReader(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            Executes astored procedure opening up an IDataReader to process the result.
+            </summary>
+            <param name="storedProcedure">Name of stored procedure to execute.</param>
+            <param name="parameters">Parameters to pass to stored procedure.</param>
+            <returns>IDataReader</returns>
+            <exception cref="T:Mulholland.Core.MulhollandException">Wraps any data exception which may occur.</exception>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.ExecuteReader(System.String)">
+            <summary>
+            Executes astored procedure opening up an IDataReader to process the result.
+            </summary>
+            <param name="storedProcedure">Name of stored procedure to execute.</param>
+            <returns>IDataReader</returns>
+            <exception cref="T:Mulholland.Core.MulhollandException">Wraps any data exception which may occur.</exception>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.ExecuteNonQuery(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            Executes a stored procedure.
+            </summary>
+            <param name="storedProcedure">Name of stored procedure to execute.</param>
+            <param name="parameters">Parameters to pass to stored procedure.</param>
+            <exception cref="T:Mulholland.Core.MulhollandException">Wraps any data exception which may occur.</exception>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.ExecuteNonQuery(System.String)">
+            <summary>
+            Executes a stored procedure.
+            </summary>
+            <param name="storedProcedure">Name of stored procedure to execute.</param>
+            <exception cref="T:Mulholland.Core.MulhollandException">Wraps any data exception which may occur.</exception>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CreateParameterArray(System.Int32)">
+            <summary>
+            Creates an array of parameters of the type specific to the classes data source.
+            </summary>
+            <param name="elements">The number of elements to create in the array.</param>
+            <returns>An empty array of parameters.</returns>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CreateInputParameter(System.String,System.Data.DbType)">
+            <summary>
+            Creates an input parameter of the type specific to the classes data source.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="type">Type.</param>
+            <returns>Instantiated IDbDataParameter.</returns>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CreateInputParameter(System.String,System.Data.DbType,System.Object)">
+            <summary>
+            Creates an input parameter of the type specific to the classes data source.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="type">Type.</param>
+            <param name="value">The inital value of the parameter</param>
+            <returns>Instantiated IDbDataParameter.</returns>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CreateInputOutputParameter(System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            Creates an input/ouput parameter of the type specific to the classes data source.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="type">Type.</param>
+            <param name="size">The size of the parameter.</param>		
+            <returns>Instantiated IDbDataParameter.</returns>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CreateInputOutputParameter(System.String,System.Data.DbType,System.Int32,System.Object)">
+            <summary>
+            Creates an input/ouput parameter of the type specific to the classes data source.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="type">Type.</param>
+            <param name="size">The size of the parameter.</param>		
+            <param name="initialValue">The inital value of the parameter</param>		
+            <returns>Instantiated IDbDataParameter.</returns>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CreateInputOutputParameter(System.String,System.Data.DbType)">
+            <summary>
+            Creates an input/ouput parameter of the type specific to the classes data source.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="type">Type.</param>
+            <returns>Instantiated IDbDataParameter.</returns>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CreateInputOutputParameter(System.String,System.Data.DbType,System.Object)">
+            <summary>
+            Creates an input/ouput parameter of the type specific to the classes data source.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="type">Type.</param>
+            <param name="initialValue">The inital value of the parameter</param>		
+            <returns>Instantiated IDbDataParameter.</returns>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.AttachParametersToCommand(System.Data.IDbCommand,System.Data.IDbDataParameter[])">
+            <summary>
+            Attaches an array of parameters to a command.
+            </summary>
+            <param name="cmd">Command to attach to.</param>
+            <param name="parameters">Parameters to attach.</param>
+        </member>
+        <member name="M:Mulholland.Core.DataHelper.CloseConnection(System.Data.IDbCommand)">
+            <summary>
+            Closes a connection which is attached to a command object.
+            </summary>
+            <param name="cmd">Command on which a connection is open.</param>
+        </member>
+        <member name="T:Mulholland.Core.IOUtilities">
+            <summary>
+            Provides general input/output utilities.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilities.LoadEmbeddedResourceString(System.Reflection.Assembly,System.String)">
+            <summary>
+            Loads an embedded resource from an assembly.
+            </summary>
+            <param name="assembly">Assembly containing the resource.</param>
+            <param name="qualifiedName">Fully qualified name of resource, including namespace and filename.</param>
+            <returns>Resource content.</returns>
+            <exception cref="T:Mulholland.Core.IOUtilitiesException">Throw if the resource could not be accessed for any reason.</exception>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilities.StringToMemoryStream(System.String)">
+            <summary>
+            Loads a string into a MemoryStream.
+            </summary>
+            <param name="input">String to load.</param>
+            <returns>A new MemoryStream populated with the contents of the stream, at position 0.</returns>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilities.CopyStream(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Copies one stream to another.
+            </summary>
+            <param name="from">Source stream.</param>
+            <param name="to">Destination stream.</param>
+            <remarks>Performs an entire stream copy, starting the writing at the destination position.  
+            The position of the source stream as always returned to its original position.</remarks>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilities.ConvertToHex(System.String)">
+            <summary>
+            Converts a string to hexadecimal.
+            </summary>
+            <param name="input">String to convert.</param>
+            <returns>Hexadecimal.</returns>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilities.RegisterFileType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Assosciate file type with an application in the Registry.
+            </summary>
+            <param name="fileExtension">File extension.</param>
+            <param name="progID">Logival program ID.</param>
+            <param name="applicationExecutablePath">Full filename of the executable.</param>
+            <param name="applicationProductName">Application product name.</param>
+            <param name="typeDisplayName">User friendly description.</param>
+            <exception cref="T:Mulholland.Core.IOUtilitiesException">Thrown if the operation fails.</exception>
+        </member>
+        <member name="T:Mulholland.Core.IOUtilitiesException">
+            <summary>
+            Exception which identifies an erro which occured in th IOUtilities class.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilitiesException.#ctor">
+            <summary>
+            Constructs the exception class.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilitiesException.#ctor(System.String)">
+            <summary>
+            Constructs the exception class.
+            </summary>
+            <param name="message">Message exception.</param>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilitiesException.#ctor(System.Exception)">
+            <summary>
+            Constructs the exception class.
+            </summary>
+            <param name="innerException">Inner exception.</param>
+        </member>
+        <member name="M:Mulholland.Core.IOUtilitiesException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs the exception class.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="innerException">Inner exception.</param>
+        </member>
+        <member name="T:Mulholland.Core.MulhollandException">
+            <summary>
+            Mulholland software standard exception class.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.MulhollandException.#ctor">
+            <summary>
+            Constructs the exception class.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.MulhollandException.#ctor(System.String)">
+            <summary>
+            Constructs the exception class.
+            </summary>
+            <param name="message">Message exception.</param>
+        </member>
+        <member name="M:Mulholland.Core.MulhollandException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs the exception class.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="innerException">Inner exception.</param>
+        </member>
+        <member name="T:Mulholland.Core.User32Api">
+            <summary>
+            Provides access to Windows API calls containined in User32.dll.
+            </summary>
+        </member>
+        <member name="F:Mulholland.Core.User32Api.WM_SETREDRAW">
+            <summary/>
+        </member>
+        <member name="F:Mulholland.Core.User32Api.WM_USER">
+            <summary/>
+        </member>
+        <member name="F:Mulholland.Core.User32Api.EM_GETEVENTMASK">
+            <summary/>
+        </member>
+        <member name="F:Mulholland.Core.User32Api.EM_SETEVENTMASK">
+            <summary/>
+        </member>
+        <member name="M:Mulholland.Core.User32Api.#cctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.User32Api.SendMessage(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
+            <summary/>
+        </member>
+        <member name="M:Mulholland.Core.User32Api.LockWindowUpdate(System.IntPtr)">
+            <summary/>
+        </member>
+        <member name="T:Mulholland.Core.Utilities">
+            <summary>
+            Provides general utilities.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Utilities.CloneProperties(System.Object,System.Object)">
+            <summary>
+            Clones all the properties of an object that have read and write accesibility.
+            </summary>
+            <param name="source">Source object to clone from.</param>
+            <param name="target">Object to write property values to.</param>
+        </member>
+        <member name="M:Mulholland.Core.Utilities.IsStringInArray(System.String[],System.String)">
+            <summary>
+            Checks to see if a string exists in an array.
+            </summary>
+            <param name="check">Array to search.</param>
+            <param name="searchFor">Value to seacrh for.</param>
+            <returns>true if value exists, else false.</returns>
+        </member>
+        <member name="T:Mulholland.Core.Xml.ResourceResolver">
+            <summary>
+            Concrete implementation of a XmlResolver which allows user 
+            defined strings to be resolved as additional resources.
+            </summary>
+        </member>
+        <member name="P:Mulholland.Core.Xml.ResourceResolver.Resources">
+            <summary>
+            Internal property for working with resources.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.ResourceResolver.#ctor">
+            <summary>
+            Default constructor.  Constructs class with no additional resources.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.ResourceResolver.AddResource(System.String,System.String)">
+            <summary>
+            Adds an additional resource.
+            </summary>
+            <param name="identifier">Identification key, as appears in XSL transform.</param>
+            <param name="resource">Resource content.</param>
+        </member>
+        <member name="E:Mulholland.Core.Xml.ResourceResolver.ResourceRequested">
+            <summary>
+            Adds or removes handlers for the ResourceRequested event.
+            <see cref="T:Mulholland.Core.Xml.ResourceRequestedEvent"/>
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Mulholland.Core.Xml.ResourceResolver.OnResourceRequested(Mulholland.Core.Xml.ResourceRequestedEventArgs)">
+            <summary>
+            Raises the ResourceRequested event.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.ResourceResolver.StripInternalTags(System.String)">
+            <summary>
+            Strips the internal tags which are attached to a resource identifier for internal purposes.
+            </summary>
+            <param name="uri">Uri resource identifier string to strip.</param>
+            <returns>Stripped string.</returns>
+        </member>
+        <member name="M:Mulholland.Core.Xml.ResourceResolver.GetEntity(System.Uri,System.String,System.Type)">
+            <summary>
+            Returns the request resource as a memory stream.
+            </summary>
+            <param name="absoluteUri"></param>
+            <param name="role"></param>
+            <param name="ofObjectToReturn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mulholland.Core.Xml.ResourceResolver.ResolveUri(System.Uri,System.String)">
+            <summary>
+            Resolves the URI so its content can be returned via GetEntitiy.
+            </summary>
+            <param name="baseUri"></param>
+            <param name="relativeUri"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mulholland.Core.Xml.ResourceRequestedEvent">
+            <summary>
+            ResourceAccessedEvent event delegate.
+            <see cref="T:Mulholland.Core.Xml.ResourceRequestedEventArgs"/>
+            </summary>	
+        </member>
+        <member name="T:Mulholland.Core.Xml.ResourceRequestedEventArgs">
+            <summary>
+            Event arguments for ResourceAccessedEvent.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.ResourceRequestedEventArgs.#ctor(System.String,System.String)">
+            <summary>
+            Constructs the object with the minumum requirements.
+            </summary>
+            <param name="identifier">Identifier of the additional resource that was accessed.</param>
+            <param name="resourceContent">The string content of the resource that has been pre-configured.</param>
+        </member>
+        <member name="P:Mulholland.Core.Xml.ResourceRequestedEventArgs.Identifier">
+            <summary>
+            Gets the identifier of the resource.
+            </summary>
+        </member>
+        <member name="P:Mulholland.Core.Xml.ResourceRequestedEventArgs.ResourceContent">
+            <summary>
+            Gets or sets the content of the resource string.
+            </summary>
+            <remarks>
+            The resource content initially configured when preparing a <c>Transformer</c> class using <c>AddResource</c>.
+            Setting this property will overide the initial value and the new value will be passed into the transform.
+            <see cref="M:Mulholland.Core.Xml.Transformer.AddResource(System.String,System.String)"/>
+            </remarks>	
+        </member>
+        <member name="T:Mulholland.Core.Xml.Transformer">
+            <summary>
+            Transforms XML documents using XSLT.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.#ctor(System.String)">
+            <summary>
+            Constructors transformer with minimum required details.
+            </summary>		
+            <param name="xslt">XSLT.</param>
+        </member>
+        <member name="P:Mulholland.Core.Xml.Transformer.Xml">
+            <summary>
+            Sets the XML to be transformed.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.AddParameter(System.String,System.String,System.Object)">
+            <summary>
+            Adds a parameter to be included in the transform.
+            </summary>
+            <param name="name">Name of parameter as appears within XSLT.</param>
+            <param name="namespaceUri">The namespace URI to associate with the parameter. To use the default namespace, specify an empty string.</param>
+            <param name="parameter">The parameter value or object.</param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.AddParameter(System.String,System.Object)">
+            <summary>
+            Adds a parameter to be included in the transform.
+            </summary>
+            <param name="name">Name of parameter as appears within XSLT.</param>		
+            <param name="parameter">The parameter value or object.</param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.AddResource(System.String,System.String)">
+            <summary>
+            Adds an additional resource.  This could be extra XML which is imported into the transformation using the XSL document function.
+            </summary>
+            <param name="identifier">Identification or URI, as appears in XSL transform.</param>
+            <param name="resource">Content of additional resource.</param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.AddExtensionObject(System.String,System.Object)">
+            <summary>
+            Adds a new object to the Transformer and associates it with the namespace URI.
+            </summary>
+            <param name="namespaceUri">The namespace URI to associate with the object. To use the default namespace, specify an empty string.</param>
+            <param name="extension">The object to add to the list.</param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.ClearAllAdditionalInput">
+            <summary>
+            Clears the currently configured parameters, resources, and extension objects.
+            </summary>
+        </member>
+        <member name="E:Mulholland.Core.Xml.Transformer.ResourceRequested">
+            <summary>
+            Adds or removes handlers for the ResourceRequested event.
+            <see cref="T:Mulholland.Core.Xml.ResourceRequestedEvent"/>
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.Transform">
+            <summary>
+            Transforms the currently loaded XML using the current XSLT.
+            </summary>
+            <returns>Transformed result.</returns>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.DisposeObjects(System.Object[])">
+            <summary>
+            Dispose objects.
+            </summary>
+            <param name="objects">Objects to dispose.</param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Transformer.OnResourceRequested(Mulholland.Core.Xml.ResourceRequestedEventArgs)">
+            <summary>
+            Raises the ResourceRequested event.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="T:Mulholland.Core.Xml.ValidatorResultType">
+            <summary>
+            Validator result type.
+            </summary>
+        </member>
+        <member name="F:Mulholland.Core.Xml.ValidatorResultType.Valid">
+            <summary>XML is valid against schema.</summary>
+        </member>
+        <member name="F:Mulholland.Core.Xml.ValidatorResultType.ValidWithWarnings">
+            <summary>XML is valid against schema, but there are warnings.</summary>
+        </member>
+        <member name="F:Mulholland.Core.Xml.ValidatorResultType.InValid">
+            <summary>XML is invalid against schema.</summary>
+        </member>
+        <member name="T:Mulholland.Core.Xml.ValidatorShortCircuitType">
+            <summary>
+            Validation short circuit type.  Specifies how the validator should react when a validation error is encountered.
+            </summary>
+        </member>
+        <member name="F:Mulholland.Core.Xml.ValidatorShortCircuitType.None">
+            <summary>Use to notify that the validator should continue validating if a warning or error is encountered.</summary>
+        </member>
+        <member name="F:Mulholland.Core.Xml.ValidatorShortCircuitType.OnWarning">
+            <summary>Use to notify that the validator should cease if a warning or error is encountered.</summary>
+        </member>
+        <member name="F:Mulholland.Core.Xml.ValidatorShortCircuitType.OnError">
+            <summary>Use to notify that the validator should cease if an error is encountered, but ignore warnings.</summary>
+        </member>
+        <member name="T:Mulholland.Core.Xml.Validator">
+            <summary>
+            Allows validation of XML against a XSD.
+            </summary>
+        </member>
+        <member name="T:Mulholland.Core.Xml.Validator.AdditionalSchema">
+            <summary>
+            Maintains an additional resource
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.AdditionalSchema.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="identifier">Identifer of imported/included XML as appears in XSD.</param>
+            <param name="schema">XSD or DTD schema.</param>
+        </member>
+        <member name="P:Mulholland.Core.Xml.Validator.AdditionalSchema.Xsd">
+            <summary>
+            String representation of XSD.
+            </summary>
+        </member>
+        <member name="P:Mulholland.Core.Xml.Validator.AdditionalSchema.Identifier">
+            <summary>
+            Identifer of imported/included XML as appears in XSD.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.#ctor(System.String)">
+            <summary>
+            Constructs the validator with a XSD schema.
+            </summary>
+            <param name="xsd">XSD schema.</param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.#ctor(System.String,System.String)">
+            <summary>
+            Constructs the validator with a DTD schema.
+            </summary>
+            <param name="dtd">DTD schema.</param>
+            <param name="docTypeName">The name of the document type declaration.</param>
+        </member>
+        <member name="P:Mulholland.Core.Xml.Validator.ValidationType">
+            <value>
+            Returns the validation type of the class instance.
+            </value>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.AddAdditionalSchema(System.String,System.String)">
+            <summary>
+            Adds an additional schema to be included in the validation.
+            </summary>
+            <param name="identifier">Identification/URI/filename of imported/included XML as appears in XSD.</param>
+            <param name="schema">XSD or DTD schema.</param>
+            <author>James Willock</author>
+            <creationdate>8th January 2004</creationdate>		
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.Validate(System.String,Mulholland.Core.Xml.ValidatorShortCircuitType)">
+            <summary>
+            Validates XML against a schema.
+            </summary>
+            <param name="xml">XML to validate.</param>
+            <param name="shortCircuit">
+            	Defines validation behaviour should invalid XML be encountered.  Setting to a type other than None 
+            	forces the validation process to immedietely quit according to the type of problem encountered.
+            </param>		
+            <returns>Result as ValidatorResultType.  Extra information can be extracted from Warnings and Errors properties.</returns>		
+            <overloaded/>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.Validate(System.String)">
+            <summary>
+            Validates XML against an XSD.  Equivelent to calling Validate(yourXml, ValidatorShortCircuitType.OnWarning, ValidationType.Schema)
+            </summary>
+            <param name="xml">XML to validate.</param>
+            <returns>Result as ValidatorResultType.  Extra information can be extracted from Warnings and Errors properties.</returns>
+            <overloaded/>		
+        </member>
+        <member name="P:Mulholland.Core.Xml.Validator.Errors">
+            <summary>
+            Returns any errors encountered during the last validation run.
+            </summary>
+        </member>
+        <member name="P:Mulholland.Core.Xml.Validator.Warnings">
+            <summary>
+            Returns any warnings encountered during the last validation run.
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.GetXmlTextReader(System.String)">
+            <summary>
+            Opens a XML text reader for the given XML.
+            </summary>
+            <param name="xml">XML to work with.</param>
+            <returns>Opened XMLTextReader.</returns>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.PrepareResourceResolver">
+            <summary>
+            Prepares the member level additional resource resolver with all of the additional schemas
+            </summary>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.ValidationHandler(System.Object,System.Xml.Schema.ValidationEventArgs)">
+            <summary>
+            Receives notification of a validation error.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Mulholland.Core.Xml.Validator.AddToArrayList(System.Collections.ArrayList@,System.String)">
+            <summary>
+            Adds a string to an array list, ensuring that the object has been initialised.
+            </summary>
+            <param name="arrayList">Array to add to.</param>
+            <param name="item">Item to add.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,73 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mulholland.QSet.Application", "Source\Mulholland.QSet.Application\Mulholland.QSet.Application.csproj", "{7DC187E3-4BBF-49AA-8264-C30FA68534ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mulholland.WinForms", "Source\Mulholland.WinForms\Mulholland.WinForms.csproj", "{8E56C2C6-046B-44D9-956E-8FAB58595519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mulholland.Core", "Source\Mulholland.Core\Mulholland.Core.csproj", "{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mulholland.QSet.Model", "Source\Mulholland.QSet.Model\Mulholland.QSet.Model.csproj", "{164476FD-846F-4561-8FCD-4F9B850D667F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mulholland.QSet.Resources", "Source\Mulholland.QSet.Resources\Mulholland.QSet.Resources.csproj", "{1647DFD0-A07D-4173-87C0-466C3CF92611}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		License Generator|Any CPU = License Generator|Any CPU
+		Release With Setup|Any CPU = Release With Setup|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Setup|Any CPU = Setup|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.License Generator|Any CPU.ActiveCfg = License Generator|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.License Generator|Any CPU.Build.0 = License Generator|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.Release With Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.Release With Setup|Any CPU.Build.0 = Release With Setup|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC187E3-4BBF-49AA-8264-C30FA68534ED}.Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.License Generator|Any CPU.ActiveCfg = License Generator|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.License Generator|Any CPU.Build.0 = License Generator|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.Release With Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.Release With Setup|Any CPU.Build.0 = Release With Setup|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E56C2C6-046B-44D9-956E-8FAB58595519}.Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.License Generator|Any CPU.ActiveCfg = License Generator|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.License Generator|Any CPU.Build.0 = License Generator|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.Release With Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.Release With Setup|Any CPU.Build.0 = Release With Setup|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EA32A57-6F24-4FE2-AFDD-6B90EBB0C3B7}.Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.License Generator|Any CPU.ActiveCfg = License Generator|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.License Generator|Any CPU.Build.0 = License Generator|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.Release With Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.Release With Setup|Any CPU.Build.0 = Release With Setup|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{164476FD-846F-4561-8FCD-4F9B850D667F}.Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.License Generator|Any CPU.ActiveCfg = License Generator|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.License Generator|Any CPU.Build.0 = License Generator|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.Release With Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.Release With Setup|Any CPU.Build.0 = Release With Setup|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1647DFD0-A07D-4173-87C0-466C3CF92611}.Setup|Any CPU.ActiveCfg = Release With Setup|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

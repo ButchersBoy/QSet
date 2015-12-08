@@ -1,0 +1,15 @@
+Version 1.2
+
+FIX - Receive 'Q Set has encountered an error' message when forwarding messages.
+FIX - Unable to drag and drop a message to a local, private, transactional queue.
+
+Version 1.1
+
+FIX - Closing a dockable window via toolbar when window is floating may cause a System.StackOverflowException.
+FIX - Unable to send a message to a local, private, transactionl queue,
+ENHANCEMENT - Ability to purge a queue added the the Q Set Explorer context (right click) menu.
+
+Version 1.0  
+
+First release
+

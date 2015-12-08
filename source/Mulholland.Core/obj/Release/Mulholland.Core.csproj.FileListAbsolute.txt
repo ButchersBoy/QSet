@@ -1,0 +1,3 @@
+D:\MulhollandSource\NameSpaces\Mulholland.Core\bin\Release\Mulholland.Core.dll
+D:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Release\ResolveAssemblyReference.cache
+D:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Release\Mulholland.Core.dll

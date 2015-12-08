@@ -1,0 +1,12 @@
+D:\MulhollandSource\NameSpaces\Mulholland.Core\bin\Debug\Mulholland.Core.dll
+D:\MulhollandSource\NameSpaces\Mulholland.Core\bin\Debug\Mulholland.Core.pdb
+D:\MulhollandSource\NameSpaces\Mulholland.Core\bin\Debug\Mulholland.Core.xml
+D:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Debug\ResolveAssemblyReference.cache
+D:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Debug\Mulholland.Core.dll
+D:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Debug\Mulholland.Core.pdb
+G:\MulhollandSource\NameSpaces\Mulholland.Core\bin\Debug\Mulholland.Core.dll
+G:\MulhollandSource\NameSpaces\Mulholland.Core\bin\Debug\Mulholland.Core.pdb
+G:\MulhollandSource\NameSpaces\Mulholland.Core\bin\Debug\Mulholland.Core.xml
+G:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Debug\Mulholland.Core.csprojResolveAssemblyReference.cache
+G:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Debug\Mulholland.Core.dll
+G:\MulhollandSource\NameSpaces\Mulholland.Core\obj\Debug\Mulholland.Core.pdb

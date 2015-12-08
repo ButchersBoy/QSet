@@ -1,0 +1,2728 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SandDock</name>
+    </assembly>
+    <members>
+        <member name="T:TD.SandDock.DockContainer">
+            <summary>
+            The top level object in a SandDock layout system.
+            </summary>
+            <remarks>
+            <para>There are typically four of these in a standard layout system to begin with, with more create at runtime when floating containers are needed. More
+            DockContainers can be registered using the methods on SandDockManager. Once a DockContainer has been registered it is available as a target in
+            docking operations.</para>
+            <para>DockContainers are responsible for managing DockControls that have been "unpinned". This layout logic is only available when the DockContainer's
+            Dock property is set to Top, Bottom, Left or Right.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.#ctor">
+            <summary>
+            Initializes a new instance of the DockContainer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnShowControlContextMenu(TD.SandDock.ShowControlContextMenuEventArgs)">
+            <summary>
+            Raises the ShowControlContextMenu event.
+            </summary>
+            <param name="e">A ShowControlContextMenuEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnFontChanged(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.GetLayoutSystemAt(System.Drawing.Point)">
+            <summary>
+            Retrieves the layout system at the specified location.
+            </summary>
+            <param name="position">The location, in client coordinates, to search.</param>
+            <returns>The layout system found. If no layout system was found, a null reference is returned.</returns>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnHandleCreated(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.LayoutChildren">
+            <summary>
+            Calculates the layout of the layout system hierarchy and triggers a redraw.
+            </summary>
+            <remarks>
+            <para>This is an advanced method that should be used after calling SetWorkingSize on layout systems.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnResize(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnMouseLeave(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnDoubleClick(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnDockingStarted(System.EventArgs)">
+            <summary>
+            Raises the DockingStarted event.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="M:TD.SandDock.DockContainer.OnDockingFinished(System.EventArgs)">
+            <summary>
+            Raises the DockingFinished event.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="E:TD.SandDock.DockContainer.DockingStarted">
+            <summary>
+            Raised when the user starts dragging a control or layout system.
+            </summary>
+            <remarks>
+            This event can be used to present the user (via a statusbar or similar) with some helpful text describing how to manipulate controls in a redocking
+            operation.
+            </remarks>
+        </member>
+        <member name="E:TD.SandDock.DockContainer.DockingFinished">
+            <summary>
+            Raised when a docking or dragging operation has been completed.
+            </summary>
+        </member>
+        <member name="E:TD.SandDock.DockContainer.ShowControlContextMenu">
+            <summary>
+            Raised when the context menu for a DockControl should be shown.
+            </summary>
+            <remarks>
+            This event should only be used for standalone DockContainers. If your DockContainer is part of a SandDock layout (i.e. has a Manager associated with
+            it) you can bind to the associated event on SandDockManager and save duplicating code.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.AllowDrop">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Dock">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Cursor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.BackgroundImage">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.BackColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.ForeColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Guid">
+            <summary>
+            A unique identifier for the DockContainer.
+            </summary>
+            <remarks>
+            <para>DockContainers need unique identifiers for layout serialization purposes. If any containers have the same identifier serialization will not
+            work correctly.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.DockingHints">
+            <summary>
+            Indicates the type of visual artifacts drawn to the screen to indicate size and position while docking.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.DockingManager">
+            <summary>
+            Indicates the method of user interaction during a docking operation.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Renderer">
+            <summary>
+            The renderer used to calculate object metrics and draw contents.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.AutoHideVisible">
+            <summary>
+            Gets a valid indicating whether the auto-hide buttons are visible.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Sizable">
+            <summary>
+            Indicates whether this container will allow the user to resize it.
+            </summary>
+            <remarks>
+            In addition to this property being true, the container must have its Dock property set to Top, Bottom, Left or Right.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.MinimumSize">
+            <summary>
+            The smallest size this container will allow the user to choose.
+            </summary>
+            <remarks>
+            This is only applicable when the DockContainer is sizable.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.MaximumSize">
+            <summary>
+            The largest size this container will allow the user to choose.
+            </summary>
+            <remarks>
+            This is only applicable when the DockContainer is sizable.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Collapsed">
+            <summary>
+            Indicates whether the DockContainer is collapsed.
+            </summary>
+            <remarks>
+            <para>A DockContainer will be collapsed if all its contained layout systems are collapsed.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.Manager">
+            <summary>
+            The SandDockManager instance that is associated with this DockContainer.
+            </summary>
+            <remarks>
+            DockContainers need to be associated with a SandDockManager to ensure correct behaviour and interaction with other DockContainers. This property
+            should be set immediately after creating a DockContainer.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.DefaultSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.IsFloating">
+            <summary>
+            Indicates whether this container is floating.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.LayoutSystem">
+            <summary>
+            The root layout system within this container. This is always a split layout system.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockContainer.CanShowCollapsed">
+            <summary>
+            Indicates whether the container is capable of showing collapsed layout systems.
+            </summary>
+            <remarks>
+            <para>A DockContainer is capable of showing collapsed layout systems if it docked to one of the sides of its container using standard Windows
+            Forms docking.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandDock.DockLocation">
+            <summary>
+            A location at which a DockControl can be opened.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockLocation.Left">
+            <summary>
+            Docked to the left of the parent form.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockLocation.Right">
+            <summary>
+            Docked to the right of the parent form.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockLocation.Top">
+            <summary>
+            Docked at the top of the parent form.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockLocation.Bottom">
+            <summary>
+            Docked at the bottom of the parent form.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockLocation.Float">
+            <summary>
+            In a floating window on the desktop.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockLocation.Center">
+            <summary>
+            Docked in the centre of the form.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DockControl">
+            <summary>
+            A control to be used in a docking layout.
+            </summary>
+            <remarks>
+            <para>DockControl instances are grouped together in ControlLayoutSystems. They can act as containers to other controls.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DockControl.#ctor">
+            <summary>
+            Initializes a new instance of the DockControl class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.#ctor(System.Windows.Forms.Control,System.String)">
+            <summary>
+            Initializes a new instance of the DockControl class, containing the specified control and with the specified text.
+            </summary>
+            <param name="control">The control to contain.</param>
+            <param name="text">The text of the control.</param>
+        </member>
+        <member name="M:TD.SandDock.DockControl.FromForm(System.Windows.Forms.Form)">
+            <summary>
+            Create a new DockControl that hosts an existing form.
+            </summary>
+            <param name="form">The form to host.</param>
+            <returns>The newly created DockControl.</returns>
+        </member>
+        <member name="M:TD.SandDock.DockControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.Float(System.Drawing.Rectangle)">
+            <summary>
+            Causes the DockControl to take up its floating position at the bounds specified, undocking from its present container if necessary.
+            </summary>
+            <param name="bounds">The screen bounds at which to show the floating window.</param>
+            <remarks>
+            If the control is already part of a floating layout, an InvalidOperationException will be thrown. Therefore you should always check
+            the IsFloating property before calling this method.
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DockControl.Float">
+            <summary>
+            Causes the DockControl to take up its floating position, undocking from its present container if necessary.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.Open">
+            <summary>
+            Opens the DockControl at its last known location.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.Open(TD.SandDock.DockLocation)">
+            <summary>
+            Opens the DockControl at the specified location.
+            </summary>
+            <param name="dockLocation">The location at which to open the DockControl.</param>
+            <remarks>
+            <para>This method ensures that the DockControl is visible. If it does not have a container it is given one according to its last known placement.
+            Focus is not given to the control except in the case where the control is part of a collapsed layout system.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DockControl.Close">
+            <summary>
+            Hides the DockControl, whatever its status.
+            </summary>
+            <remarks>
+            <para>This method removes the DockControl from its parent layout system. If the DockControl is floating and is the only control in the floating
+            window, the control is not removed and the floating window is simply hidden.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DockControl.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Raises the Closing event.
+            </summary>
+            <param name="e">The arguments for the event.</param>
+        </member>
+        <member name="M:TD.SandDock.DockControl.OnClosed(System.EventArgs)">
+            <summary>
+            Raises the Closed event.
+            </summary>
+            <param name="e">The arguments for the event.</param>
+        </member>
+        <member name="M:TD.SandDock.DockControl.OnBeforeFirstShown(System.EventArgs)">
+            <summary>
+            Raises the BeforeFirstShown event.
+            </summary>
+            <param name="e">The arguments for the event.</param>
+        </member>
+        <member name="M:TD.SandDock.DockControl.Activate">
+            <summary>
+            Shows the control and sets focus to it.
+            </summary>
+            <remarks>
+            <para>This method ensures the control is the selected one within the parent layout system and then sets focus to it.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DockControl.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.PerformDock">
+            <summary>
+            Moves the DockControl back to its last recorded docked position, if floating.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.PerformDock(TD.SandDock.ControlLayoutSystem)">
+            <summary>
+            Moves this DockControl in to the specified layout system and selects it.
+            </summary>
+            <param name="layoutSystem">The layout system to move this control in to.</param>
+        </member>
+        <member name="M:TD.SandDock.DockControl.PerformDock(TD.SandDock.ControlLayoutSystem,System.Int32)">
+            <summary>
+            Moves this DockControl in to the specified layout system, at the specified index, and selects it.
+            </summary>
+            <param name="layoutSystem">The layout system to move this control in to.</param>
+            <param name="index">The offset at which to place the tab for this control.</param>
+        </member>
+        <member name="M:TD.SandDock.DockControl.OnFontChanged(System.EventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DockControl.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="E:TD.SandDock.DockControl.Closing">
+            <summary>
+            Raised when the dockable window is about to be closed.
+            </summary>
+            <remarks>
+            This event is always raised in response to either the user closing the control, or programmatically using the Close method. Its event arguments
+            provide a means to cancel the close.
+            </remarks>
+        </member>
+        <member name="E:TD.SandDock.DockControl.Closed">
+            <summary>
+            Raised when the dockable window has just been closed.
+            </summary>
+        </member>
+        <member name="E:TD.SandDock.DockControl.BeforeFirstShown">
+            <summary>
+            Raised just before the control becomes the selected one for the first time.
+            </summary>
+            <remarks>
+            <para>This event facilitates deferred loading of complex controls by making it possible to keep your DockControl empty until it first becomes the selected
+            control in its parent layout system. You can then load its child controls only when needed, speeding up initial application load.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockControl.Dock">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.DisplayRectangle">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.PersistState">
+            <summary>
+            Indicates whether the location of the DockControl will be included in layout serialization.
+            </summary>
+            <remarks>
+            <para>Use this property when you are using temporary or incidental dockable windows at runtime that you do not wish to be included in layout
+            information persisted via a call to GetLayout.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockControl.BorderStyle">
+            <summary>
+            The type of border to be drawn around the control.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.LayoutSystem">
+            <summary>
+            The ControlLayoutSystem the DockControl belongs to.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.Manager">
+            <summary>
+            The SandDockManager instance associated with the DockControl.
+            </summary>
+            <remarks>
+            <para>If any form of docking will be used, it is essential that all DockControls know about the SandDockManager object responsible for
+            managing the docked layout. This property is automatically assigned to when a DockControl is first added to a DockContainer that knows
+            about the manager.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockControl.Guid">
+            <summary>
+            A unique identifier for this dockable window.
+            </summary>
+            <remarks>
+            <para>Dockable windows need unique identifiers for layout serialization purposes. If any windows have the same identifier serialization will not
+            work correctly. The identifier can also be used to find windows.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockControl.IsFloating">
+            <summary>
+            Indicates whether the DockControl is in a floating container.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.IsInContainer">
+            <summary>
+            Indicates whether the DockControl is in a dock container.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.IsOpen">
+            <summary>
+            Indicates whether the DockControl is visible at any location on the screen.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.BackColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.ForeColor">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.FloatingSize">
+            <summary>
+            Indicates the default size this control will assume when floating on its own.
+            </summary>
+            <remarks>
+            If the control is a part of a group of controls, the size of the group will be used instead of the control.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockControl.FloatingLocation">
+            <summary>
+            Indicates the location of the floating window that will contain this control.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.Floatable">
+            <summary>
+            Indicates whether the user will be able to float the DockControl.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.Closable">
+            <summary>
+            Indicates whether this control will be closable by the user.
+            </summary>
+            <remarks>
+            When this property is set to true, a close button will be displayed in the titlebar of the layout system containing this control when the control is selected.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockControl.Collapsible">
+            <summary>
+            Indicates whether the user will be able to put this control in to auto-hide mode.
+            </summary>
+            <remarks>
+            <para>If all DockControls in a control layout system have this property set to true, a pushpin button will be displayed in the titlebar of the layout system
+            containing this control when the control is selected.</para>
+            <para>Control layout systems are "pinned" by default. Pressing the pushpin button will "unpin" the layout system and it will collapse in to a thin bar
+            alongside the edge of the containing DockContainer. It can be retrieved by clicking on or hovering over the buttons in this bar.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DockControl.ToolTipText">
+            <summary>
+            Gets or sets the text that appears as a ToolTip for the control tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.TabText">
+            <summary>
+            The text to display on the tab for the DockControl. This can be different to the standard text, shown in titlebars.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.Text">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.TabBounds">
+            <summary>
+            The bounds of the tab that represents the DockControl within its parent layout system.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControl.TabImage">
+            <summary>
+            The image displayed for this control on docking tabs.
+            </summary>
+            <remarks>
+            If this parameter is set to a null reference, the default tab image (the SandDock logo) is used. For this reason, this parameter should ideally always
+            be set.
+            </remarks>
+        </member>
+        <member name="T:TD.SandDock.DocumentContainer">
+            <summary>
+            An extended DockContainer tailored for standalone use with documents.
+            </summary>
+            <remarks>
+            <para>This class extends the DockContainer class with methods for tracking and managing documents on a single level, irrespective of the
+            hierarchy the documents may actually occupy.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.#ctor">
+            <summary>
+            Initializes a new instance of the DocumentContainer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.AddDocument(TD.SandDock.DockControl)">
+            <summary>
+            Adds a new document to the document container.
+            </summary>
+            <param name="control">The document to add.</param>
+            <remarks>
+            <para>This method adds the specified document to the first DocumentLayoutSystem it finds in the container. If there are no DocumentLayoutSystems,
+            one is created.</para>
+            </remarks>
+            <exception cref="T:System.ArgumentException">Thrown if the specified document already belongs to the document container.</exception>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.RemoveDocument(TD.SandDock.DockControl)">
+            <summary>
+            Removes a document from the document container.
+            </summary>
+            <param name="control">The document to remove.</param>
+            <remarks>
+            <para>This method removes the specified document from its parent layout system, and also removes the layout system if it contains no more
+            documents.</para>
+            </remarks>
+            <exception cref="T:System.ArgumentException">Thrown if the specified document does not exist in the document container.</exception>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.OnActiveDocumentChanged(TD.SandDock.ActiveDocumentEventArgs)">
+            <summary>
+            Raises the ActiveDocumentChanged event.
+            </summary>
+            <param name="e">An ActiveDocumentEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.OnDocumentClosing(TD.SandDock.DocumentClosingEventArgs)">
+            <summary>
+            Raises the DocumentClosing event.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:TD.SandDock.DocumentContainer.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="E:TD.SandDock.DocumentContainer.ActiveDocumentChanged">
+            <summary>
+            Raised when the active document changes.
+            </summary>
+            <remarks>
+            This event should be used to enable or disable user interface features that depend on which document is active within the control. Because many
+            documents can be displayed at once in the control (when the layout is split) this property always returns the last one that had the focus.
+            </remarks>
+        </member>
+        <member name="E:TD.SandDock.DocumentContainer.DocumentClosing">
+            <summary>
+            Raised when a document is about to be closed.
+            </summary>
+            <remarks>
+            This event is fired in addition to the document's Closing event when the user attempts to close a document. Both events have arguments that allow
+            the close operation to be cancelled. This event is fired before the Closing event of the document in question.
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.Documents">
+            <summary>
+            Gets an array containing all the documents that belong to the document container.
+            </summary>
+            <remarks>
+            <para>A new array is created and populated on every access to this property.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.ActiveDocument">
+            <summary>
+            The document that is currently active within the control.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.KeyboardNavigation">
+            <summary>
+            Indicates whether the ctrl-tab and ctrl-shift-tab sequences will navigate between documents.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.BorderStyle">
+            <summary>
+            The type of border to be drawn around the control.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.DisplayRectangle">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.DefaultSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.Dock">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentContainer.Renderer">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.SandDockLanguage">
+            <summary>
+            Contains global text strings used by SandDock in rendering.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.SandDockLanguage.ScrollRightText">
+            <summary>
+            The text displayed in the tooltip for scroll right buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.SandDockLanguage.ScrollLeftText">
+            <summary>
+            The text displayed in the tooltip for scroll left buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.SandDockLanguage.CloseText">
+            <summary>
+            The text displayed in the tooltip for close buttons.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.SandDockLanguage.AutoHideText">
+            <summary>
+            The text displayed in the tooltip for autohide buttons.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.SandDockManager">
+            <summary>
+            The manager class in charge of a SandDock layout.
+            </summary>
+            <remarks>
+            <para>The SandDockManager class is responsible for linking together the many DockContainers that make up a SandDock layout. DockContainers
+            should not exist without being bound to one.</para>
+            <para>This class provides a central location for global properties that affect rendering, docking hints and layout persistance.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.#ctor">
+            <summary>
+            Initializes a new instance of the SandDockManager class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.OnShowControlContextMenu(TD.SandDock.ShowControlContextMenuEventArgs)">
+            <summary>
+            Raises the ShowControlContextMenu event.
+            </summary>
+            <param name="e">A ShowControlContextMenuEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.SetLayout(System.String)">
+            <summary>
+            Loads a layout of docked and floating windows from a string previously obtained from the GetLayout method.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.GetLayout">
+            <summary>
+            Creates a string representing the current layout of docked and floating windows.
+            </summary>
+            <returns>A string containing layout information.</returns>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.GetDockControls">
+            <summary>
+            Gets all DockControls known by the manager.
+            </summary>
+            <returns>An array containing the controls.</returns>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.Dispose(System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.OnDockingStarted(System.EventArgs)">
+            <summary>
+            Raises the DockingStarted event.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="M:TD.SandDock.SandDockManager.OnDockingFinished(System.EventArgs)">
+            <summary>
+            Raises the DockingFinished event.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="E:TD.SandDock.SandDockManager.DockingStarted">
+            <summary>
+            Raised when the user starts dragging a control or layout system.
+            </summary>
+            <remarks>
+            This event can be used to present the user (via a statusbar or similar) with some helpful text describing how to manipulate controls in a redocking
+            operation.
+            </remarks>
+        </member>
+        <member name="E:TD.SandDock.SandDockManager.DockingFinished">
+            <summary>
+            Raised when a docking or dragging operation has been completed.
+            </summary>
+        </member>
+        <member name="E:TD.SandDock.SandDockManager.ShowControlContextMenu">
+            <summary>
+            Raised when the context menu for a DockControl should be shown.
+            </summary>
+        </member>
+        <member name="E:TD.SandDock.SandDockManager.DockControlActivated">
+            <summary>
+            Raised when a new dockable window receives the input focus.
+            </summary>
+            <remarks>
+            <para>This event should be used instead of the standard Enter or GotFocus events as it caters for floating windows as well as docked.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.SandDockManager.DockingHints">
+            <summary>
+            Indicates the type of visual artifacts drawn to the screen to indicate size and position while docking.
+            </summary>
+            <remarks>
+            <para>While any kind of moving, docking or resizing operation is in progress artifacts are drawn to the screen to show the potential impact of
+            committing the layout change. SandDock supports more than one style of artifact, and this property controls which is active.</para>
+            <para>The default is TranslucentFill, which masks the area with a translucent selection colour. This option is only available on Windows 2000 and
+            later operating systems. If running on a previous operating system, SandDock will revert to the RubberBand drawing style.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.SandDockManager.DockingManager">
+            <summary>
+            Indicates the method of user interaction during a docking operation.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.SandDockManager.OwnerForm">
+            <summary>
+            The form that owns the SandDock hierarchy this manager is responsible for.
+            </summary>
+            <remarks>
+            <para>This property must be set to ensure correct behaviour of the layout system as SandDock depends on certain events raised by the form. You
+            can only set this property once.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.SandDockManager.Renderer">
+            <summary>
+            The renderer used to calculate object metrics and draw contents.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.SandDockManager.Site">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DockingManager">
+            <summary>
+            A method of user interaction during docking operations.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockingManager.Standard">
+            <summary>
+            Locations of docked windows are governed by pointing to different locations within existing layout systems.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockingManager.Whidbey">
+            <summary>
+            Locations of docked windows are governed by using popup windows with arrows.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DockSide">
+            <summary>
+            A side of a DockControl to potentially dock an object to.
+            </summary>
+            <remarks>
+            <para>When None is used, the object is docked alongside the DockControl with tabs displayed to choose between them.</para>
+            </remarks>
+        </member>
+        <member name="F:TD.SandDock.DockSide.Top">
+            <summary>
+            The object will be docked above the DockControl.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockSide.Bottom">
+            <summary>
+            The object will be docked below the DockControl.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockSide.Left">
+            <summary>
+            The object will be docked to the left of the DockControl.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockSide.Right">
+            <summary>
+            The object will be docked to the right of the DockControl.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockSide.None">
+            <summary>
+            The object will be docked at the same level as the DockControl.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DockingHints">
+            <summary>
+            A style of artifact drawing used to show docking and resizing status.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockingHints.RubberBand">
+            <summary>
+            A reversible "rubber band" rectangle is drawn. This is made up of small dots that XOR the pixel beneath them.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.DockingHints.TranslucentFill">
+            <summary>
+            A translucent area is drawn. This effect is only available on Windows 2000 and later operating systems.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.ControlLayoutSystem">
+            <summary>
+            A layout system for grouping DockControls together.
+            </summary>
+            <remarks>
+            <para>All DockControls must belong to a ControlLayoutSystem instance to be shown. These layout systems are responsible for grouping together
+            one or more DockControls and drawing tabs to choose between them. They are also responsible for drawing titlebars and system buttoms.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandDock.LayoutSystemBase">
+            <summary>
+            The base class for SandDock layout systems.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.SetWorkingSize(System.Drawing.Size)">
+            <summary>
+            Sets the working size of this layout system.
+            </summary>
+            <param name="size">The size the layout system should adopt.</param>
+            <remarks>
+            <para>This is an advanced method for controlling the individual sizes of layout systems. This method has no immediate effect - you should set the
+            sizes of all layout systems required (taking account of splitter space between them) then call the LayoutChildren method on your DockContainer.</para>
+            <para>When layout is calculated the working size is adjusted so that all layout systems are inflated or deflated to proportionally occupy all available
+            space in the DockContainer. Therefore you can safely pass zero for the dimension that will be ignored - for example the width in layout systems within a
+            horizontally-split layout system.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Occurs when an object is dragged over the layout system's bounds.
+            </summary>
+            <param name="drgevent">A DragEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Occurs when the mouse is moved within the bounds of this layout system.
+            </summary>
+            <param name="e">A MouseEventArgs representing the current state of the mouse cursor.</param>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.OnMouseLeave">
+            <summary>
+            Occurs when the mouse is moved out of the bounds of this layout system.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.OnMouseDoubleClick">
+            <summary>
+            Occurs when the primary mouse button is double clicked within the bounds of the layout system.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Occurs when a mouse button is pressed within the bounds of this layout system.
+            </summary>
+            <param name="e">A MouseEventArgs representing the current state of the mouse cursor.</param>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Occurs when a mouse button is released within the bounds of this layout system.
+            </summary>
+            <param name="e">A MouseEventArgs representing the current state of the mouse cursor.</param>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.Layout(TD.SandDock.Rendering.RendererBase,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Instructs the layout system to lay out its children.
+            </summary>
+            <param name="renderer">The renderer currently in use in the container.</param>
+            <param name="graphics">A Graphics object to perform measurement calculations with.</param>
+            <param name="bounds">The boundaries of this layout system within the container.</param>
+            <param name="floating">Indicates whether titlebars should be omitted. This is usually false.</param>
+        </member>
+        <member name="M:TD.SandDock.LayoutSystemBase.Dispose">
+            <summary>
+            Causes the layout system to be removed from its parent and releases referenced objects.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.LayoutSystemBase.DockContainer">
+            <summary>
+            The dock container at the top of the layout system hierarchy.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.LayoutSystemBase.IsInContainer">
+            <summary>
+            Indicates whether the layout system is in a DockContainer.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.LayoutSystemBase.Parent">
+            <summary>
+            The layout system above this one in the heirarchy. This will usually be of type SplitLayoutSystem.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.LayoutSystemBase.Bounds">
+            <summary>
+            Retrieves the boundaries of this layout system within the container.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.#ctor">
+            <summary>
+            Initializes a new instance of the ControlLayoutSystem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the ControlLayoutSystem class, with the specified initial dimensions.
+            </summary>
+            <param name="desiredWidth">The desired width of this layout system, in pixels.</param>
+            <param name="desiredHeight">The desired height of this layout system, in pixels.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.#ctor(System.Int32,System.Int32,TD.SandDock.DockControl[],TD.SandDock.DockControl)">
+            <summary>
+            Initializes a new instance of the ControlLayoutSystem class, with the specified initial dimensions, and with the specified child controls.
+            </summary>
+            <param name="desiredWidth">The desired width of this layout system, in pixels.</param>
+            <param name="desiredHeight">The desired height of this layout system, in pixels.</param>
+            <param name="controls">An array of DockControls to populate this layout system with.</param>
+            <param name="selectedControl">The control to be made selected.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.ClosePopup">
+            <summary>
+            Closes the popup for this layout system, if it is showing.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnCloseButtonClick(System.EventArgs)">
+            <summary>
+            Called when the close button is clicked.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnPinButtonClick">
+            <summary>
+            Called when the pin button is clicked.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnMouseDoubleClick">
+            <summary>
+            Overridden
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnMouseLeave">
+            <summary>
+            Overridden
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnControlEnter(TD.SandDock.DockControl)">
+            <summary>
+            Called when the focus enters one of the controls that belongs to the layout system.
+            </summary>
+            <param name="control">The control that received focus.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.OnControlLeave(TD.SandDock.DockControl)">
+            <summary>
+            Called when the focus leaves one of the controls that belongs to the layout system.
+            </summary>
+            <param name="control">The control that lost focus.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.CreateNewLayoutSystem(System.Int32,System.Int32,TD.SandDock.DockControl[],TD.SandDock.DockControl)">
+            <summary>
+            Creates a new layout system based on the current one.
+            </summary>
+            <returns>The new layout system.</returns>
+            <remarks>
+            <para>Sometimes a layout system needs to be duplicated. An example of this is when a single control is dragged off to split the layout system
+            in two. When this happens a new layout system of the same type as the existing one needs to be created.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.CreateNewLayoutSystem">
+            <summary>
+            Creates a new layout system based on the current one.
+            </summary>
+            <returns>The new layout system.</returns>
+            <remarks>
+            <para>Sometimes a layout system needs to be duplicated. An example of this is when a single control is dragged off to split the layout system
+            in two. When this happens a new layout system of the same type as the existing one needs to be created.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.SplitForLayoutSystem(TD.SandDock.LayoutSystemBase,TD.SandDock.DockSide)">
+            <summary>
+            Splits this layout and moves another one in to the specified side.
+            </summary>
+            <remarks>
+            <para>This method should be used to programmatically split an existing control layout system to receive another layout system. If the requested
+            split would result in a split with a different orientation than the parent, this layout system is removed from the parent and replaced with a new
+            split layout system to contain both layout systems.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.Float(TD.SandDock.SandDockManager,System.Drawing.Rectangle)">
+            <summary>
+            Moves the control layout system in to a new floating container.
+            </summary>
+            <param name="manager">The manager responsible for this layout.</param>
+            <param name="bounds">The desktop bounds of the floating window, in pixels.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.Float(TD.SandDock.SandDockManager)">
+            <summary>
+            Moves the unparented control layout system in to a new floating container.
+            </summary>
+            <param name="manager">The manager responsible for this layout.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.Dock(TD.SandDock.ControlLayoutSystem)">
+            <summary>
+            Moves this layout system in to an existing layout system.
+            </summary>
+            <param name="layoutSystem">The layout system to move in to.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.Dock(TD.SandDock.ControlLayoutSystem,System.Int32)">
+            <summary>
+            Moves this layout system in to an existing layout system, at the specified offset.
+            </summary>
+            <param name="layoutSystem">The layout system to move in to.</param>
+            <param name="index">The offset of the new tabs in the existing layout system.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.GetControlAt(System.Drawing.Point)">
+            <summary>
+            Retrieves the dock control with a tab at the specified position.
+            </summary>
+            <param name="position">The location, in client coordinates, to search.</param>
+            <returns>The dock control found. If no dock control was found, a null reference is returned.</returns>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.LayoutCollapsed(TD.SandDock.Rendering.RendererBase,System.Drawing.Rectangle)">
+            <summary>
+            Calculates the regions of the constituent parts of the control layout system when it is collapsed.
+            </summary>
+            <param name="renderer">The renderer from which object metrics can be calculated.</param>
+            <param name="bounds">The region occupied by the layout system.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.CalculateLayout(TD.SandDock.Rendering.RendererBase,System.Drawing.Rectangle,System.Boolean,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Calculates the regions of the constituent parts of the control layout system.
+            </summary>
+            <param name="renderer">The renderer to use to measure items.</param>
+            <param name="bounds">The region occupied by the layout system.</param>
+            <param name="floating">Whether the layout system is floating.</param>
+            <param name="titlebarBounds">The region occupied by the titlebar.</param>
+            <param name="tabstripBounds">The region occupied by the tabstrip.</param>
+            <param name="clientBounds">The region occupied by the client area.</param>
+            <param name="joinCatchmentBounds">The region that will accept other layout systems when they are dragged over it.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.Layout(TD.SandDock.Rendering.RendererBase,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.Dispose">
+            <summary>
+            Overridden. Removes all controls from the layout system and disposes them.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ControlLayoutSystem.LockControls">
+            <summary>
+            Gets/sets a value indicating whether the user will be prevented from initiating docking operations from this layout system.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ControlLayoutSystem.IsPoppedUp">
+            <summary>
+            Indicates whether the layout system is popped up, if in a collapsed state.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ControlLayoutSystem.Controls">
+            <summary>
+            A DockControlCollection representing the collection of controls contained within the layout system.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ControlLayoutSystem.Collapsed">
+            <summary>
+            Indicates whether the layout system is collapsed (in auto-hide mode).
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ControlLayoutSystem.SelectedControl">
+            <summary>
+            The dock control that is selected within the layout system.
+            </summary>
+            <remarks>
+            <para>Only one dock control can be visible in a control layout system at one time. The tab for the selected dock control is drawn in a selected
+            stage. This can be set to a null reference, but it is not recommended to do so.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandDock.ControlLayoutSystem.DockControlCollection">
+            <summary>
+            A collection of dock controls belonging to a ControlLayoutSystem.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.SetChildIndex(TD.SandDock.DockControl,System.Int32)">
+            <summary>
+            Used to move an existing dock control to a new offset in the collection.
+            </summary>
+            <param name="control">The control that needs to be moved.</param>
+            <param name="index">The new tab offset for the control.</param>
+            <remarks>
+            <para>The control's offset in the collection governs the order in which its tab is displayed in the tabstrip.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.OnClear">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.OnClearComplete">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.OnInsertComplete(System.Int32,System.Object)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.OnRemoveComplete(System.Int32,System.Object)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.AddRange(TD.SandDock.DockControl[])">
+            <summary>
+            Adds an array of dock controls in to the collection.
+            </summary>
+            <param name="controls">The array of controls to add.</param>
+            <remarks>
+            <para>When adding more than one control at a time to the collection you should use this method, as layout logic is postponed until after the
+            whole batch had been added.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.Add(TD.SandDock.DockControl)">
+            <summary>
+            Adds a dock control to the collection.
+            </summary>
+            <param name="control">The control to add.</param>
+            <returns>The new index of the control in the collection.</returns>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.Insert(System.Int32,TD.SandDock.DockControl)">
+            <summary>
+            Inserts a dock control in to the collection at a given offset.
+            </summary>
+            <param name="index">The position to insert the control at.</param>
+            <param name="control">The control to insert.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.Remove(TD.SandDock.DockControl)">
+            <summary>
+            Removes the specified dock control from the collection.
+            </summary>
+            <param name="control">The control to remove.</param>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.Contains(TD.SandDock.DockControl)">
+            <summary>
+            Examines the collection to see if it contains the specified dock control.
+            </summary>
+            <param name="control">The control to look for.</param>
+            <returns>A value indicating whether the control was found.</returns>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.IndexOf(TD.SandDock.DockControl)">
+            <summary>
+            Returns the index of a dock control in the collection.
+            </summary>
+            <param name="control">The control to look for.</param>
+            <returns>The index of the dock control if found; otherwise -1.</returns>
+        </member>
+        <member name="M:TD.SandDock.ControlLayoutSystem.DockControlCollection.CopyTo(TD.SandDock.DockControl[],System.Int32)">
+            <summary>
+            Copies the contents of the collection in to the given array, starting at the specified offset.
+            </summary>
+            <param name="array">The array to be copied in to.</param>
+            <param name="index">The index to start at.</param>
+        </member>
+        <member name="P:TD.SandDock.ControlLayoutSystem.DockControlCollection.Item(System.Int32)">
+            <summary>
+            Returns the dock control at the specified index in the collection.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DocumentLayoutSystem">
+            <summary>
+            A layout system for presenting DockControls in a tabbed mdi interface.
+            </summary>
+            <remarks>
+            <para>This class extends <see cref="T:TD.SandDock.ControlLayoutSystem"/> to provide tabbed mdi functionality.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.#ctor">
+            <summary>
+            Initializes a new instance of the DocumentLayoutSystem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the DocumentLayoutSystem class, with the specified initial dimensions.
+            </summary>
+            <param name="desiredWidth">The desired width of this layout system, in pixels.</param>
+            <param name="desiredHeight">The desired height of this layout system, in pixels.</param>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.#ctor(System.Int32,System.Int32,TD.SandDock.DockControl[],TD.SandDock.DockControl)">
+            <summary>
+            Initializes a new instance of the DocumentLayoutSystem class, with the specified initial dimensions, and with the specified child controls.
+            </summary>
+            <param name="desiredWidth">The desired width of this layout system, in pixels.</param>
+            <param name="desiredHeight">The desired height of this layout system, in pixels.</param>
+            <param name="controls">An array of DockControls to populate this layout system with.</param>
+            <param name="selectedControl">The control to be made selected.</param>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.CreateNewLayoutSystem(System.Int32,System.Int32,TD.SandDock.DockControl[],TD.SandDock.DockControl)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.CreateNewLayoutSystem">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.GetControlAt(System.Drawing.Point)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.OnControlEnter(TD.SandDock.DockControl)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.CalculateLayout(TD.SandDock.Rendering.RendererBase,System.Drawing.Rectangle,System.Boolean,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.DocumentLayoutSystem.Layout(TD.SandDock.Rendering.RendererBase,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentLayoutSystem.ScrollingEnabled">
+            <summary>
+            Indicates whether the left and right scrolling buttons will be shown.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentLayoutSystem.Collapsed">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentLayoutSystem.LeftPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentLayoutSystem.RightPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentLayoutSystem.SelectedControl">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.SplitLayoutSystem">
+            <summary>
+            A layout system for grouping other layout systems together.
+            </summary>
+            <remarks>
+            <para>A SandDock hierarchy consists of many dock controls grouped in to many control layout systems. These layout systems are then organised
+            by SplitLayoutSystems, with splitters in between for resizing them.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.#ctor">
+            <summary>
+            Initializes a new instance of the SplitLayoutSystem class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the ControlLayoutSystem class, with the specified initial dimensions.
+            </summary>
+            <param name="desiredWidth">The desired width of this layout system, in pixels.</param>
+            <param name="desiredHeight">The desired height of this layout system, in pixels.</param>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.#ctor(System.Int32,System.Int32,System.Windows.Forms.Orientation,TD.SandDock.LayoutSystemBase[])">
+            <summary>
+            Initializes a new instance of the ControlLayoutSystem class, with the specified initial dimensions, the specified split orientation and the specified
+            child layout systems.
+            </summary>
+            <param name="desiredWidth">The desired width of this layout system, in pixels.</param>
+            <param name="desiredHeight">The desired height of this layout system, in pixels.</param>
+            <param name="splitMode">The orientation of splitters within this layout system.</param>
+            <param name="layoutSystems">An array of layout systems to populate this layout system with.</param>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.Optimize">
+            <summary>
+            Optimizes the layout system and all its children by removing unneeded layout systems.
+            </summary>
+            <returns>A boolean value indicating whether any changes were made to the layout hierarchy.</returns>
+            <remarks>
+            <para>When repeatedly changing a complex layout hierarchy it is easy to eventually end up with layout systems that are not needed. An example of this
+            is a SplitLayoutSystem that contains other SplitLayoutSystems with the same split orientation. This method analyses the layout hierarchy and makes
+            changes to it to prune layout systems such as the above example.</para>
+            <para>This method is called internally from time to time to ensure that your layout system is as clean as possible.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.MoveToLayoutSystem(TD.SandDock.ControlLayoutSystem)">
+            <summary>
+            Moves this layout system in to a control layout system.
+            </summary>
+            <param name="layoutSystem">The control layout system to move in to.</param>
+            <remarks>
+            <para>Any split layout systems below the heirarchy are removed and their control layout systems flattened prior to being added to the control
+            layout system.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.MoveToLayoutSystem(TD.SandDock.ControlLayoutSystem,System.Int32)">
+            <summary>
+            Moves this layout system in to a control layout system, at the specified offset.
+            </summary>
+            <param name="layoutSystem">The control layout system to move in to.</param>
+            <param name="index">The offset of the new tabs in the existing layout system.</param>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.Layout(TD.SandDock.Rendering.RendererBase,System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.Dispose">
+            <summary>
+            Overridden. Removes all child layout systems from the layout system and disposes them.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.SplitLayoutSystem.SplitMode">
+            <summary>
+            The orientation of the splitters within this layout system.
+            </summary>
+            <remarks>
+            <para>Splitters can be horizontal (default) or vertical. With horizontal splitters, child layout systems are laid out vertically one by one down the
+            parent layout system. With vertical splitters they are laid out horizontally.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.SplitLayoutSystem.LayoutSystems">
+            <summary>
+            The child layout systems belonging to this layout system.
+            </summary>
+            <remarks>
+            <para>Child layout systems are laid out according to the SplitMode property, with splitters between them.</para>
+            </remarks>
+        </member>
+        <member name="T:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection">
+            <summary>
+            A collection of layout systems belonging to a split layout system.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.OnClear">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.OnClearComplete">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.OnInsertComplete(System.Int32,System.Object)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.OnRemoveComplete(System.Int32,System.Object)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.AddRange(TD.SandDock.LayoutSystemBase[])">
+            <summary>
+            Adds an array of layout systems in to the collection.
+            </summary>
+            <param name="layoutSystems">The array of layout systems to add.</param>
+            <remarks>
+            <para>When adding more than one layout system at a time to the collection you should use this method, as layout logic is postponed until
+            after the whole batch has been added.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.Add(TD.SandDock.LayoutSystemBase)">
+            <summary>
+            Adds a layout system to the collection.
+            </summary>
+            <param name="layoutSystem">The layout system to add.</param>
+            <returns>The new index of the layout system in the collection.</returns>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.Insert(System.Int32,TD.SandDock.LayoutSystemBase)">
+            <summary>
+            Inserts a layout system in to the collection at a given offset.
+            </summary>
+            <param name="index">The position to insert the layout system at.</param>
+            <param name="layoutSystem">The layout system to insert.</param>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.Remove(TD.SandDock.LayoutSystemBase)">
+            <summary>
+            Removes the specified layout system from the collection.
+            </summary>
+            <param name="layoutSystem">The layout system to remove.</param>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.Contains(TD.SandDock.LayoutSystemBase)">
+            <summary>
+            Examines the collection to see if it contains the specified layout system.
+            </summary>
+            <param name="layoutSystem">The layout system to look for.</param>
+            <returns>A value indicating whether the layout system was found.</returns>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.IndexOf(TD.SandDock.LayoutSystemBase)">
+            <summary>
+            Returns the index of a layout system in the collection.
+            </summary>
+            <param name="layoutSystem">The layout system to look for.</param>
+            <returns>The index of the layout system if found; otherwise -1.</returns>
+        </member>
+        <member name="M:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.CopyTo(TD.SandDock.LayoutSystemBase[],System.Int32)">
+            <summary>
+            Copies the contents of the collection in to the given array, starting at the specified offset.
+            </summary>
+            <param name="array">The array to be copied in to.</param>
+            <param name="index">The index to start at.</param>
+        </member>
+        <member name="P:TD.SandDock.SplitLayoutSystem.LayoutSystemBaseCollection.Item(System.Int32)">
+            <summary>
+            Returns the layout system at the specified index in the collection.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.BoxEdges">
+            <summary>
+            Represents the measurements of the edges of a container.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.BoxEdges.#ctor">
+            <summary>
+            Initializes a new instance of the BoxEdges class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.BoxEdges.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the BoxEdges class, with the specified dimensions.
+            </summary>
+            <param name="left">The left dimension.</param>
+            <param name="top">The top dimension.</param>
+            <param name="right">The right dimension.</param>
+            <param name="bottom">The bottom dimension.</param>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxEdges.Left">
+            <summary>
+            The left dimension.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxEdges.Top">
+            <summary>
+            The top dimension.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxEdges.Right">
+            <summary>
+            The right dimension.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxEdges.Bottom">
+            <summary>
+            The bottom dimension.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.BoxModel">
+            <summary>
+            Represents a "box" modelled with width, height, margin and padding metrics.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.BoxModel.#ctor">
+            <summary>
+            Initializes a new instance of the BoxModel class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.BoxModel.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the BoxModel class, with the specified measurements.
+            </summary>
+            <param name="width">The width of the box.</param>
+            <param name="height">The height of the box.</param>
+            <param name="paddingLeft">The left padding dimension.</param>
+            <param name="paddingTop">The top padding dimension.</param>
+            <param name="paddingRight">The right padding dimension.</param>
+            <param name="paddingBottom">The bottom padding dimension.</param>
+            <param name="marginLeft">The left margin dimension.</param>
+            <param name="marginTop">The top margin dimension.</param>
+            <param name="marginRight">The right margin dimension.</param>
+            <param name="marginBottom">The bottom margin dimension.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.BoxModel.RemovePadding(System.Drawing.Rectangle)">
+            <summary>
+            Adjusts the specified rectangle to account for the configured padding values.
+            </summary>
+            <param name="source">The rectangle to adjust.</param>
+            <returns>A new rectangle without space taken up with padding.</returns>
+        </member>
+        <member name="M:TD.SandDock.Rendering.BoxModel.RemoveMargin(System.Drawing.Rectangle)">
+            <summary>
+            Adjusts the specified rectangle to account for the configured margin values.
+            </summary>
+            <param name="source">The rectangle to adjust.</param>
+            <returns>A new rectangle without space taken up with margin.</returns>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxModel.ExtraWidth">
+            <summary>
+            Gets the width to add to a measurement, governed by the left and right margin and padding values.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxModel.ExtraHeight">
+            <summary>
+            Gets the height to add to a measurement, governed by the top and bottom margin and padding values.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxModel.InnerSize">
+            <summary>
+            Gets the size of the box, without the margin values.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxModel.Height">
+            <summary>
+            Gets/sets the height of the box.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxModel.Width">
+            <summary>
+            Gets/sets the width of the box.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxModel.Margin">
+            <summary>
+            Gets/sets the margin of the box.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.BoxModel.Padding">
+            <summary>
+            Gets/sets the padding of the box.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.EverettRenderer">
+            <summary>
+            Provides a renderer that mimics the appearance of Microsoft Visual Studio.NET 2003.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.RendererBase">
+            <summary>
+            Provides a base class for renders to drive from.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.#ctor">
+            <summary>
+            Initializes a new instance of the RendererBase class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.Dispose">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.InterpolateColors(System.Drawing.Color,System.Drawing.Color,System.Single)">
+            <summary>
+            Mixes two colours together to form a new colour.
+            </summary>
+            <param name="color1">The first source colour.</param>
+            <param name="color2">The second source colour.</param>
+            <param name="percentage">A value that lies between 0 and 1, 0 being the first colour and 1 being the second.</param>
+            <returns>The new colour produced after mixing.</returns>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.CalculateBaseColors">
+            <summary>
+            Calculates the base colours used by the renderer, based on the current Windows colour scheme or visual style.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.MeasureDocumentStripTab(System.Drawing.Graphics,System.Drawing.Image,System.String,System.Drawing.Font,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Measures a document strip tab in order to find the minimum required size.
+            </summary>
+            <param name="graphics">The Graphics object to measure with.</param>
+            <param name="image">The image of the document tab.</param>
+            <param name="text">The text of the document tab.</param>
+            <param name="font">The font to render text with.</param>
+            <param name="state">The state of the document tab.</param>
+            <returns>The minimum size of the document tab.</returns>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawDocumentStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of a document strip.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawControlClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Draws the background of the client area of a control.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="backColor">The background colour of the selected control.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawDocumentClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Draws the background of the client area of a document.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="backColor">The background colour of the selected document.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawDocumentStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws a tab in a document strip.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds occupied by the tab.</param>
+            <param name="image">The image associated with the tab.</param>
+            <param name="text">The text associated with the tab.</param>
+            <param name="font">The font to draw text with.</param>
+            <param name="backColor">The background colour of the tab.</param>
+            <param name="foreColor">The foreground colour of the tab.</param>
+            <param name="state">The state of the tab.</param>
+            <param name="drawSeparator">Whether to draw a separator after the tab.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawDocumentContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of a <see cref="T:TD.SandDock.DocumentContainer"/>.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds occupied by the control.</param>
+            <remarks>
+            <para>Implementors should ensure that all the region given is painted within this method. It is safe to use the Graphics.Clear method.</para>
+            </remarks>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawDocumentStripButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Draws a button on a document strip.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The region occupied by the button.</param>
+            <param name="buttonType">The type of button to draw.</param>
+            <param name="state">The state of the button.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.StartRenderSession">
+            <summary>
+            Initializes any drawing objects used during the render process.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawDockContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of a dock container.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawTabStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32)">
+            <summary>
+            Draws the background of a tabstrip within a control layout system.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="selectedTabOffset">The offset, in pixels, of the selected tab within this tabstrip along the x axis.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawSplitter(System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.Orientation)">
+            <summary>
+            Draws a splitter.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The region occupied by the splitter.</param>
+            <param name="orientation">The orientation of the splitter.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawTabStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws a tab in a tabstrip within a control layout system.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="image">The image associated with this tab.</param>
+            <param name="text">The text associated with this tab.</param>
+            <param name="font">The font to draw the text with.</param>
+            <param name="backColor">The background colour of the tab.</param>
+            <param name="foreColor">The foreground colour of the tab.</param>
+            <param name="state">The state of the tab. This is equal to DrawItemState.Default by default.</param>
+            <param name="drawSeparator">Whether to draw a separator at the right of this tab.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawCollapsedBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background of the area occupied by collapsed control layout systems.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawCollapsedTab(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.DockSide,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Draws a tab within the area occupied by collapsed control layout systems.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="dockSide">The orientation of this tab. This will never be DockSide.None.</param>
+            <param name="image">The image associated with this tab.</param>
+            <param name="text">The text associated with this tab. This will be a zero-length string unless the tab is selected.</param>
+            <param name="font">The font to draw the text with.</param>
+            <param name="backColor">The background colour of the tab.</param>
+            <param name="foreColor">The foreground colour of the tab.</param>
+            <param name="state">The state of the tab. This is equal to DrawItemState.Default by default.</param>
+            <param name="vertical">Whether this tab is drawn vertically.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws the background of a titlebar within a control layout system.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="focused">Whether the titlebar is drawn in an active state.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawTitleBarText(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.String,System.Drawing.Font)">
+            <summary>
+            Draws the text in the titlebar within a control layout system.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="focused">Whether the titlebar is drawn in an active state.</param>
+            <param name="text">The text associated with this titlebar.</param>
+            <param name="font">The font to draw the text with.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.DrawTitleBarButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState,System.Boolean,System.Boolean)">
+            <summary>
+            Draws a button in the titlebar within a control layout system.
+            </summary>
+            <param name="graphics">The Graphics object to draw with.</param>
+            <param name="bounds">The bounds to draw within.</param>
+            <param name="buttonType">The type of button to draw.</param>
+            <param name="state">The state of the button. This is equal to DrawItemState.Default by default.</param>
+            <param name="focused">Whether the titlebar is drawn in an active state.</param>
+            <param name="toggled">Whether the button is toggled.</param>
+        </member>
+        <member name="M:TD.SandDock.Rendering.RendererBase.FinishRenderSession">
+            <summary>
+            Cleans up any drawing objects used during the render process.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.CustomColors">
+            <summary>
+            Indicates whether custom colours have been configured on this renderer.
+            </summary>
+            <remarks>
+            <para>To go back to system default colours, set this property to false.</para>
+            </remarks>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.DocumentClientPadding">
+            <summary>
+            Gets the amount of padding to include around documents.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.ControlClientPadding">
+            <summary>
+            Gets the amount of padding to include around controls.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.TabStripMetrics">
+            <summary>
+            Gets the metrics of a tabstrip.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.TabMetrics">
+            <summary>
+            Gets the metrics of a tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.TitleBarMetrics">
+            <summary>
+            Gets the metrics of a title bar.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.TabTextDisplay">
+            <summary>
+            Determines what type of text to display on collapsed tabs.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.DocumentTabExtra">
+            <summary>
+            Gets the extra padding to insert before a document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.DocumentTabSize">
+            <summary>
+            Gets the height of a document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.RendererBase.DocumentTabStripSize">
+            <summary>
+            Gets the height of a document tab strip.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.#ctor">
+            <summary>
+            Initializes a new instance of the VS2003Renderer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.CalculateBaseColors">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawControlClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawDocumentClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawDocumentStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawDocumentContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.MeasureDocumentStripTab(System.Drawing.Graphics,System.Drawing.Image,System.String,System.Drawing.Font,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawDocumentStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden,
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.StartRenderSession">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawSplitter(System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.Orientation)">
+            <summary>
+            Overridden,
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawDocumentStripButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden,
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawTitleBarButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawDockContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawTabStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawTabStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawCollapsedBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawCollapsedTab(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.DockSide,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.DrawTitleBarText(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.String,System.Drawing.Font)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.FinishRenderSession">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.EverettRenderer.ToString">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.CollapsedTabOutlineColor">
+            <summary>
+            The colour to draw the outline of collapsed tabs.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.BackgroundTabForeColor">
+            <summary>
+            The colour to draw the text on non-selected tabs.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.HighlightColor">
+            <summary>
+            The colour to draw the highlights on 3d objects with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.ShadowColor">
+            <summary>
+            The colour to draw the shadows on 3d objects with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.TabStripBackgroundColor">
+            <summary>
+            The colour to draw the background of tabstrips with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.DocumentContainerBackgroundColor">
+            <summary>
+            The colour to draw the background of document containers with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.BackgroundColor">
+            <summary>
+            The colour to draw the background of dock containers with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.InactiveTitleBarColor">
+            <summary>
+            The colour to draw the background of inactive titlebars with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.ActiveTitleBarColor">
+            <summary>
+            The colours to draw the background of active titlebars with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.TabTextDisplay">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.DocumentClientPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.ControlClientPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.TitleBarMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.TabMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.TabStripMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.DocumentTabSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.DocumentTabStripSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.EverettRenderer.DocumentTabExtra">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.Office2003Renderer">
+            <summary>
+            Provides a renderer that mimics the appearance of Microsoft Office 2003.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.#ctor">
+            <summary>
+            Initializes a new instance of the Office2003Renderer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.CalculateBaseColors">
+            <summary>
+            Calculates secondary colours based on combinations of and alterations to the base colours.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.StartRenderSession">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.FinishRenderSession">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawSplitter(System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.Orientation)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawDockContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawTitleBarButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawTitleBarText(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.String,System.Drawing.Font)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawCollapsedTab(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.DockSide,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawTabStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawCollapsedBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawTabStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawControlClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawDocumentClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.MeasureDocumentStripTab(System.Drawing.Graphics,System.Drawing.Image,System.String,System.Drawing.Font,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawDocumentContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawDocumentStripButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawDocumentStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.DrawDocumentStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.Office2003Renderer.ToString">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.HighlightBorderColor">
+            <summary>
+            The colour used to draw the border of button highlights.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.HighlightBackgroundColor1">
+            <summary>
+            The colour used to draw the top of the gradient on the background of a button highlight.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.HighlightBackgroundColor2">
+            <summary>
+            The colour used to draw the bottom of the gradient on the background of a button highlight.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.BackgroundColor">
+            <summary>
+            The colour used to draw the background of a DockContainer.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.InactiveTitleBarColor1">
+            <summary>
+            The colour used to draw the top of the gradient on the background of an inactive titlebar.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.InactiveTitleBarColor2">
+            <summary>
+            The colour used to draw the bottom of the gradient on the background of an inactive titlebar.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.ActiveTitleBarColor1">
+            <summary>
+            The colour used to draw the top of the gradient on the background of an active titlebar.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.ActiveTitleBarColor2">
+            <summary>
+            The colour used to draw the bottom of the gradient on the background of an active titlebar.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.GripperColor">
+            <summary>
+            The colour used to draw the squares that represent the "gripper" on a titlebar.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.DocumentStripBackgroundColor1">
+            <summary>
+            The colour used to draw the top of the gradient on the background of a document strip.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.DocumentStripBackgroundColor2">
+            <summary>
+            The colour used to draw the top of the gradient on the background of a document strip.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.ActiveDocumentBorderColor">
+            <summary>
+            The colour used to draw the border around an active document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.InactiveDocumentBorderColor">
+            <summary>
+            The colour used to draw the border around an inactive document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.ActiveDocumentHighlightColor">
+            <summary>
+            The colour used to draw the highlight on an active document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.InactiveDocumentHighlightColor">
+            <summary>
+            The colour used to draw the highlight on an inactive document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.ActiveDocumentShadowColor">
+            <summary>
+            The colour used to draw the shadow on an active document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.InactiveDocumentShadowColor">
+            <summary>
+            The colour used to draw the shadow on an inactive document tab.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.WidgetColor">
+            <summary>
+            The colour used to draw the scroll left, scroll right and close buttons on a document strip.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.ColorScheme">
+            <summary>
+            The Office 2003 colour scheme used to render graphical elements.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.TitleBarMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.TabTextDisplay">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.TabMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.TabStripMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.DocumentClientPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.ControlClientPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.DocumentTabStripSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.DocumentTabSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.Office2003Renderer.DocumentTabExtra">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.Office2003Renderer.Office2003ColorScheme">
+            <summary>
+            A colour scheme to be used with the Office 2003 renderer.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.Office2003Renderer.Office2003ColorScheme.Automatic">
+            <summary>
+            SandDock will use the current Windows XP theme if available, otherwise fall back to standard Windows colours.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.Office2003Renderer.Office2003ColorScheme.Standard">
+            <summary>
+            SandDock will use standard windows colours.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.Office2003Renderer.Office2003ColorScheme.LunaBlue">
+            <summary>
+            SandDock will use colours from the Luna Blue theme in Windows XP.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.Office2003Renderer.Office2003ColorScheme.LunaOlive">
+            <summary>
+            SandDock will use colours from the Luna Olive theme in Windows XP.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.Office2003Renderer.Office2003ColorScheme.LunaSilver">
+            <summary>
+            SandDock will use colours from the Luna Silver theme in Windows XP.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.SandDockButtonType">
+            <summary>
+            A type of button present on titlebars in control layout systems.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.SandDockButtonType.Close">
+            <summary>
+            A close button.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.SandDockButtonType.Pin">
+            <summary>
+            A pushpin button.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.SandDockButtonType.ScrollLeft">
+            <summary>
+            A left-facing scroll button.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.SandDockButtonType.ScrollRight">
+            <summary>
+            A right-facing scroll button.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.TabTextDisplayMode">
+            <summary>
+            A method of displaying text on collapsed tabs.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.TabTextDisplayMode.AllTabs">
+            <summary>
+            Text is displayed on all tabs in a layout system.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.TabTextDisplayMode.SelectedTab">
+            <summary>
+            Text is only displayed on the selected tab in a layout system.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.BorderStyle">
+            <summary>
+            A type of border that can be drawn around a control.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.BorderStyle.None">
+            <summary>
+            Do not draw a border.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.BorderStyle.Flat">
+            <summary>
+            Draw a thin line.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.BorderStyle.RaisedThick">
+            <summary>
+            Draw a thick line with a raised appearance.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.BorderStyle.RaisedThin">
+            <summary>
+            Draw a thin line with a raised appearance.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.BorderStyle.SunkenThick">
+            <summary>
+            Draw a thick line with a sunken appearance.
+            </summary>
+        </member>
+        <member name="F:TD.SandDock.Rendering.BorderStyle.SunkenThin">
+            <summary>
+            Draw a thin line with a sunken appearance.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.Rendering.WhidbeyRenderer">
+            <summary>
+            Provides a renderer that mimics the appearance of Microsoft Visual Studio.NET 2005.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.#ctor">
+            <summary>
+            Initializes a new instance of the WhidbeyRenderer class.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawControlClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawDocumentClientBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawDocumentStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawDocumentStripButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.MeasureDocumentStripTab(System.Drawing.Graphics,System.Drawing.Image,System.String,System.Drawing.Font,System.Windows.Forms.DrawItemState)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawDocumentContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawDocumentStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.CalculateBaseColors">
+            <summary>
+            Calculates secondary colours based on combinations of and alterations to the base colours.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.StartRenderSession">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawSplitter(System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.Orientation)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawDockContainerBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawTabStripBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawTabStripTab(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawCollapsedBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawCollapsedTab(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.DockSide,System.Drawing.Image,System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.Windows.Forms.DrawItemState,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawTitleBarButton(System.Drawing.Graphics,System.Drawing.Rectangle,TD.SandDock.Rendering.SandDockButtonType,System.Windows.Forms.DrawItemState,System.Boolean,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawTitleBarBackground(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.DrawTitleBarText(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean,System.String,System.Drawing.Font)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.FinishRenderSession">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:TD.SandDock.Rendering.WhidbeyRenderer.ToString">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.DocumentClientPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.ControlClientPadding">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.DocumentStripBackgroundColor">
+            <summary>
+            Gets/sets the colour used to draw the background of a document strip.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.DocumentTabSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.DocumentTabStripSize">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.DocumentTabExtra">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.TabOutlineColor">
+            <summary>
+            The colour to draw the outline of tabs with.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.TitleBarMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.TabMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.TabStripMetrics">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.Rendering.WhidbeyRenderer.TabTextDisplay">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DockControlEventHandler">
+            <summary>
+            Represents a method that will handle events with associated DockControls.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DocumentClosingEventHandler">
+            <summary>
+            Represents the method that will handle events that require a document as a parameter.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DocumentClosingEventArgs">
+            <summary>
+            Provides event data describing a document that is about to be closed.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.DockControlEventArgs">
+            <summary>
+            Provides event data describing a DockControl.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DockControlEventArgs.DockControl">
+            <summary>
+            The DockControl associated with this event.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.DocumentClosingEventArgs.Cancel">
+            <summary>
+            Gets/sets whether to cancel the operation that would normally follow this event.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.ShowControlContextMenuEventHandler">
+            <summary>
+            Represents the method that will handle the ShowControlContextMenu event.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.ShowControlContextMenuEventArgs">
+            <summary>
+            Provides event data describing how to show a context menu for a DockControl.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ShowControlContextMenuEventArgs.Position">
+            <summary>
+            The position, in DockContainer client coordinates, to show the context menu.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.ActiveDocumentEventHandler">
+            <summary>
+            Represents the method that will handle the ActiveDocumentChanged event.
+            </summary>
+        </member>
+        <member name="T:TD.SandDock.ActiveDocumentEventArgs">
+            <summary>
+            Provides event data describing a change of active document.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ActiveDocumentEventArgs.PreviousActiveDocument">
+            <summary>
+            The document that was active before the change took place.
+            </summary>
+        </member>
+        <member name="P:TD.SandDock.ActiveDocumentEventArgs.NewActiveDocument">
+            <summary>
+            The document that is now active.
+            </summary>
+        </member>
+    </members>
+</doc>

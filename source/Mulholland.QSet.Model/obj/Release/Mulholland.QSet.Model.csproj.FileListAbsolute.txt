@@ -1,0 +1,9 @@
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\bin\Release\Mulholland.QSet.Model.dll
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\bin\Release\Mulholland.Core.dll
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\bin\Release\Mulholland.QSet.Resources.dll
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\bin\Release\Mulholland.WinForms.dll
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\obj\Release\ResolveAssemblyReference.cache
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\obj\Release\Mulholland.QSet.Model.QSetMessageQueue.resources
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\obj\Release\ResGen.read.1.tlog
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\obj\Release\ResGen.write.1.tlog
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Model\obj\Release\Mulholland.QSet.Model.dll

@@ -1,0 +1,7 @@
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Resources\bin\Release\Mulholland.QSet.Resources.dll
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Resources\bin\Release\Mulholland.Core.dll
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Resources\obj\Release With Setup\ResolveAssemblyReference.cache
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Resources\obj\Release With Setup\Mulholland.QSet.Resources.Images.resources
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Resources\obj\Release With Setup\ResGen.read.1.tlog
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Resources\obj\Release With Setup\ResGen.write.1.tlog
+D:\MulhollandSource\NameSpaces\Mulholland.QSet.Resources\obj\Release With Setup\Mulholland.QSet.Resources.dll
