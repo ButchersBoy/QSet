@@ -200,28 +200,40 @@ namespace Mulholland.QSet.Application
 
 			if (WindowsForms.MessageBox.Show(_primaryForms.EnvironmentForm, confirmationMessage, Locale.ApplicationName, WindowsForms.MessageBoxButtons.YesNoCancel, WindowsForms.MessageBoxIcon.Question, WindowsForms.MessageBoxDefaultButton.Button3) == WindowsForms.DialogResult.Yes)
 			{
-				VisualizableProcess process = new VisualizableProcess(Locale.UserMessages.PurgingQueue, false);
-				try
-				{													
-					_primaryObjects.ProcessVisualizer.ProcessStarting(process);
-					queue.Purge();													
-				}
-				catch (Exception exc)
-				{
-					WindowsForms.MessageBox.Show(_primaryForms.EnvironmentForm, string.Format(Locale.UserMessages.UnableToPurgeQueue, exc.Message), Locale.ApplicationName, WindowsForms.MessageBoxButtons.OK, WindowsForms.MessageBoxIcon.Exclamation);
-				}
-				finally
-				{
-					_primaryObjects.ProcessVisualizer.ProcessCompleted(process);							
-				}										
-			}
+                PurgeQueueWithoutPrompt(queueItem);
+
+            }
 		}
 
-
-		/// <summary>
-		/// Displays a dialogue to the user, allowing them to create a new queue.
+        /// <summary>
+		/// Pugres the queue contents from the QSetQueueItem.
 		/// </summary>
-		public void CreateQueue()
+		/// <param name="queueItem">Item which contains the quue to be purged.</param>
+		public void PurgeQueueWithoutPrompt(QSetQueueItem queueItem)
+        {
+            QSetMessageQueue queue = queueItem.QSetMessageQueue;
+
+            VisualizableProcess process = new VisualizableProcess(Locale.UserMessages.PurgingQueue, false);
+            try
+            {
+                _primaryObjects.ProcessVisualizer.ProcessStarting(process);
+                queue.Purge();
+            }
+            catch (Exception exc)
+            {
+                WindowsForms.MessageBox.Show(_primaryForms.EnvironmentForm, string.Format(Locale.UserMessages.UnableToPurgeQueue, exc.Message), Locale.ApplicationName, WindowsForms.MessageBoxButtons.OK, WindowsForms.MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                _primaryObjects.ProcessVisualizer.ProcessCompleted(process);
+            }
+        }
+
+
+        /// <summary>
+        /// Displays a dialogue to the user, allowing them to create a new queue.
+        /// </summary>
+        public void CreateQueue()
 		{
 			NewQueueForm newQueueForm = new NewQueueForm();
 			newQueueForm.ShowDialog(_primaryForms.EnvironmentForm);

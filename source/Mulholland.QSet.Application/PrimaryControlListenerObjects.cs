@@ -210,14 +210,16 @@ namespace Mulholland.QSet.Application
 		/// <param name="e"></param>
 		private void QSetMenuItem_Activate(object sender, EventArgs e)
 		{
-			if (sender == MenuItemBag.QSetAddActiveQueue)
-				base.TaskManager.AddActiveQueueToQSet();
-			else if (sender == MenuItemBag.QSetDeleteItem)
-				base.TaskManager.DeleteActiveItemFromQSet();
-			else if (sender == MenuItemBag.QSetNewFolder)
-				base.TaskManager.AddNewFolderToQSet();
-			else if (sender == MenuItemBag.QSetRenameFolder)
-				base.TaskManager.EditActiveQSetFolder();
+            if (sender == MenuItemBag.QSetAddActiveQueue)
+                base.TaskManager.AddActiveQueueToQSet();
+            else if (sender == MenuItemBag.QSetDeleteItem)
+                base.TaskManager.DeleteActiveItemFromQSet();
+            else if (sender == MenuItemBag.QSetNewFolder)
+                base.TaskManager.AddNewFolderToQSet();
+            else if (sender == MenuItemBag.QSetRenameFolder)
+                base.TaskManager.EditActiveQSetFolder();
+            else if (sender == MenuItemBag.QSetPurgeAllQueues)
+                base.TaskManager.PurgeAllQueuesFromQSet();
 		}
 
 

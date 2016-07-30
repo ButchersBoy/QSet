@@ -135,8 +135,10 @@ namespace Mulholland.QSet.Application
 			//MenuItemBag.QSetAddActiveQueue.Enabled = (state.IsQSetOpen && (state.IsQSetActiveItemFolder || state.IsQSetActiveItemQSet) && !state.IsQSetActiveItemMachine && state.IsMessageBrowserActive && !state.IsMessageBrowserQueueChildOfActiveQSetItem);
 			MenuItemBag.QSetNewFolder.Enabled = (state.IsQSetOpen && (state.IsQSetActiveItemFolder || state.IsQSetActiveItemQSet) && !state.IsQSetActiveItemMachine);
 			MenuItemBag.QSetRenameFolder.Enabled = (state.IsQSetOpen && (state.IsQSetActiveItemFolder || state.IsQSetActiveItemQSet || state.IsQSetActiveItemWebService) && !state.IsQSetActiveItemMachine);
-			MenuItemBag.QSetDeleteItem.Enabled = (state.IsQSetOpen && !state.IsQSetActiveItemQSet && !state.IsQSetParentItemMachine);			
-		}
+			MenuItemBag.QSetDeleteItem.Enabled = (state.IsQSetOpen && !state.IsQSetActiveItemQSet && !state.IsQSetParentItemMachine);
+
+            MenuItemBag.QSetPurgeAllQueues.Enabled = (state.IsQSetOpen && !state.IsQSetActiveItemQSet && !state.IsQSetParentItemMachine);
+        }
 
 
 		private void SetQueueMenuState(EnvironmentState state)
