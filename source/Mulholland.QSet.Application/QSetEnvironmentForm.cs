@@ -186,5 +186,110 @@ namespace Mulholland.QSet.Application
             if (!_environmentCoordinator.HasShutDown)
                 e.Cancel = !_environmentCoordinator.ShutDown();
         }
+
+        private void fileNewQSetToolButton_Click(object sender, EventArgs e)
+        {
+            fileNewQSetMenuButton.PerformClick();
+        }
+
+        private void fileOpenQSetToolButton_Click(object sender, EventArgs e)
+        {
+            fileOpenQSetMenuButton.PerformClick();
+        }
+
+        private void fileSaveQSetToolButton_Click(object sender, EventArgs e)
+        {
+            fileSaveQSetAsMenuButton.PerformClick();
+        }
+
+        private void fileNewMessageToolButton_Click(object sender, EventArgs e)
+        {
+            fileNewMessageMenuButton.PerformClick();
+        }
+
+        private void qSetAddActiveQueueToolButton_Click(object sender, EventArgs e)
+        {
+            qSetAddActiveQueueMenuButton.PerformClick();
+        }
+
+        private void viewQSetExplorerToolButton_Click(object sender, EventArgs e)
+        {
+            viewQSetExplorerMenuButton.PerformClick();
+        }
+
+        private void viewPropertiesWindowToolButton_Click(object sender, EventArgs e)
+        {
+            viewPropertiesWindowMenuButton.PerformClick();
+        }
+
+        private void viewMessageViewerToolButton_Click(object sender, EventArgs e)
+        {
+            viewMessageViewerMenuButton.PerformClick();
+        }
+
+        private void viewQSetMonitorToolButton_Click(object sender, EventArgs e)
+        {
+            viewQSetMonitorMenuButton.PerformClick();
+        }
+
+        private void qSetNewFolderToolButton_Click(object sender, EventArgs e)
+        {
+            qSetNewFolderMenuButton.PerformClick();
+        }
+
+        private void qSetRenameFolderToolButton_Click(object sender, EventArgs e)
+        {
+            qSetRenameFolderMenuButton.PerformClick();
+        }
+
+        private void queueOpenToolButton_Click(object sender, EventArgs e)
+        {
+            queueOpenMenuButton.PerformClick();
+        }
+
+        private void queueBrowseToolButton_Click(object sender, EventArgs e)
+        {
+            queueBrowseMenuButton.PerformClick();
+        }
+
+        private void queueCreateToolButton_Click(object sender, EventArgs e)
+        {
+            queueCreateMenuButton.PerformClick();
+        }
+
+        private void queueDeleteToolButton_Click(object sender, EventArgs e)
+        {
+            queueDeleteMenuButton.PerformClick();
+        }
+
+        private void queueRefreshToolButton_Click(object sender, EventArgs e)
+        {
+            queueRefreshMenuButton.PerformClick();
+        }
+
+        private void queuePurgeToolButton_Click(object sender, EventArgs e)
+        {
+            queuePurgeMenuButton.PerformClick();
+        }
+
+        private void messageNewToolButton_Click(object sender, EventArgs e)
+        {
+            messageNewMenuButton.PerformClick();
+        }
+
+        private void messageForwardToolButton_Click(object sender, EventArgs e)
+        {
+            messageForwardMenuButton.PerformClick();
+        }
+
+        private void messageMoveToolButton_Click(object sender, EventArgs e)
+        {
+            messageMoveMenuButton.PerformClick();
+        }
+
+        private void messageDeleteToolButton_Click(object sender, EventArgs e)
+        {
+            messageDeleteMenuButton.PerformClick();
+        }
     }
 }
