@@ -20,8 +20,11 @@ namespace Mulholland.QSet.Application
         public QSetEnvironmentForm()
         {
             InitializeComponent();
+
+            ConfigureEnvironment();
         }
 
+        [STAThread]
         static void Main(string[] args)
         {
             System.Windows.Forms.Application.ThreadException += new ThreadExceptionEventHandler(ApplicationExceptionHandler);
@@ -70,18 +73,6 @@ namespace Mulholland.QSet.Application
             var messageViewerForm = new MessageViewerForm(license);
             messageViewerForm.Show(this.dockPanel, DockState.DockBottom);
 
-            //queueSetExplorer = new Mulholland.QSet.Application.Controls.QSetExplorer();
-            //queueSetExplorer.Dock = DockStyle.Fill;
-            //qSetExplorerDock.Controls.Add(queueSetExplorer);
-
-            //defaultMessageViewer = new Mulholland.QSet.Application.Controls.MessageViewer(license);
-            //defaultMessageViewer.Dock = DockStyle.Fill;
-            //messageViewerDock.Controls.Add(defaultMessageViewer);
-
-            //qSetMonitor = new Mulholland.QSet.Application.Controls.QSetMonitor();
-            //qSetMonitor.Dock = DockStyle.Fill;
-            //qSetMonitorDockControl.Controls.Add(qSetMonitor);
-
             PrimaryMenus primaryMenus = new PrimaryMenus(
                 MenuItemBag.FileMenu,
                 MenuItemBag.ViewMenu,
@@ -92,8 +83,6 @@ namespace Mulholland.QSet.Application
                 MenuItemBag.HelpMenu,
                 MenuItemBag.MessageBrowserCtxMenu,
                 MenuItemBag.QSetCtxMenu);
-
-            //mainDocumentContainer.Manager = new TD.SandDock.SandDockManager();
 
             PrimaryControls primaryControls = new PrimaryControls(
                 queueSetExplorerForm.QSetExplorer,

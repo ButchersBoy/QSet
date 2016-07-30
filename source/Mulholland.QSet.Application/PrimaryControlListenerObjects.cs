@@ -134,40 +134,40 @@ namespace Mulholland.QSet.Application
 			) 
 			: base(taskManager, primaryObjects, primaryForms, primaryControls, primaryMenus) 
 		{
-			//wire up all event handlers
+            //wire up all event handlers
 
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.FileMenu.DropDownItems)			
-				if (menuItem != MenuItemBag.FileRecentFileList)
-					menuItem.Click += new EventHandler(FileMenuItem_Activate);
+            foreach (ToolStripItem item in base.PrimaryMenus.FileMenu.DropDownItems)
+            {
+                var menuItem = item as ToolStripMenuItem;
+                if (menuItem != null && menuItem != MenuItemBag.FileRecentFileList)
+                {
+                    menuItem.Click += FileMenuItem_Activate;
+                }
+            }
 
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.ViewMenu.DropDownItems)
-				menuItem.Click += new EventHandler(ViewMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.ViewMenu.DropDownItems, ViewMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.QSetMenu.DropDownItems, QSetMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.QueueMenu.DropDownItems, QueueMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.MessageMenu.DropDownItems, MessageMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.ToolsMenu.DropDownItems, ToolsMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.HelpMenu.DropDownItems, HelpMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.MessageBrowserContextMenu.Items, MessageBrowserContextMenuItem_Activate);
+            WireUpMenuEvent(base.PrimaryMenus.QSetContextMenu.Items, QSetContextMenuItem_Activate);
 
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.QSetMenu.DropDownItems)
-				menuItem.Click += new EventHandler(QSetMenuItem_Activate);
-
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.QueueMenu.DropDownItems)
-				menuItem.Click += new EventHandler(QueueMenuItem_Activate);
-
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.MessageMenu.DropDownItems)
-				menuItem.Click += new EventHandler(MessageMenuItem_Activate);
-
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.ToolsMenu.DropDownItems)
-				menuItem.Click += new EventHandler(ToolsMenuItem_Activate);
-
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.HelpMenu.DropDownItems)
-				menuItem.Click += new EventHandler(HelpMenuItem_Activate);
-
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.MessageBrowserContextMenu.Items)
-				menuItem.Click += new EventHandler(MessageBrowserContextMenuItem_Activate);
-
-			foreach (ToolStripMenuItem menuItem in base.PrimaryMenus.QSetContextMenu.Items)
-				menuItem.Click += new EventHandler(QSetContextMenuItem_Activate);
-
-
-			base.PrimaryMenus.RecentFileListChanged += new Mulholland.QSet.Application.PrimaryMenus.MenuItemsChangedEvent(PrimaryMenus_RecentFileListChanged);
+			base.PrimaryMenus.RecentFileListChanged += PrimaryMenus_RecentFileListChanged;
 		}
 
+        private static void WireUpMenuEvent(ToolStripItemCollection toolstripItems, EventHandler eventHandler)
+        {
+            foreach (ToolStripItem item in toolstripItems)
+            {
+                var menuItem = item as ToolStripMenuItem;
+                if(menuItem != null)
+                {
+                    menuItem.Click += new EventHandler(eventHandler);
+                }
+            }
+        }
 
 		/// <summary>
 		/// Wires up events listening to the recent file list.
