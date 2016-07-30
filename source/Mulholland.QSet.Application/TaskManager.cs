@@ -211,11 +211,10 @@ namespace Mulholland.QSet.Application
 					OpenQueue(new QSetQueueItem(string.Format(@"{0}\{1}", queue.MachineName, queue.QueueName))); //reformat as private queues can come out with extra data in name)
 		}
 
-
-		/// <summary>
-		/// Deletes the currently active item from the Q Set.
-		/// </summary>
-		public void DeleteActiveItemFromQSet()
+                /// <summary>
+        /// Deletes the currently active item from the Q Set.
+        /// </summary>
+        public void DeleteActiveItemFromQSet()
 		{
 			if (_primaryControls.QSetExplorer.ActiveItem != null && !(_primaryControls.QSetExplorer.ActiveItem is QSetModel))
 			{
@@ -244,11 +243,26 @@ namespace Mulholland.QSet.Application
 			}
 		}
 
+        public void PurgeAllQueuesFromQSet()
+        {
+            if (_primaryControls.QSetExplorer.ActiveItem != null && !(_primaryControls.QSetExplorer.ActiveItem is QSetModel))
+            {
+                var msg = "Are you sure you wish to purge all queues from the selected machine?";
 
-		/// <summary>
-		/// Prompts the user to select a queue, and then opens the queue in the environment.
-		/// </summary>
-		public void OpenQueue()
+                if (MessageBox.Show(_primaryForms.EnvironmentForm, msg, Locale.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    foreach(QSetQueueItem item in ((QSetFolderItem)_primaryControls.QSetExplorer.ActiveItem).ChildItems)
+                    {
+                        QueueTaskManager.PurgeQueueWithoutPrompt(item);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Prompts the user to select a queue, and then opens the queue in the environment.
+        /// </summary>
+        public void OpenQueue()
 		{
 			using (OpenQueueDialog selectQueueForm = new OpenQueueDialog())
 			{				

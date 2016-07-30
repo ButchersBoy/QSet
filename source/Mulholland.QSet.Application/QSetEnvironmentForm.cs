@@ -52,7 +52,8 @@ namespace Mulholland.QSet.Application
 		private TD.SandBar.MenuButtonItem qSetNewFolderMenuButton;
 		private TD.SandBar.MenuButtonItem qSetRenameFolderMenuButton;
 		private TD.SandBar.MenuButtonItem qSetDeleteItemMenuButton;
-		private TD.SandBar.MenuButtonItem queueOpenMenuButton;
+        private TD.SandBar.MenuButtonItem qSetPurgeAllQueuesMenuButton;
+        private TD.SandBar.MenuButtonItem queueOpenMenuButton;
 		private TD.SandBar.MenuButtonItem queueRefreshMenuButton;
 		private TD.SandBar.MenuButtonItem helpAboutMenuButton;
 		private TD.SandBar.ButtonItem fileNewQSetToolButton;
@@ -100,7 +101,8 @@ namespace Mulholland.QSet.Application
 		private TD.SandBar.MenuButtonItem qSetCtxNewFolder;
 		private TD.SandBar.MenuButtonItem qSetCtxRenameFolder;
 		private TD.SandBar.MenuButtonItem qSetCtxDeleteItem;
-		private TD.SandBar.MenuButtonItem qSetCtxDeleteQueue;
+		private TD.SandBar.MenuButtonItem qSetCtxPurgeAllQueues;
+        private TD.SandBar.MenuButtonItem qSetCtxDeleteQueue;
 		private TD.SandBar.MenuBarItem messageMenuBar;
 		private TD.SandBar.MenuButtonItem messageNewMenuButton;
 		private TD.SandBar.MenuButtonItem messageForwardMenuButton;
@@ -192,6 +194,7 @@ namespace Mulholland.QSet.Application
             this.qSetCtxNewFolder = new TD.SandBar.MenuButtonItem();
             this.qSetCtxRenameFolder = new TD.SandBar.MenuButtonItem();
             this.qSetCtxDeleteItem = new TD.SandBar.MenuButtonItem();
+            this.qSetCtxPurgeAllQueues = new TD.SandBar.MenuButtonItem();
             this.qSetCtxSendMessage = new TD.SandBar.MenuButtonItem();
             this.qSetCtxNewWebServiceClient = new TD.SandBar.MenuButtonItem();
             this.qSetCtxPurgeQueue = new TD.SandBar.MenuButtonItem();
@@ -215,6 +218,7 @@ namespace Mulholland.QSet.Application
             this.qSetNewFolderMenuButton = new TD.SandBar.MenuButtonItem();
             this.qSetRenameFolderMenuButton = new TD.SandBar.MenuButtonItem();
             this.qSetDeleteItemMenuButton = new TD.SandBar.MenuButtonItem();
+            this.qSetPurgeAllQueuesMenuButton = new TD.SandBar.MenuButtonItem();
             this.queueMenuBar = new TD.SandBar.MenuBarItem();
             this.queueOpenMenuButton = new TD.SandBar.MenuButtonItem();
             this.queueBrowseMenuButton = new TD.SandBar.MenuButtonItem();
@@ -513,6 +517,7 @@ namespace Mulholland.QSet.Application
             this.qSetCtxNewFolder,
             this.qSetCtxRenameFolder,
             this.qSetCtxDeleteItem,
+            this.qSetCtxPurgeAllQueues,
             this.qSetCtxSendMessage,
             this.qSetCtxNewWebServiceClient,
             this.qSetCtxPurgeQueue,
@@ -540,6 +545,11 @@ namespace Mulholland.QSet.Application
             // 
             this.qSetCtxDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("qSetCtxDeleteItem.Image")));
             this.qSetCtxDeleteItem.Text = "Delete Item";
+            // 
+            // qSetCtxPurgeAllQueues
+            // 
+            this.qSetCtxPurgeAllQueues.Icon = ((System.Drawing.Icon)(resources.GetObject("qSetCtxPurgeQueue.Icon")));
+            this.qSetCtxPurgeAllQueues.Text = "Purge All Queues";
             // 
             // qSetCtxSendMessage
             // 
@@ -653,7 +663,8 @@ namespace Mulholland.QSet.Application
             this.qSetAddActiveQueueMenuButton,
             this.qSetNewFolderMenuButton,
             this.qSetRenameFolderMenuButton,
-            this.qSetDeleteItemMenuButton});
+            this.qSetDeleteItemMenuButton,
+            this.qSetPurgeAllQueuesMenuButton});
             this.qSetMenuBar.Text = "Q &Set";
             // 
             // qSetAddActiveQueueMenuButton
@@ -679,6 +690,11 @@ namespace Mulholland.QSet.Application
             // 
             this.qSetDeleteItemMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("qSetDeleteItemMenuButton.Image")));
             this.qSetDeleteItemMenuButton.Text = "Delete Item";
+            //
+            // qSetPurgeAllQueuesMenuButton
+            //
+            this.qSetPurgeAllQueuesMenuButton.Icon = ((System.Drawing.Icon)(resources.GetObject("queuePurgeMenuButton.Icon")));
+            this.qSetPurgeAllQueuesMenuButton.Text = "Purge All Queues";
             // 
             // queueMenuBar
             // 
@@ -1119,6 +1135,7 @@ namespace Mulholland.QSet.Application
 			MenuItemBag.QSetNewFolder = qSetNewFolderMenuButton;
 			MenuItemBag.QSetRenameFolder = qSetRenameFolderMenuButton;
 			MenuItemBag.QSetDeleteItem = qSetDeleteItemMenuButton;
+            MenuItemBag.QSetPurgeAllQueues = qSetPurgeAllQueuesMenuButton;
 			
 			//Queue menu
 			MenuItemBag.QueueMenu = queueMenuBar;
@@ -1128,7 +1145,7 @@ namespace Mulholland.QSet.Application
 			MenuItemBag.QueueBrowse = queueBrowseMenuButton;
 			MenuItemBag.QueueRefresh = queueRefreshMenuButton;	
 			MenuItemBag.QueuePurge = queuePurgeMenuButton;
-
+            
 			//Message menu
 			MenuItemBag.MessageMenu = messageMenuBar;
 			MenuItemBag.MessageNew = messageNewMenuButton;
@@ -1159,7 +1176,8 @@ namespace Mulholland.QSet.Application
 			MenuItemBag.QSetCtxNewFolder = qSetCtxNewFolder;
 			MenuItemBag.QSetCtxRenameFolder = qSetCtxRenameFolder;
 			MenuItemBag.QSetCtxDeleteItem = qSetCtxDeleteItem;
-			MenuItemBag.QSetCtxDeleteQueue = qSetCtxDeleteQueue;
+            MenuItemBag.QSetCtxPurgeAllQueues = qSetCtxPurgeAllQueues;
+            MenuItemBag.QSetCtxDeleteQueue = qSetCtxDeleteQueue;
 			MenuItemBag.QSetCtxNewMessage = qSetCtxSendMessage;
 			MenuItemBag.QSetCtxPurgeQueue = qSetCtxPurgeQueue;
 			MenuItemBag.QSetCtxNewWebServiceClient = qSetCtxNewWebServiceClient;
