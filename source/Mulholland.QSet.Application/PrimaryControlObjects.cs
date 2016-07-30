@@ -7,6 +7,7 @@ using Mulholland.QSet.Application.WebServices;
 using Mulholland.QSet.Resources;
 using Mulholland.WinForms;
 using TD.SandBar;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Mulholland.QSet.Application
 {
@@ -292,8 +293,8 @@ namespace Mulholland.QSet.Application
 		private QSetMonitor _qSetMonitor;
 		private PropertyGrid _propertyGrid;
 		private MessageViewer _messageViewer;
-		private TD.SandDock.DocumentContainer _documentContainer;
-		private MessageBrowserCollection _messageBrowserCollection;
+        private DockPanel _dockPanel;
+        private MessageBrowserCollection _messageBrowserCollection;
 		private WebServiceClientControlCollection _webServiceClientControlCollection;
 		private Images _images;
 
@@ -311,14 +312,14 @@ namespace Mulholland.QSet.Application
 			QSetMonitor qSetMonitor,
 			PropertyGrid propertyGrid,
 			MessageViewer messageViewer,
-			TD.SandDock.DocumentContainer documentContainer,
+            DockPanel dockPanel,
 			Images images)
 		{
 			_qSetExplorer = qSetExplorer;
 			_qSetMonitor = qSetMonitor;
 			_propertyGrid = propertyGrid;
 			_messageViewer = messageViewer;
-			_documentContainer = documentContainer;		
+            _dockPanel = dockPanel;
 			_images = images;
 
 			_messageBrowserCollection = new MessageBrowserCollection();
@@ -374,14 +375,11 @@ namespace Mulholland.QSet.Application
 		}
 
 
-		/// <summary>
-		/// Gets the environment's primary DocumentContainer.
-		/// </summary>
-		public  TD.SandDock.DocumentContainer DocumentContainer
+		public DockPanel DockPanel
 		{
 			get
 			{
-				return _documentContainer;
+				return _dockPanel;
 			}
 		}
 

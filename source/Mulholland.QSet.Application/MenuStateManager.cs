@@ -213,15 +213,17 @@ namespace Mulholland.QSet.Application
 					environmentState.IsQSetParentItemQSet = _primaryControls.QSetExplorer.ActiveItem.ParentItem is QSetModel;					
 				}
 			}
-            environmentState.IsMessageBrowserActive = _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument != null &&
-                _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls.Count > 0 &&
-                _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0] is MessageBrowser;
+
+            environmentState.IsMessageBrowserActive = _primaryControls.DockPanel.ActiveDocument != null &&
+                _primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls.Count > 0 &&
+                _primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] is MessageBrowser;
+
 			if (environmentState.IsMessageBrowserActive)
 			{
-                environmentState.ActiveMessageBrowserSelectedMessageCount = ((MessageBrowser)_primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0]).SelectedItems.Count;
+                environmentState.ActiveMessageBrowserSelectedMessageCount = ((MessageBrowser)_primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0]).SelectedItems.Count;
 
 				environmentState.IsMessageBrowserQueueChildOfActiveQSetItem
-                    = environmentState.IsQSetActiveItemFolder && ((QSetFolderItem)_primaryControls.QSetExplorer.ActiveItem).ChildItems.Exists(((MessageBrowser)_primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0]).QSetQueueItem.Name);
+                    = environmentState.IsQSetActiveItemFolder && ((QSetFolderItem)_primaryControls.QSetExplorer.ActiveItem).ChildItems.Exists(((MessageBrowser)_primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0]).QSetQueueItem.Name);
 			}
 
 			return environmentState;

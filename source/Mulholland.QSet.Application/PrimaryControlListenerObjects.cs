@@ -6,6 +6,7 @@ using Mulholland.QSet.Application.Controls;
 using Mulholland.QSet.Model;
 using Mulholland.QSet.Resources;
 using Mulholland.WinForms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Mulholland.QSet.Application
 {
@@ -413,10 +414,10 @@ namespace Mulholland.QSet.Application
 			base.PrimaryControls.QSetExplorer.MessagesDragDrop += new MessagesDragDropEvent(QSetExplorer_MessagesDragDrop);
 
             
-            base.PrimaryControls.DocumentContainer.Manager.ActiveTabbedDocumentChanged += DocumentContainer_ActiveDocumentChanged;
+            base.PrimaryControls.DockPanel.ActiveDocumentChanged += DocumentContainer_ActiveDocumentChanged;
 			//TODO JW handle close
             //base.PrimaryControls.DocumentContainer.DocumentClosing += new TD.SandDock.DocumentClosingEventHandler(DocumentContainer_DocumentClosing);
-			base.PrimaryControls.DocumentContainer.MouseDown += new MouseEventHandler(DocumentContainer_MouseDown);
+			base.PrimaryControls.DockPanel.MouseDown += new MouseEventHandler(DocumentContainer_MouseDown);
 			
 			base.PrimaryControls.MessageBrowserCollection.ItemAdded += new MessageBrowserCollection.ItemAddedEvent(MessageBrowserCollection_ItemAdded);
 			base.PrimaryControls.MessageBrowserCollection.ItemRemoved += new MessageBrowserCollection.ItemRemovedEvent(MessageBrowserCollection_ItemRemoved);			
@@ -426,10 +427,10 @@ namespace Mulholland.QSet.Application
 
 			base.PrimaryControls.PropertyGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(PropertyGrid_PropertyValueChanged);
 
-			((DockControl)base.PrimaryControls.QSetExplorer.Parent).Closed += new EventHandler(DockControl_Closed);
-			((DockControl)base.PrimaryControls.PropertyGrid.Parent).Closed += new EventHandler(DockControl_Closed);
-			((DockControl)base.PrimaryControls.MessageViewer.Parent).Closed += new EventHandler(DockControl_Closed);
-			((DockControl)base.PrimaryControls.QSetMonitor.Parent).Closed += new EventHandler(DockControl_Closed);
+			((DockPane)base.PrimaryControls.QSetExplorer.Parent.Parent).Disposed += new EventHandler(DockControl_Closed);
+			((DockPane)base.PrimaryControls.PropertyGrid.Parent.Parent).Disposed += new EventHandler(DockControl_Closed);
+			((DockPane)base.PrimaryControls.MessageViewer.Parent.Parent).Disposed += new EventHandler(DockControl_Closed);
+			((DockPane)base.PrimaryControls.QSetMonitor.Parent.Parent).Disposed += new EventHandler(DockControl_Closed);
 		}
 
 
@@ -647,9 +648,9 @@ namespace Mulholland.QSet.Application
 		{
 			base.TaskManager.MenuStateManger.SetQueueMenuState();
 
-            if (base.PrimaryControls.DocumentContainer.Manager.ActiveTabbedDocument != null)
+            if (base.PrimaryControls.DockPanel.ActiveDocument != null)
 			{
-                IQSetItemControl itemControl = base.PrimaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0] as IQSetItemControl;
+                IQSetItemControl itemControl = base.PrimaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] as IQSetItemControl;
 				if (itemControl != null )
 					base.PrimaryControls.QSetExplorer.ActiveItem = itemControl.QSetItem;
 			}

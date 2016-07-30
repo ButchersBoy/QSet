@@ -41,9 +41,9 @@ namespace Mulholland.QSet.Application
 		public void ForwardSelectedMessagesFromQueue(bool delete)
 		{
 			//check we have the correct control selected to work with
-			if (_primaryControls.DocumentContainer.Manager.ActiveTabbedDocument != null)
+			if (_primaryControls.DockPanel.ActiveDocument != null)
 			{
-				MessageBrowser messageBrowser = _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0] as MessageBrowser;			
+				MessageBrowser messageBrowser = _primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] as MessageBrowser;			
 				if (messageBrowser != null && messageBrowser.SelectedItems.Count > 0)
 				{
 					//get an array of all the messages we want to forward
@@ -76,9 +76,9 @@ namespace Mulholland.QSet.Application
 			{
 
 				//check we have the correct control selected to work with
-				if (_primaryControls.DocumentContainer.Manager.ActiveTabbedDocument != null)
+				if (_primaryControls.DockPanel.ActiveDocument != null)
 				{
-                    MessageBrowser messageBrowser = _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0] as MessageBrowser;			
+                    MessageBrowser messageBrowser = _primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] as MessageBrowser;			
 					if (messageBrowser != null && messageBrowser.SelectedItems.Count > 0)
 					{
 						//confirm the delete
@@ -177,9 +177,9 @@ namespace Mulholland.QSet.Application
 		/// </summary>
 		public void RefreshActiveQueue()
 		{
-            if (_primaryControls.DocumentContainer.Manager.ActiveTabbedDocument != null)
+            if (_primaryControls.DockPanel.ActiveDocument != null)
 			{
-                MessageBrowser messageBrowser = _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0] as MessageBrowser;			
+                MessageBrowser messageBrowser = _primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] as MessageBrowser;			
 				if (messageBrowser != null)
 				{
 					messageBrowser.Refresh();

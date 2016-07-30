@@ -89,7 +89,7 @@ namespace Mulholland.QSet.Application
                 queueSetMonitorForm.QSetMonitor,
                 propertyGridForm.PropertyGrid,
                 messageViewerForm.MessageViewer,
-                null,//mainDocumentContainer,
+                this.dockPanel,
                 new Images());
 
             PrimaryForms primaryForms = new PrimaryForms(this, new QueueSearchForm());

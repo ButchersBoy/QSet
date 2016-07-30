@@ -10,6 +10,7 @@ using Mulholland.Core;
 using Mulholland.Core.Xml;
 using Mulholland.WinForms;
 using TD.SandDock;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Mulholland.QSet.Application
 {
@@ -111,9 +112,9 @@ namespace Mulholland.QSet.Application
 				if (_primaryControls.QSetExplorer.ActiveItem == null)
 					_primaryControls.QSetExplorer.ActiveItem = _primaryControls.QSetExplorer.QSet;
 
-                if (_primaryControls.DocumentContainer.Manager.ActiveTabbedDocument != null)
+                if (_primaryControls.DockPanel.ActiveDocument != null)
 				{
-                    MessageBrowser messageBrowser = _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0] as MessageBrowser;			
+                    MessageBrowser messageBrowser = _primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] as MessageBrowser;			
 					if (messageBrowser != null)
 					{
 						QSetFolderItem folderItem = _primaryControls.QSetExplorer.ActiveItem as QSetFolderItem;
@@ -136,9 +137,9 @@ namespace Mulholland.QSet.Application
 		/// </summary>
 		public void PurgeActiveQueue()
 		{
-            if (_primaryControls.DocumentContainer.Manager.ActiveTabbedDocument != null)
+            if (_primaryControls.DockPanel.ActiveDocument != null)
 			{
-                MessageBrowser messageBrowser = _primaryControls.DocumentContainer.Manager.ActiveTabbedDocument.Controls[0] as MessageBrowser;			
+                MessageBrowser messageBrowser = _primaryControls.DockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] as MessageBrowser;			
 				if (messageBrowser != null)
 				{
 					QueueTaskManager.PurgeQueue(messageBrowser.QSetQueueItem);					
@@ -679,24 +680,24 @@ namespace Mulholland.QSet.Application
 		/// </summary>
 		private void DoCloseQSet()
 		{
-			foreach (DockControl dockControl in _primaryControls.DocumentContainer.Manager.Documents)
+			foreach (IDockContent dockControl in _primaryControls.DockPanel.Documents)
 			{
-				MessageBrowser messageBrowser = dockControl.Controls[0] as MessageBrowser;
+				MessageBrowser messageBrowser = dockControl.DockHandler.PanelPane.Controls[0] as MessageBrowser;
 				if (messageBrowser != null)
 				{
 					if (messageBrowser.QSetQueueItem.ParentItem != null)
 					{
 						_primaryControls.MessageBrowserCollection.Remove(messageBrowser.QSetQueueItem.ID.ToString());
-						dockControl.Close();						
+						dockControl.DockHandler.Close();						
 					}
 				}
 				else
 				{
-					WebServiceClientControl webServiceClientControl = dockControl.Controls[0] as WebServiceClientControl;
+					WebServiceClientControl webServiceClientControl = dockControl.DockHandler.PanelPane.Controls[0] as WebServiceClientControl;
 					if (webServiceClientControl != null)
 					{
 						_primaryControls.WebServiceClientControlCollection.Remove(webServiceClientControl.QSetItem.ID.ToString());
-						dockControl.Close();
+						dockControl.DockHandler.Close();
 					}
 				}
 			}
@@ -825,9 +826,9 @@ namespace Mulholland.QSet.Application
 		/// <param name="item">Item which we want to activate.</param>
 		public void BringDocumentToFront(QSetItemBase item)
 		{
-			DockControl dockControl = FindDocument(item);
+            IDockContent dockControl = FindDocument(item);
 			if (dockControl != null)
-				dockControl.Activate();
+				dockControl.DockHandler.Activate();
 		}
 
 
@@ -836,13 +837,13 @@ namespace Mulholland.QSet.Application
 		/// </summary>
 		/// <param name="item">Item for which document we are looking for.</param>
 		/// <returns>DockControl if found, else null.</returns>
-		public DockControl FindDocument(QSetItemBase item)
+		public IDockContent FindDocument(QSetItemBase item)
 		{
-			DockControl result = null;
+            IDockContent result = null;
 
-			foreach(DockControl dockControl in _primaryControls.DocumentContainer.Manager.Documents)				
+			foreach(IDockContent dockControl in _primaryControls.DockPanel.Documents)				
 			{
-				IQSetItemControl itemControl = dockControl.Controls[0] as IQSetItemControl;
+				IQSetItemControl itemControl = dockControl.DockHandler.PanelPane.Controls[0] as IQSetItemControl;
 				if (itemControl != null && itemControl.QSetItem == item)
 				{					
 					result = dockControl;					
@@ -860,33 +861,34 @@ namespace Mulholland.QSet.Application
 		/// <param name="qsetQueueItem">QSetQueueItem to display.</param>
 		/// <returns>The added DockControl hosting the MessageBrowser if successful, else false.</returns>
 		private DockControl LoadNewMessageBrowser(QSetQueueItem qsetQueueItem)
-		{									
-			DockControl newDockControl = null;
+		{
+            //DockControl newDockControl = null;
 
-			//set up a new message browser, and create adock for it
-			MessageBrowser messageBrowser = new MessageBrowser();
-			messageBrowser.UserSettings = _primaryObjects.UserSettings;
-			_primaryControls.MessageBrowserCollection.Add(qsetQueueItem.ID.ToString(), messageBrowser);
-            newDockControl = new TabbedDocument(_primaryControls.DocumentContainer.Manager, messageBrowser, qsetQueueItem.Name);
-            newDockControl.Open();		
-			messageBrowser.ImageList = _primaryControls.Images.Icon16ImageList;
-			
-			//pass the qsetitem to the message browser to load the queue
-			try
-			{
-				messageBrowser.QSetQueueItem = qsetQueueItem;
-				newDockControl.Activate();
-			}
-			catch (Exception exc)
-			{
-				_primaryObjects.ProcessVisualizer.SeizeCursor(Cursors.Arrow);
-				MessageBox.Show(exc.Message, Locale.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				_primaryObjects.ProcessVisualizer.ReleaseCursor();
-				newDockControl.Close();
-				newDockControl = null;
-			}
-					
-			return newDockControl;
+            ////set up a new message browser, and create adock for it
+            //MessageBrowser messageBrowser = new MessageBrowser();
+            //messageBrowser.UserSettings = _primaryObjects.UserSettings;
+            //_primaryControls.MessageBrowserCollection.Add(qsetQueueItem.ID.ToString(), messageBrowser);
+            //         newDockControl = new TabbedDocument(_primaryControls.DocumentContainer.Manager, messageBrowser, qsetQueueItem.Name);
+            //         newDockControl.Open();		
+            //messageBrowser.ImageList = _primaryControls.Images.Icon16ImageList;
+
+            ////pass the qsetitem to the message browser to load the queue
+            //try
+            //{
+            //	messageBrowser.QSetQueueItem = qsetQueueItem;
+            //	newDockControl.Activate();
+            //}
+            //catch (Exception exc)
+            //{
+            //	_primaryObjects.ProcessVisualizer.SeizeCursor(Cursors.Arrow);
+            //	MessageBox.Show(exc.Message, Locale.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //	_primaryObjects.ProcessVisualizer.ReleaseCursor();
+            //	newDockControl.Close();
+            //	newDockControl = null;
+            //}
+
+            //return newDockControl;
+            return null;
 		}
 
 		#endregion

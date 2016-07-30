@@ -80,9 +80,9 @@ namespace Mulholland.QSet.Application
 			webServiceClientControl.QSetWebServiceItem = webServiceItem;
 			_primaryControls.WebServiceClientControlCollection.Add(webServiceItem.ID.ToString(), webServiceClientControl);
 
-            DockControl newDockControl = new TabbedDocument(_primaryControls.DocumentContainer.Manager, webServiceClientControl, webServiceItem.Name);
-            newDockControl.Open();
-			newDockControl.Activate();
+   //         DockControl newDockControl = new TabbedDocument(_primaryControls.DocumentContainer.Manager, webServiceClientControl, webServiceItem.Name);
+   //         newDockControl.Open();
+			//newDockControl.Activate();
 		}
 	}
 }
