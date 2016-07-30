@@ -28,7 +28,6 @@ namespace Mulholland.QSet.Application
 		/// <param name="primaryForms">Primary forms.</param>
 		/// <param name="primaryObjects">Primary objects.</param>
 		public EnvironmentCoordinator(
-			QSetEnvironmentForm qSetEnvironmentForm, 
 			PrimaryMenus primaryMenus, 
 			PrimaryControls primaryControls,
 			PrimaryForms primaryForms,

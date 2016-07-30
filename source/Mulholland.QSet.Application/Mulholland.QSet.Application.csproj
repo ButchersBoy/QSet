@@ -187,6 +187,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DockPanelSuite.2.10.0\lib\net20\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutForm.cs">
@@ -270,8 +274,16 @@
     <Compile Include="PrimaryObjects.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QSetEnvironmentForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSetEnvironmentForm.Designer.cs">
+      <DependentUpon>QSetEnvironmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="QueueSearchForm.cs">
       <SubType>Form</SubType>
@@ -341,6 +353,10 @@
       <DependentUpon>OptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="QSetEnvironmentForm.resx">
       <DependentUpon>QSetEnvironmentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +368,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Mulholland.Applications.QSet.exe.manifest" />
+    <None Include="packages.config" />
     <None Include="SignReleaseExe.bat" />
     <None Include="Version History.txt" />
   </ItemGroup>

@@ -262,18 +262,18 @@ namespace Mulholland.QSet.Application
 		/// <param name="maximumListSize">The maximum size of the list.</param>
 		public void RefreshRecentFilesList(StringCollection recentFiles, int maximumListSize)
 		{
-			MenuItemBag.FileRecentFileList.Items.Clear();
+			//MenuItemBag.FileRecentFileList.Items.Clear();
 
-			for (int file = 0; file < (recentFiles.Count < maximumListSize ? recentFiles.Count : maximumListSize); file ++)
-			{
-				MenuButtonItem recentFileButton = new MenuButtonItem(string.Format("&{0} {1}", file + 1, recentFiles[file]));
-				recentFileButton.Tag = recentFiles[file];
-				MenuItemBag.FileRecentFileList.Items.Add(recentFileButton);
-			}
+			//for (int file = 0; file < (recentFiles.Count < maximumListSize ? recentFiles.Count : maximumListSize); file ++)
+			//{
+			//	MenuButtonItem recentFileButton = new MenuButtonItem(string.Format("&{0} {1}", file + 1, recentFiles[file]));
+			//	recentFileButton.Tag = recentFiles[file];
+			//	MenuItemBag.FileRecentFileList.Items.Add(recentFileButton);
+			//}
 			
-			MenuItemBag.FileRecentFileList.Visible = (MenuItemBag.FileRecentFileList.Items.Count > 0);
+			//MenuItemBag.FileRecentFileList.Visible = (MenuItemBag.FileRecentFileList.Items.Count > 0);
 
-			OnRecentFileListChanged(new PrimaryMenus.MenuItemsChangedEventArgs(MenuItemBag.FileRecentFileList));
+			//OnRecentFileListChanged(new PrimaryMenus.MenuItemsChangedEventArgs(MenuItemBag.FileRecentFileList));
 		}
 	}
 

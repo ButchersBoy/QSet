@@ -136,9 +136,9 @@ namespace Mulholland.QSet.Application
 		{
 			//wire up all event handlers
 
-			foreach (MenuItemBase menuItem in base.PrimaryMenus.FileMenu.Items)			
-				if (menuItem != MenuItemBag.FileRecentFileList)
-					menuItem.Activate += new EventHandler(FileMenuItem_Activate);				
+			//foreach (MenuItemBase menuItem in base.PrimaryMenus.FileMenu.Items)			
+			//	if (menuItem != MenuItemBag.FileRecentFileList)
+			//		menuItem.Activate += new EventHandler(FileMenuItem_Activate);				
 
 			foreach (MenuItemBase menuItem in base.PrimaryMenus.ViewMenu.Items)
 				menuItem.Activate += new EventHandler(ViewMenuItem_Activate);
@@ -174,8 +174,8 @@ namespace Mulholland.QSet.Application
 		/// </summary>
 		private void WireUpRecentFileListEvents()
 		{
-			foreach(MenuItemBase menuItem in MenuItemBag.FileRecentFileList.Items)
-				menuItem.Activate += new EventHandler(RecentFileListItem_Activate);
+			//foreach(MenuItemBase menuItem in MenuItemBag.FileRecentFileList.Items)
+			//	menuItem.Activate += new EventHandler(RecentFileListItem_Activate);
 		}
 
 

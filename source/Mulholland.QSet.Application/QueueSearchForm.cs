@@ -257,459 +257,462 @@ namespace Mulholland.QSet.Application
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(QueueSearchForm));
-			this.okButton = new System.Windows.Forms.Button();
-			this.cancelButton = new System.Windows.Forms.Button();
-			this.searchOptionsGroupBox = new System.Windows.Forms.GroupBox();
-			this.searchEntireNetworkCheckBox = new System.Windows.Forms.CheckBox();
-			this.privateQueuesCheckBox = new System.Windows.Forms.CheckBox();
-			this.categoryCheckBox = new System.Windows.Forms.CheckBox();
-			this.labelCheckBox = new System.Windows.Forms.CheckBox();
-			this.machineNameCheckBox = new System.Windows.Forms.CheckBox();
-			this.modifiedAfterLabel = new System.Windows.Forms.Label();
-			this.modifiedAfterDateTimePicker = new System.Windows.Forms.DateTimePicker();
-			this.modifiedBeforeLabel = new System.Windows.Forms.Label();
-			this.modifiedBeforeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-			this.createdBeforeLabel = new System.Windows.Forms.Label();
-			this.createdBeforeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-			this.createdAfterLabel = new System.Windows.Forms.Label();
-			this.createdAfterDateTimePicker = new System.Windows.Forms.DateTimePicker();
-			this.categoryTextBox = new System.Windows.Forms.TextBox();
-			this.categoryLabel = new System.Windows.Forms.Label();
-			this.labelLabel = new System.Windows.Forms.Label();
-			this.labelTextBox = new System.Windows.Forms.TextBox();
-			this.machineNameLabel = new System.Windows.Forms.Label();
-			this.machineNameTextBox = new System.Windows.Forms.TextBox();
-			this.includeLabel1 = new System.Windows.Forms.Label();
-			this.stopButton = new System.Windows.Forms.Button();
-			this.searchButton = new System.Windows.Forms.Button();
-			this.statusBar = new System.Windows.Forms.StatusBar();
-			this.mainStatusBarPanel = new System.Windows.Forms.StatusBarPanel();
-			this.selectedLabel = new System.Windows.Forms.Label();
-			this.resultsLabel = new System.Windows.Forms.Label();
-			this.resultsPanel = new System.Windows.Forms.Panel();
-			this.resultsTreeView = new System.Windows.Forms.TreeView();
-			this.resultsSplitter = new System.Windows.Forms.Splitter();
-			this.selectedListView = new System.Windows.Forms.ListView();
-			this.searchOptionsGroupBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.mainStatusBarPanel)).BeginInit();
-			this.resultsPanel.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// okButton
-			// 
-			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.okButton.Location = new System.Drawing.Point(364, 409);
-			this.okButton.Name = "okButton";
-			this.okButton.TabIndex = 6;
-			this.okButton.Text = "&OK";
-			this.okButton.Click += new System.EventHandler(this.okButton_Click);
-			// 
-			// cancelButton
-			// 
-			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.cancelButton.Location = new System.Drawing.Point(444, 409);
-			this.cancelButton.Name = "cancelButton";
-			this.cancelButton.TabIndex = 7;
-			this.cancelButton.Text = "&Cancel";
-			this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-			// 
-			// searchOptionsGroupBox
-			// 
-			this.searchOptionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.searchOptionsGroupBox.Controls.Add(this.searchEntireNetworkCheckBox);
-			this.searchOptionsGroupBox.Controls.Add(this.privateQueuesCheckBox);
-			this.searchOptionsGroupBox.Controls.Add(this.categoryCheckBox);
-			this.searchOptionsGroupBox.Controls.Add(this.labelCheckBox);
-			this.searchOptionsGroupBox.Controls.Add(this.machineNameCheckBox);
-			this.searchOptionsGroupBox.Controls.Add(this.modifiedAfterLabel);
-			this.searchOptionsGroupBox.Controls.Add(this.modifiedAfterDateTimePicker);
-			this.searchOptionsGroupBox.Controls.Add(this.modifiedBeforeLabel);
-			this.searchOptionsGroupBox.Controls.Add(this.modifiedBeforeDateTimePicker);
-			this.searchOptionsGroupBox.Controls.Add(this.createdBeforeLabel);
-			this.searchOptionsGroupBox.Controls.Add(this.createdBeforeDateTimePicker);
-			this.searchOptionsGroupBox.Controls.Add(this.createdAfterLabel);
-			this.searchOptionsGroupBox.Controls.Add(this.createdAfterDateTimePicker);
-			this.searchOptionsGroupBox.Controls.Add(this.categoryTextBox);
-			this.searchOptionsGroupBox.Controls.Add(this.categoryLabel);
-			this.searchOptionsGroupBox.Controls.Add(this.labelLabel);
-			this.searchOptionsGroupBox.Controls.Add(this.labelTextBox);
-			this.searchOptionsGroupBox.Controls.Add(this.machineNameLabel);
-			this.searchOptionsGroupBox.Controls.Add(this.machineNameTextBox);
-			this.searchOptionsGroupBox.Controls.Add(this.includeLabel1);
-			this.searchOptionsGroupBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.searchOptionsGroupBox.Location = new System.Drawing.Point(8, 32);
-			this.searchOptionsGroupBox.Name = "searchOptionsGroupBox";
-			this.searchOptionsGroupBox.Size = new System.Drawing.Size(512, 148);
-			this.searchOptionsGroupBox.TabIndex = 3;
-			this.searchOptionsGroupBox.TabStop = false;
-			this.searchOptionsGroupBox.Text = "Search Options";
-			// 
-			// searchEntireNetworkCheckBox
-			// 
-			this.searchEntireNetworkCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.searchEntireNetworkCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.searchEntireNetworkCheckBox.Location = new System.Drawing.Point(92, 16);
-			this.searchEntireNetworkCheckBox.Name = "searchEntireNetworkCheckBox";
-			this.searchEntireNetworkCheckBox.Size = new System.Drawing.Size(136, 20);
-			this.searchEntireNetworkCheckBox.TabIndex = 19;
-			this.searchEntireNetworkCheckBox.Text = "Search &Entire Network?";
-			this.searchEntireNetworkCheckBox.CheckedChanged += new System.EventHandler(this.searchEntireNetworkCheckBox_CheckedChanged);
-			// 
-			// privateQueuesCheckBox
-			// 
-			this.privateQueuesCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.privateQueuesCheckBox.Location = new System.Drawing.Point(92, 68);
-			this.privateQueuesCheckBox.Name = "privateQueuesCheckBox";
-			this.privateQueuesCheckBox.Size = new System.Drawing.Size(144, 16);
-			this.privateQueuesCheckBox.TabIndex = 4;
-			this.privateQueuesCheckBox.Text = "Private Queues Only?";
-			this.privateQueuesCheckBox.CheckedChanged += new System.EventHandler(this.privateQueuesCheckBox_CheckedChanged);
-			// 
-			// categoryCheckBox
-			// 
-			this.categoryCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.categoryCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.categoryCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.categoryCheckBox.Location = new System.Drawing.Point(264, 112);
-			this.categoryCheckBox.Name = "categoryCheckBox";
-			this.categoryCheckBox.Size = new System.Drawing.Size(16, 21);
-			this.categoryCheckBox.TabIndex = 10;
-			this.categoryCheckBox.CheckedChanged += new System.EventHandler(this.searchCheckBox_CheckedChanged);
-			// 
-			// labelCheckBox
-			// 
-			this.labelCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.labelCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.labelCheckBox.Location = new System.Drawing.Point(264, 88);
-			this.labelCheckBox.Name = "labelCheckBox";
-			this.labelCheckBox.Size = new System.Drawing.Size(16, 21);
-			this.labelCheckBox.TabIndex = 7;
-			this.labelCheckBox.CheckedChanged += new System.EventHandler(this.searchCheckBox_CheckedChanged);
-			// 
-			// machineNameCheckBox
-			// 
-			this.machineNameCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.machineNameCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.machineNameCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.machineNameCheckBox.Location = new System.Drawing.Point(264, 40);
-			this.machineNameCheckBox.Name = "machineNameCheckBox";
-			this.machineNameCheckBox.Size = new System.Drawing.Size(16, 21);
-			this.machineNameCheckBox.TabIndex = 3;
-			this.machineNameCheckBox.CheckedChanged += new System.EventHandler(this.searchCheckBox_CheckedChanged);
-			// 
-			// modifiedAfterLabel
-			// 
-			this.modifiedAfterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.modifiedAfterLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.modifiedAfterLabel.Location = new System.Drawing.Point(296, 116);
-			this.modifiedAfterLabel.Name = "modifiedAfterLabel";
-			this.modifiedAfterLabel.Size = new System.Drawing.Size(88, 16);
-			this.modifiedAfterLabel.TabIndex = 17;
-			this.modifiedAfterLabel.Text = "Modified After:";
-			// 
-			// modifiedAfterDateTimePicker
-			// 
-			this.modifiedAfterDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.modifiedAfterDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.modifiedAfterDateTimePicker.Checked = false;
-			this.modifiedAfterDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.modifiedAfterDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.modifiedAfterDateTimePicker.Location = new System.Drawing.Point(384, 112);
-			this.modifiedAfterDateTimePicker.Name = "modifiedAfterDateTimePicker";
-			this.modifiedAfterDateTimePicker.ShowCheckBox = true;
-			this.modifiedAfterDateTimePicker.Size = new System.Drawing.Size(120, 21);
-			this.modifiedAfterDateTimePicker.TabIndex = 18;
-			this.modifiedAfterDateTimePicker.Value = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
-			// 
-			// modifiedBeforeLabel
-			// 
-			this.modifiedBeforeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.modifiedBeforeLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.modifiedBeforeLabel.Location = new System.Drawing.Point(296, 92);
-			this.modifiedBeforeLabel.Name = "modifiedBeforeLabel";
-			this.modifiedBeforeLabel.Size = new System.Drawing.Size(88, 16);
-			this.modifiedBeforeLabel.TabIndex = 15;
-			this.modifiedBeforeLabel.Text = "&Modified Before:";
-			// 
-			// modifiedBeforeDateTimePicker
-			// 
-			this.modifiedBeforeDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.modifiedBeforeDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.modifiedBeforeDateTimePicker.Checked = false;
-			this.modifiedBeforeDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.modifiedBeforeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.modifiedBeforeDateTimePicker.Location = new System.Drawing.Point(384, 88);
-			this.modifiedBeforeDateTimePicker.Name = "modifiedBeforeDateTimePicker";
-			this.modifiedBeforeDateTimePicker.ShowCheckBox = true;
-			this.modifiedBeforeDateTimePicker.Size = new System.Drawing.Size(120, 21);
-			this.modifiedBeforeDateTimePicker.TabIndex = 16;
-			this.modifiedBeforeDateTimePicker.Value = new System.DateTime(2004, 10, 19, 16, 29, 51, 146);
-			// 
-			// createdBeforeLabel
-			// 
-			this.createdBeforeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.createdBeforeLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.createdBeforeLabel.Location = new System.Drawing.Point(296, 44);
-			this.createdBeforeLabel.Name = "createdBeforeLabel";
-			this.createdBeforeLabel.Size = new System.Drawing.Size(84, 16);
-			this.createdBeforeLabel.TabIndex = 11;
-			this.createdBeforeLabel.Text = "&Created Before:";
-			// 
-			// createdBeforeDateTimePicker
-			// 
-			this.createdBeforeDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.createdBeforeDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.createdBeforeDateTimePicker.Checked = false;
-			this.createdBeforeDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.createdBeforeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.createdBeforeDateTimePicker.Location = new System.Drawing.Point(384, 40);
-			this.createdBeforeDateTimePicker.Name = "createdBeforeDateTimePicker";
-			this.createdBeforeDateTimePicker.ShowCheckBox = true;
-			this.createdBeforeDateTimePicker.Size = new System.Drawing.Size(120, 21);
-			this.createdBeforeDateTimePicker.TabIndex = 12;
-			this.createdBeforeDateTimePicker.Value = new System.DateTime(2004, 10, 19, 16, 29, 51, 197);
-			// 
-			// createdAfterLabel
-			// 
-			this.createdAfterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.createdAfterLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.createdAfterLabel.Location = new System.Drawing.Point(296, 68);
-			this.createdAfterLabel.Name = "createdAfterLabel";
-			this.createdAfterLabel.Size = new System.Drawing.Size(84, 16);
-			this.createdAfterLabel.TabIndex = 13;
-			this.createdAfterLabel.Text = "Created After:";
-			// 
-			// createdAfterDateTimePicker
-			// 
-			this.createdAfterDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.createdAfterDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.createdAfterDateTimePicker.Checked = false;
-			this.createdAfterDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.createdAfterDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.createdAfterDateTimePicker.Location = new System.Drawing.Point(384, 64);
-			this.createdAfterDateTimePicker.Name = "createdAfterDateTimePicker";
-			this.createdAfterDateTimePicker.ShowCheckBox = true;
-			this.createdAfterDateTimePicker.Size = new System.Drawing.Size(120, 21);
-			this.createdAfterDateTimePicker.TabIndex = 14;
-			this.createdAfterDateTimePicker.Value = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
-			// 
-			// categoryTextBox
-			// 
-			this.categoryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.categoryTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.categoryTextBox.Location = new System.Drawing.Point(92, 112);
-			this.categoryTextBox.Name = "categoryTextBox";
-			this.categoryTextBox.Size = new System.Drawing.Size(168, 21);
-			this.categoryTextBox.TabIndex = 9;
-			this.categoryTextBox.Text = "";
-			this.categoryTextBox.TextChanged += new System.EventHandler(this.searchEntireNetworkCheckBox_CheckedChanged);
-			this.categoryTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyUp);
-			// 
-			// categoryLabel
-			// 
-			this.categoryLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.categoryLabel.Location = new System.Drawing.Point(8, 116);
-			this.categoryLabel.Name = "categoryLabel";
-			this.categoryLabel.Size = new System.Drawing.Size(84, 16);
-			this.categoryLabel.TabIndex = 8;
-			this.categoryLabel.Text = "C&ategory:";
-			// 
-			// labelLabel
-			// 
-			this.labelLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.labelLabel.Location = new System.Drawing.Point(8, 92);
-			this.labelLabel.Name = "labelLabel";
-			this.labelLabel.Size = new System.Drawing.Size(84, 16);
-			this.labelLabel.TabIndex = 5;
-			this.labelLabel.Text = "&Label:";
-			// 
-			// labelTextBox
-			// 
-			this.labelTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.labelTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.labelTextBox.Location = new System.Drawing.Point(92, 88);
-			this.labelTextBox.Name = "labelTextBox";
-			this.labelTextBox.Size = new System.Drawing.Size(168, 21);
-			this.labelTextBox.TabIndex = 6;
-			this.labelTextBox.Text = "";
-			this.labelTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyUp);
-			// 
-			// machineNameLabel
-			// 
-			this.machineNameLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.machineNameLabel.Location = new System.Drawing.Point(8, 44);
-			this.machineNameLabel.Name = "machineNameLabel";
-			this.machineNameLabel.Size = new System.Drawing.Size(84, 16);
-			this.machineNameLabel.TabIndex = 0;
-			this.machineNameLabel.Text = "Machine &Name:";
-			// 
-			// machineNameTextBox
-			// 
-			this.machineNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.machineNameTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.machineNameTextBox.Location = new System.Drawing.Point(92, 40);
-			this.machineNameTextBox.Name = "machineNameTextBox";
-			this.machineNameTextBox.Size = new System.Drawing.Size(168, 21);
-			this.machineNameTextBox.TabIndex = 1;
-			this.machineNameTextBox.Text = ".";
-			this.machineNameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyUp);
-			// 
-			// includeLabel1
-			// 
-			this.includeLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.includeLabel1.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.includeLabel1.Location = new System.Drawing.Point(252, 24);
-			this.includeLabel1.Name = "includeLabel1";
-			this.includeLabel1.Size = new System.Drawing.Size(40, 16);
-			this.includeLabel1.TabIndex = 2;
-			this.includeLabel1.Text = "Include?";
-			// 
-			// stopButton
-			// 
-			this.stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.stopButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.stopButton.Location = new System.Drawing.Point(444, 8);
-			this.stopButton.Name = "stopButton";
-			this.stopButton.TabIndex = 2;
-			this.stopButton.Text = "S&top";
-			this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
-			// 
-			// searchButton
-			// 
-			this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.searchButton.Location = new System.Drawing.Point(364, 8);
-			this.searchButton.Name = "searchButton";
-			this.searchButton.TabIndex = 1;
-			this.searchButton.Text = "&Search";
-			this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-			// 
-			// statusBar
-			// 
-			this.statusBar.Location = new System.Drawing.Point(0, 440);
-			this.statusBar.Name = "statusBar";
-			this.statusBar.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
-																						 this.mainStatusBarPanel});
-			this.statusBar.ShowPanels = true;
-			this.statusBar.Size = new System.Drawing.Size(528, 22);
-			this.statusBar.SizingGrip = false;
-			this.statusBar.TabIndex = 8;
-			// 
-			// mainStatusBarPanel
-			// 
-			this.mainStatusBarPanel.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring;
-			this.mainStatusBarPanel.Text = "Ready";
-			this.mainStatusBarPanel.Width = 528;
-			// 
-			// selectedLabel
-			// 
-			this.selectedLabel.Location = new System.Drawing.Point(268, 188);
-			this.selectedLabel.Name = "selectedLabel";
-			this.selectedLabel.Size = new System.Drawing.Size(100, 16);
-			this.selectedLabel.TabIndex = 11;
-			this.selectedLabel.Text = "Selected:";
-			// 
-			// resultsLabel
-			// 
-			this.resultsLabel.Location = new System.Drawing.Point(8, 188);
-			this.resultsLabel.Name = "resultsLabel";
-			this.resultsLabel.Size = new System.Drawing.Size(100, 16);
-			this.resultsLabel.TabIndex = 10;
-			this.resultsLabel.Text = "Results:";
-			// 
-			// resultsPanel
-			// 
-			this.resultsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-				| System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.resultsPanel.Controls.Add(this.resultsTreeView);
-			this.resultsPanel.Controls.Add(this.resultsSplitter);
-			this.resultsPanel.Controls.Add(this.selectedListView);
-			this.resultsPanel.Location = new System.Drawing.Point(8, 204);
-			this.resultsPanel.Name = "resultsPanel";
-			this.resultsPanel.Size = new System.Drawing.Size(512, 200);
-			this.resultsPanel.TabIndex = 9;
-			this.resultsPanel.Resize += new System.EventHandler(this.resultsPanel_Resize);
-			// 
-			// resultsTreeView
-			// 
-			this.resultsTreeView.CheckBoxes = true;
-			this.resultsTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.resultsTreeView.HideSelection = false;
-			this.resultsTreeView.ImageIndex = -1;
-			this.resultsTreeView.Location = new System.Drawing.Point(0, 0);
-			this.resultsTreeView.Name = "resultsTreeView";
-			this.resultsTreeView.SelectedImageIndex = -1;
-			this.resultsTreeView.Size = new System.Drawing.Size(256, 200);
-			this.resultsTreeView.Sorted = true;
-			this.resultsTreeView.TabIndex = 4;
-			this.resultsTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.resultsTreeView_AfterSelect);
-			// 
-			// resultsSplitter
-			// 
-			this.resultsSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-			this.resultsSplitter.Location = new System.Drawing.Point(256, 0);
-			this.resultsSplitter.Name = "resultsSplitter";
-			this.resultsSplitter.Size = new System.Drawing.Size(4, 200);
-			this.resultsSplitter.TabIndex = 1;
-			this.resultsSplitter.TabStop = false;
-			this.resultsSplitter.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.resultsSplitter_SplitterMoved);
-			// 
-			// selectedListView
-			// 
-			this.selectedListView.Dock = System.Windows.Forms.DockStyle.Right;
-			this.selectedListView.HideSelection = false;
-			this.selectedListView.Location = new System.Drawing.Point(260, 0);
-			this.selectedListView.Name = "selectedListView";
-			this.selectedListView.Size = new System.Drawing.Size(252, 200);
-			this.selectedListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
-			this.selectedListView.TabIndex = 0;
-			this.selectedListView.View = System.Windows.Forms.View.List;
-			this.selectedListView.Resize += new System.EventHandler(this.selectedListView_Resize);
-			this.selectedListView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.selectedListView_KeyUp);
-			this.selectedListView.SelectedIndexChanged += new System.EventHandler(this.selectedListView_SelectedIndexChanged);
-			// 
-			// QueueSearchForm
-			// 
-			this.AcceptButton = this.okButton;
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 14);
-			this.CancelButton = this.cancelButton;
-			this.ClientSize = new System.Drawing.Size(528, 462);
-			this.Controls.Add(this.selectedLabel);
-			this.Controls.Add(this.resultsLabel);
-			this.Controls.Add(this.resultsPanel);
-			this.Controls.Add(this.statusBar);
-			this.Controls.Add(this.searchOptionsGroupBox);
-			this.Controls.Add(this.cancelButton);
-			this.Controls.Add(this.okButton);
-			this.Controls.Add(this.stopButton);
-			this.Controls.Add(this.searchButton);
-			this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(536, 272);
-			this.Name = "QueueSearchForm";
-			this.ShowInTaskbar = false;
-			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Queue Search";
-			this.Closing += new System.ComponentModel.CancelEventHandler(this.QueueSearchForm_Closing);
-			this.Load += new System.EventHandler(this.QueueSearchForm_Load);
-			this.searchOptionsGroupBox.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.mainStatusBarPanel)).EndInit();
-			this.resultsPanel.ResumeLayout(false);
-			this.ResumeLayout(false);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueueSearchForm));
+            this.okButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.searchOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.searchEntireNetworkCheckBox = new System.Windows.Forms.CheckBox();
+            this.privateQueuesCheckBox = new System.Windows.Forms.CheckBox();
+            this.categoryCheckBox = new System.Windows.Forms.CheckBox();
+            this.labelCheckBox = new System.Windows.Forms.CheckBox();
+            this.machineNameCheckBox = new System.Windows.Forms.CheckBox();
+            this.modifiedAfterLabel = new System.Windows.Forms.Label();
+            this.modifiedAfterDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.modifiedBeforeLabel = new System.Windows.Forms.Label();
+            this.modifiedBeforeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.createdBeforeLabel = new System.Windows.Forms.Label();
+            this.createdBeforeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.createdAfterLabel = new System.Windows.Forms.Label();
+            this.createdAfterDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.categoryTextBox = new System.Windows.Forms.TextBox();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.labelLabel = new System.Windows.Forms.Label();
+            this.labelTextBox = new System.Windows.Forms.TextBox();
+            this.machineNameLabel = new System.Windows.Forms.Label();
+            this.machineNameTextBox = new System.Windows.Forms.TextBox();
+            this.includeLabel1 = new System.Windows.Forms.Label();
+            this.stopButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.statusBar = new System.Windows.Forms.StatusBar();
+            this.mainStatusBarPanel = new System.Windows.Forms.StatusBarPanel();
+            this.selectedLabel = new System.Windows.Forms.Label();
+            this.resultsLabel = new System.Windows.Forms.Label();
+            this.resultsPanel = new System.Windows.Forms.Panel();
+            this.resultsTreeView = new System.Windows.Forms.TreeView();
+            this.resultsSplitter = new System.Windows.Forms.Splitter();
+            this.selectedListView = new System.Windows.Forms.ListView();
+            this.searchOptionsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainStatusBarPanel)).BeginInit();
+            this.resultsPanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // okButton
+            // 
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.okButton.Location = new System.Drawing.Point(364, 409);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.TabIndex = 6;
+            this.okButton.Text = "&OK";
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cancelButton.Location = new System.Drawing.Point(444, 409);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 7;
+            this.cancelButton.Text = "&Cancel";
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // searchOptionsGroupBox
+            // 
+            this.searchOptionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchOptionsGroupBox.Controls.Add(this.searchEntireNetworkCheckBox);
+            this.searchOptionsGroupBox.Controls.Add(this.privateQueuesCheckBox);
+            this.searchOptionsGroupBox.Controls.Add(this.categoryCheckBox);
+            this.searchOptionsGroupBox.Controls.Add(this.labelCheckBox);
+            this.searchOptionsGroupBox.Controls.Add(this.machineNameCheckBox);
+            this.searchOptionsGroupBox.Controls.Add(this.modifiedAfterLabel);
+            this.searchOptionsGroupBox.Controls.Add(this.modifiedAfterDateTimePicker);
+            this.searchOptionsGroupBox.Controls.Add(this.modifiedBeforeLabel);
+            this.searchOptionsGroupBox.Controls.Add(this.modifiedBeforeDateTimePicker);
+            this.searchOptionsGroupBox.Controls.Add(this.createdBeforeLabel);
+            this.searchOptionsGroupBox.Controls.Add(this.createdBeforeDateTimePicker);
+            this.searchOptionsGroupBox.Controls.Add(this.createdAfterLabel);
+            this.searchOptionsGroupBox.Controls.Add(this.createdAfterDateTimePicker);
+            this.searchOptionsGroupBox.Controls.Add(this.categoryTextBox);
+            this.searchOptionsGroupBox.Controls.Add(this.categoryLabel);
+            this.searchOptionsGroupBox.Controls.Add(this.labelLabel);
+            this.searchOptionsGroupBox.Controls.Add(this.labelTextBox);
+            this.searchOptionsGroupBox.Controls.Add(this.machineNameLabel);
+            this.searchOptionsGroupBox.Controls.Add(this.machineNameTextBox);
+            this.searchOptionsGroupBox.Controls.Add(this.includeLabel1);
+            this.searchOptionsGroupBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOptionsGroupBox.Location = new System.Drawing.Point(8, 32);
+            this.searchOptionsGroupBox.Name = "searchOptionsGroupBox";
+            this.searchOptionsGroupBox.Size = new System.Drawing.Size(512, 148);
+            this.searchOptionsGroupBox.TabIndex = 3;
+            this.searchOptionsGroupBox.TabStop = false;
+            this.searchOptionsGroupBox.Text = "Search Options";
+            // 
+            // searchEntireNetworkCheckBox
+            // 
+            this.searchEntireNetworkCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.searchEntireNetworkCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEntireNetworkCheckBox.Location = new System.Drawing.Point(92, 16);
+            this.searchEntireNetworkCheckBox.Name = "searchEntireNetworkCheckBox";
+            this.searchEntireNetworkCheckBox.Size = new System.Drawing.Size(136, 20);
+            this.searchEntireNetworkCheckBox.TabIndex = 19;
+            this.searchEntireNetworkCheckBox.Text = "Search &Entire Network?";
+            this.searchEntireNetworkCheckBox.CheckedChanged += new System.EventHandler(this.searchEntireNetworkCheckBox_CheckedChanged);
+            // 
+            // privateQueuesCheckBox
+            // 
+            this.privateQueuesCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.privateQueuesCheckBox.Location = new System.Drawing.Point(92, 68);
+            this.privateQueuesCheckBox.Name = "privateQueuesCheckBox";
+            this.privateQueuesCheckBox.Size = new System.Drawing.Size(144, 16);
+            this.privateQueuesCheckBox.TabIndex = 4;
+            this.privateQueuesCheckBox.Text = "Private Queues Only?";
+            this.privateQueuesCheckBox.CheckedChanged += new System.EventHandler(this.privateQueuesCheckBox_CheckedChanged);
+            // 
+            // categoryCheckBox
+            // 
+            this.categoryCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoryCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.categoryCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryCheckBox.Location = new System.Drawing.Point(264, 112);
+            this.categoryCheckBox.Name = "categoryCheckBox";
+            this.categoryCheckBox.Size = new System.Drawing.Size(16, 21);
+            this.categoryCheckBox.TabIndex = 10;
+            this.categoryCheckBox.CheckedChanged += new System.EventHandler(this.searchCheckBox_CheckedChanged);
+            // 
+            // labelCheckBox
+            // 
+            this.labelCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.labelCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCheckBox.Location = new System.Drawing.Point(264, 88);
+            this.labelCheckBox.Name = "labelCheckBox";
+            this.labelCheckBox.Size = new System.Drawing.Size(16, 21);
+            this.labelCheckBox.TabIndex = 7;
+            this.labelCheckBox.CheckedChanged += new System.EventHandler(this.searchCheckBox_CheckedChanged);
+            // 
+            // machineNameCheckBox
+            // 
+            this.machineNameCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.machineNameCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.machineNameCheckBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.machineNameCheckBox.Location = new System.Drawing.Point(264, 40);
+            this.machineNameCheckBox.Name = "machineNameCheckBox";
+            this.machineNameCheckBox.Size = new System.Drawing.Size(16, 21);
+            this.machineNameCheckBox.TabIndex = 3;
+            this.machineNameCheckBox.CheckedChanged += new System.EventHandler(this.searchCheckBox_CheckedChanged);
+            // 
+            // modifiedAfterLabel
+            // 
+            this.modifiedAfterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifiedAfterLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedAfterLabel.Location = new System.Drawing.Point(296, 116);
+            this.modifiedAfterLabel.Name = "modifiedAfterLabel";
+            this.modifiedAfterLabel.Size = new System.Drawing.Size(88, 16);
+            this.modifiedAfterLabel.TabIndex = 17;
+            this.modifiedAfterLabel.Text = "Modified After:";
+            // 
+            // modifiedAfterDateTimePicker
+            // 
+            this.modifiedAfterDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifiedAfterDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedAfterDateTimePicker.Checked = false;
+            this.modifiedAfterDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedAfterDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.modifiedAfterDateTimePicker.Location = new System.Drawing.Point(384, 112);
+            this.modifiedAfterDateTimePicker.Name = "modifiedAfterDateTimePicker";
+            this.modifiedAfterDateTimePicker.ShowCheckBox = true;
+            this.modifiedAfterDateTimePicker.Size = new System.Drawing.Size(120, 21);
+            this.modifiedAfterDateTimePicker.TabIndex = 18;
+            this.modifiedAfterDateTimePicker.Value = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
+            // 
+            // modifiedBeforeLabel
+            // 
+            this.modifiedBeforeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifiedBeforeLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedBeforeLabel.Location = new System.Drawing.Point(296, 92);
+            this.modifiedBeforeLabel.Name = "modifiedBeforeLabel";
+            this.modifiedBeforeLabel.Size = new System.Drawing.Size(88, 16);
+            this.modifiedBeforeLabel.TabIndex = 15;
+            this.modifiedBeforeLabel.Text = "&Modified Before:";
+            // 
+            // modifiedBeforeDateTimePicker
+            // 
+            this.modifiedBeforeDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifiedBeforeDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedBeforeDateTimePicker.Checked = false;
+            this.modifiedBeforeDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedBeforeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.modifiedBeforeDateTimePicker.Location = new System.Drawing.Point(384, 88);
+            this.modifiedBeforeDateTimePicker.Name = "modifiedBeforeDateTimePicker";
+            this.modifiedBeforeDateTimePicker.ShowCheckBox = true;
+            this.modifiedBeforeDateTimePicker.Size = new System.Drawing.Size(120, 21);
+            this.modifiedBeforeDateTimePicker.TabIndex = 16;
+            this.modifiedBeforeDateTimePicker.Value = new System.DateTime(2004, 10, 19, 16, 29, 51, 146);
+            // 
+            // createdBeforeLabel
+            // 
+            this.createdBeforeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createdBeforeLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdBeforeLabel.Location = new System.Drawing.Point(296, 44);
+            this.createdBeforeLabel.Name = "createdBeforeLabel";
+            this.createdBeforeLabel.Size = new System.Drawing.Size(84, 16);
+            this.createdBeforeLabel.TabIndex = 11;
+            this.createdBeforeLabel.Text = "&Created Before:";
+            // 
+            // createdBeforeDateTimePicker
+            // 
+            this.createdBeforeDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createdBeforeDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdBeforeDateTimePicker.Checked = false;
+            this.createdBeforeDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdBeforeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.createdBeforeDateTimePicker.Location = new System.Drawing.Point(384, 40);
+            this.createdBeforeDateTimePicker.Name = "createdBeforeDateTimePicker";
+            this.createdBeforeDateTimePicker.ShowCheckBox = true;
+            this.createdBeforeDateTimePicker.Size = new System.Drawing.Size(120, 21);
+            this.createdBeforeDateTimePicker.TabIndex = 12;
+            this.createdBeforeDateTimePicker.Value = new System.DateTime(2004, 10, 19, 16, 29, 51, 197);
+            // 
+            // createdAfterLabel
+            // 
+            this.createdAfterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createdAfterLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdAfterLabel.Location = new System.Drawing.Point(296, 68);
+            this.createdAfterLabel.Name = "createdAfterLabel";
+            this.createdAfterLabel.Size = new System.Drawing.Size(84, 16);
+            this.createdAfterLabel.TabIndex = 13;
+            this.createdAfterLabel.Text = "Created After:";
+            // 
+            // createdAfterDateTimePicker
+            // 
+            this.createdAfterDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createdAfterDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdAfterDateTimePicker.Checked = false;
+            this.createdAfterDateTimePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdAfterDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.createdAfterDateTimePicker.Location = new System.Drawing.Point(384, 64);
+            this.createdAfterDateTimePicker.Name = "createdAfterDateTimePicker";
+            this.createdAfterDateTimePicker.ShowCheckBox = true;
+            this.createdAfterDateTimePicker.Size = new System.Drawing.Size(120, 21);
+            this.createdAfterDateTimePicker.TabIndex = 14;
+            this.createdAfterDateTimePicker.Value = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
+            // 
+            // categoryTextBox
+            // 
+            this.categoryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoryTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryTextBox.Location = new System.Drawing.Point(92, 112);
+            this.categoryTextBox.Name = "categoryTextBox";
+            this.categoryTextBox.Size = new System.Drawing.Size(168, 21);
+            this.categoryTextBox.TabIndex = 9;
+            this.categoryTextBox.TextChanged += new System.EventHandler(this.searchEntireNetworkCheckBox_CheckedChanged);
+            this.categoryTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyUp);
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.Location = new System.Drawing.Point(8, 116);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(84, 16);
+            this.categoryLabel.TabIndex = 8;
+            this.categoryLabel.Text = "C&ategory:";
+            // 
+            // labelLabel
+            // 
+            this.labelLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLabel.Location = new System.Drawing.Point(8, 92);
+            this.labelLabel.Name = "labelLabel";
+            this.labelLabel.Size = new System.Drawing.Size(84, 16);
+            this.labelLabel.TabIndex = 5;
+            this.labelLabel.Text = "&Label:";
+            // 
+            // labelTextBox
+            // 
+            this.labelTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTextBox.Location = new System.Drawing.Point(92, 88);
+            this.labelTextBox.Name = "labelTextBox";
+            this.labelTextBox.Size = new System.Drawing.Size(168, 21);
+            this.labelTextBox.TabIndex = 6;
+            this.labelTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyUp);
+            // 
+            // machineNameLabel
+            // 
+            this.machineNameLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.machineNameLabel.Location = new System.Drawing.Point(8, 44);
+            this.machineNameLabel.Name = "machineNameLabel";
+            this.machineNameLabel.Size = new System.Drawing.Size(84, 16);
+            this.machineNameLabel.TabIndex = 0;
+            this.machineNameLabel.Text = "Machine &Name:";
+            // 
+            // machineNameTextBox
+            // 
+            this.machineNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.machineNameTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.machineNameTextBox.Location = new System.Drawing.Point(92, 40);
+            this.machineNameTextBox.Name = "machineNameTextBox";
+            this.machineNameTextBox.Size = new System.Drawing.Size(168, 21);
+            this.machineNameTextBox.TabIndex = 1;
+            this.machineNameTextBox.Text = ".";
+            this.machineNameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyUp);
+            // 
+            // includeLabel1
+            // 
+            this.includeLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.includeLabel1.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.includeLabel1.Location = new System.Drawing.Point(252, 24);
+            this.includeLabel1.Name = "includeLabel1";
+            this.includeLabel1.Size = new System.Drawing.Size(40, 16);
+            this.includeLabel1.TabIndex = 2;
+            this.includeLabel1.Text = "Include?";
+            // 
+            // stopButton
+            // 
+            this.stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.stopButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.stopButton.Location = new System.Drawing.Point(444, 8);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(75, 23);
+            this.stopButton.TabIndex = 2;
+            this.stopButton.Text = "S&top";
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.searchButton.Location = new System.Drawing.Point(364, 8);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 1;
+            this.searchButton.Text = "&Search";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // statusBar
+            // 
+            this.statusBar.Location = new System.Drawing.Point(0, 440);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
+            this.mainStatusBarPanel});
+            this.statusBar.ShowPanels = true;
+            this.statusBar.Size = new System.Drawing.Size(528, 22);
+            this.statusBar.SizingGrip = false;
+            this.statusBar.TabIndex = 8;
+            // 
+            // mainStatusBarPanel
+            // 
+            this.mainStatusBarPanel.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring;
+            this.mainStatusBarPanel.Name = "mainStatusBarPanel";
+            this.mainStatusBarPanel.Text = "Ready";
+            this.mainStatusBarPanel.Width = 528;
+            // 
+            // selectedLabel
+            // 
+            this.selectedLabel.Location = new System.Drawing.Point(268, 188);
+            this.selectedLabel.Name = "selectedLabel";
+            this.selectedLabel.Size = new System.Drawing.Size(100, 16);
+            this.selectedLabel.TabIndex = 11;
+            this.selectedLabel.Text = "Selected:";
+            // 
+            // resultsLabel
+            // 
+            this.resultsLabel.Location = new System.Drawing.Point(8, 188);
+            this.resultsLabel.Name = "resultsLabel";
+            this.resultsLabel.Size = new System.Drawing.Size(100, 16);
+            this.resultsLabel.TabIndex = 10;
+            this.resultsLabel.Text = "Results:";
+            // 
+            // resultsPanel
+            // 
+            this.resultsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultsPanel.Controls.Add(this.resultsTreeView);
+            this.resultsPanel.Controls.Add(this.resultsSplitter);
+            this.resultsPanel.Controls.Add(this.selectedListView);
+            this.resultsPanel.Location = new System.Drawing.Point(8, 204);
+            this.resultsPanel.Name = "resultsPanel";
+            this.resultsPanel.Size = new System.Drawing.Size(512, 200);
+            this.resultsPanel.TabIndex = 9;
+            this.resultsPanel.Resize += new System.EventHandler(this.resultsPanel_Resize);
+            // 
+            // resultsTreeView
+            // 
+            this.resultsTreeView.CheckBoxes = true;
+            this.resultsTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resultsTreeView.HideSelection = false;
+            this.resultsTreeView.Location = new System.Drawing.Point(0, 0);
+            this.resultsTreeView.Name = "resultsTreeView";
+            this.resultsTreeView.Size = new System.Drawing.Size(256, 200);
+            this.resultsTreeView.Sorted = true;
+            this.resultsTreeView.TabIndex = 4;
+            this.resultsTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.resultsTreeView_AfterSelect);
+            // 
+            // resultsSplitter
+            // 
+            this.resultsSplitter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.resultsSplitter.Location = new System.Drawing.Point(256, 0);
+            this.resultsSplitter.Name = "resultsSplitter";
+            this.resultsSplitter.Size = new System.Drawing.Size(4, 200);
+            this.resultsSplitter.TabIndex = 1;
+            this.resultsSplitter.TabStop = false;
+            this.resultsSplitter.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.resultsSplitter_SplitterMoved);
+            // 
+            // selectedListView
+            // 
+            this.selectedListView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.selectedListView.HideSelection = false;
+            this.selectedListView.Location = new System.Drawing.Point(260, 0);
+            this.selectedListView.Name = "selectedListView";
+            this.selectedListView.Size = new System.Drawing.Size(252, 200);
+            this.selectedListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.selectedListView.TabIndex = 0;
+            this.selectedListView.UseCompatibleStateImageBehavior = false;
+            this.selectedListView.View = System.Windows.Forms.View.List;
+            this.selectedListView.SelectedIndexChanged += new System.EventHandler(this.selectedListView_SelectedIndexChanged);
+            this.selectedListView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.selectedListView_KeyUp);
+            this.selectedListView.Resize += new System.EventHandler(this.selectedListView_Resize);
+            // 
+            // QueueSearchForm
+            // 
+            this.AcceptButton = this.okButton;
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 14);
+            this.CancelButton = this.cancelButton;
+            this.ClientSize = new System.Drawing.Size(528, 462);
+            this.Controls.Add(this.selectedLabel);
+            this.Controls.Add(this.resultsLabel);
+            this.Controls.Add(this.resultsPanel);
+            this.Controls.Add(this.statusBar);
+            this.Controls.Add(this.searchOptionsGroupBox);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.stopButton);
+            this.Controls.Add(this.searchButton);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(536, 272);
+            this.Name = "QueueSearchForm";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Queue Search";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.QueueSearchForm_Closing);
+            this.Load += new System.EventHandler(this.QueueSearchForm_Load);
+            this.searchOptionsGroupBox.ResumeLayout(false);
+            this.searchOptionsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainStatusBarPanel)).EndInit();
+            this.resultsPanel.ResumeLayout(false);
+            this.ResumeLayout(false);
 
 		}
 		#endregion
