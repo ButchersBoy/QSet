@@ -67,16 +67,16 @@ namespace Mulholland.QSet.Application
             //qSetMonitor.Dock = DockStyle.Fill;
             //qSetMonitorDockControl.Controls.Add(qSetMonitor);
 
-            //PrimaryMenus primaryMenus = new PrimaryMenus(
-            //    MenuItemBag.FileMenu,
-            //    MenuItemBag.ViewMenu,
-            //    MenuItemBag.QSetMenu,
-            //    MenuItemBag.QueueMenu,
-            //    MenuItemBag.MessageMenu,
-            //    MenuItemBag.ToolsMenu,
-            //    MenuItemBag.HelpMenu,
-            //    MenuItemBag.MessageBrowserCtxMenu,
-            //    MenuItemBag.QSetCtxMenu);
+            PrimaryMenus primaryMenus = new PrimaryMenus(
+                MenuItemBag.FileMenu,
+                MenuItemBag.ViewMenu,
+                MenuItemBag.QSetMenu,
+                MenuItemBag.QueueMenu,
+                MenuItemBag.MessageMenu,
+                MenuItemBag.ToolsMenu,
+                MenuItemBag.HelpMenu,
+                MenuItemBag.MessageBrowserCtxMenu,
+                MenuItemBag.QSetCtxMenu);
 
             //mainDocumentContainer.Manager = new TD.SandDock.SandDockManager();
 

@@ -21,15 +21,15 @@ namespace Mulholland.QSet.Application
 	/// </summary>
 	internal class PrimaryMenus : PrimaryControlsBase
 	{
-		private MenuBarItem _fileMenu;
-		private MenuBarItem _viewMenu;
-		private MenuBarItem _qSetMenu;
-		private MenuBarItem _queueMenu;
-		private MenuBarItem _messageMenu;
-		private MenuBarItem _toolsMenu;
-		private MenuBarItem _helpMenu;		
-		private ContextMenuBarItem _messageBrowserContextMenu;
-		private ContextMenuBarItem _qSetContextMenu;
+		private ToolStripMenuItem _fileMenu;
+		private ToolStripMenuItem _viewMenu;
+		private ToolStripMenuItem _qSetMenu;
+		private ToolStripMenuItem _queueMenu;
+		private ToolStripMenuItem _messageMenu;
+		private ToolStripMenuItem _toolsMenu;
+		private ToolStripMenuItem _helpMenu;		
+		private ContextMenuStrip _messageBrowserContextMenu;
+		private ContextMenuStrip _qSetContextMenu;
 
 		private event PrimaryMenus.MenuItemsChangedEvent _recentFileListChanged;
 
@@ -46,13 +46,13 @@ namespace Mulholland.QSet.Application
 		/// </summary>
 		public class MenuItemsChangedEventArgs : EventArgs
 		{
-			private MenuButtonItem _parentItem;
+			private ToolStripMenuItem _parentItem;
 
 			/// <summary>
 			/// Constructs the arguments class.
 			/// </summary>
 			/// <param name="parentItem">Parent item for which child items changed.</param>
-			public MenuItemsChangedEventArgs(MenuButtonItem parentItem)
+			public MenuItemsChangedEventArgs(ToolStripMenuItem parentItem)
 			{
 				_parentItem = parentItem;
 			}
@@ -61,7 +61,7 @@ namespace Mulholland.QSet.Application
 			/// <summary>
 			/// Gets the parent item for which child items changed.
 			/// </summary>
-			public MenuButtonItem ParentItem
+			public ToolStripMenuItem ParentItem
 			{
 				get
 				{
@@ -116,15 +116,15 @@ namespace Mulholland.QSet.Application
 		/// <param name="messageBrowserContextMenu">Message browser context menu.</param>
 		/// <param name="qSetContextMenu">Q Set context menu.</param>
 		public PrimaryMenus(
-			MenuBarItem fileMenu,
-			MenuBarItem viewMenu,
-			MenuBarItem qSetMenu,
-			MenuBarItem queueMenu,
-			MenuBarItem messageMenu,
-			MenuBarItem toolsMenu,
-			MenuBarItem helpMenu,
-			ContextMenuBarItem messageBrowserContextMenu,
-			ContextMenuBarItem qSetContextMenu)
+            ToolStripMenuItem fileMenu,
+            ToolStripMenuItem viewMenu,
+            ToolStripMenuItem qSetMenu,
+            ToolStripMenuItem queueMenu,
+            ToolStripMenuItem messageMenu,
+            ToolStripMenuItem toolsMenu,
+            ToolStripMenuItem helpMenu,
+            ContextMenuStrip messageBrowserContextMenu,
+            ContextMenuStrip qSetContextMenu)
 		{
 			if (fileMenu == null) throw new ArgumentNullException("fileMenu");
 			else if (viewMenu == null) throw new ArgumentNullException("viewMenu");
@@ -150,7 +150,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Gets the environment File menu.
 		/// </summary>
-		public MenuBarItem FileMenu
+		public ToolStripMenuItem FileMenu
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Gets the environment View menu.
 		/// </summary>
-		public MenuBarItem ViewMenu
+		public ToolStripMenuItem ViewMenu
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Gets the environment Q Set menu.
 		/// </summary>
-		public MenuBarItem QSetMenu
+		public ToolStripMenuItem QSetMenu
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Gets the environment Queue menu.
 		/// </summary>
-		public MenuBarItem QueueMenu
+		public ToolStripMenuItem QueueMenu
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Gets the environment Message menu.
 		/// </summary>
-		public MenuBarItem MessageMenu
+		public ToolStripMenuItem MessageMenu
 		{
 			get
 			{
@@ -210,7 +210,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Gets the environment Tools menu.
 		/// </summary>
-		public MenuBarItem ToolsMenu
+		public ToolStripMenuItem ToolsMenu
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Gets the environment Help menu.
 		/// </summary>
-		public MenuBarItem HelpMenu
+		public ToolStripMenuItem HelpMenu
 		{
 			get
 			{
@@ -234,7 +234,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Message browser context menu.
 		/// </summary>
-		public ContextMenuBarItem MessageBrowserContextMenu
+		public ContextMenuStrip MessageBrowserContextMenu
 		{
 			get
 			{
@@ -246,7 +246,7 @@ namespace Mulholland.QSet.Application
 		/// <summary>
 		/// Q Set context menu.
 		/// </summary>
-		public ContextMenuBarItem QSetContextMenu
+		public ContextMenuStrip QSetContextMenu
 		{
 			get
 			{
@@ -262,19 +262,19 @@ namespace Mulholland.QSet.Application
 		/// <param name="maximumListSize">The maximum size of the list.</param>
 		public void RefreshRecentFilesList(StringCollection recentFiles, int maximumListSize)
 		{
-			//MenuItemBag.FileRecentFileList.Items.Clear();
+            MenuItemBag.FileRecentFileList.DropDownItems.Clear();
 
-			//for (int file = 0; file < (recentFiles.Count < maximumListSize ? recentFiles.Count : maximumListSize); file ++)
-			//{
-			//	MenuButtonItem recentFileButton = new MenuButtonItem(string.Format("&{0} {1}", file + 1, recentFiles[file]));
-			//	recentFileButton.Tag = recentFiles[file];
-			//	MenuItemBag.FileRecentFileList.Items.Add(recentFileButton);
-			//}
-			
-			//MenuItemBag.FileRecentFileList.Visible = (MenuItemBag.FileRecentFileList.Items.Count > 0);
+            for (int file = 0; file < (recentFiles.Count < maximumListSize ? recentFiles.Count : maximumListSize); file++)
+            {
+                ToolStripMenuItem recentFileButton = new ToolStripMenuItem(string.Format("&{0} {1}", file + 1, recentFiles[file]));
+                recentFileButton.Tag = recentFiles[file];
+                MenuItemBag.FileRecentFileList.DropDownItems.Add(recentFileButton);
+            }
 
-			//OnRecentFileListChanged(new PrimaryMenus.MenuItemsChangedEventArgs(MenuItemBag.FileRecentFileList));
-		}
+            MenuItemBag.FileRecentFileList.Visible = (MenuItemBag.FileRecentFileList.DropDownItems.Count > 0);
+
+            OnRecentFileListChanged(new PrimaryMenus.MenuItemsChangedEventArgs(MenuItemBag.FileRecentFileList));
+        }
 	}
 
 	#endregion
