@@ -123,7 +123,7 @@ namespace Mulholland.QSet.Application
 			numberOfCopiesComboBoxItem.ComboBox.KeyPress += new KeyPressEventHandler(ComboBox_KeyPress);
 			numberOfCopiesComboBoxItem.ComboBox.MaxLength = 4;
 
-			_messageViewer = new MessageViewer(license);
+            _messageViewer = new MessageViewer { License = license };
 			_messageViewer.Dock = DockStyle.Fill;
 			_messageViewerHostPanel.Controls.Add(_messageViewer);
 

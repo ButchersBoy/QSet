@@ -211,9 +211,6 @@
     <Compile Include="Controls\MessageBrowserCollection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controls\MessageViewer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Controls\QSetExplorer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,6 +222,18 @@
     </Compile>
     <Compile Include="Controls\WebServiceClientControlCollection.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer.Designer.cs">
+      <DependentUpon>MessageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\MessageViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\MessageViewerForm.Designer.cs">
+      <DependentUpon>MessageViewerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DockForms\PropertyGridForm.cs">
       <SubType>Form</SubType>
@@ -340,9 +349,6 @@
     <EmbeddedResource Include="Controls\MessageBrowser.resx">
       <DependentUpon>MessageBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\MessageViewer.resx">
-      <DependentUpon>MessageViewer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\QSetExplorer.resx">
       <DependentUpon>QSetExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +357,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\WebServiceClientControl.resx">
       <DependentUpon>WebServiceClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageViewer.resx">
+      <DependentUpon>MessageViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\MessageViewerForm.resx">
+      <DependentUpon>MessageViewerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockForms\PropertyGridForm.resx">
       <DependentUpon>PropertyGridForm.cs</DependentUpon>

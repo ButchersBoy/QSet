@@ -67,6 +67,9 @@ namespace Mulholland.QSet.Application
             var propertyGridForm = new PropertyGridForm();
             propertyGridForm.Show(this.dockPanel, DockState.DockLeft);
 
+            var messageViewerForm = new MessageViewerForm(license);
+            messageViewerForm.Show(this.dockPanel, DockState.DockBottom);
+
             //queueSetExplorer = new Mulholland.QSet.Application.Controls.QSetExplorer();
             //queueSetExplorer.Dock = DockStyle.Fill;
             //qSetExplorerDock.Controls.Add(queueSetExplorer);
@@ -96,8 +99,8 @@ namespace Mulholland.QSet.Application
                 queueSetExplorerForm.QSetExplorer,
                 queueSetMonitorForm.QSetMonitor,
                 propertyGridForm.PropertyGrid,
-                defaultMessageViewer,
-                mainDocumentContainer,
+                messageViewerForm.MessageViewer,
+                null,//mainDocumentContainer,
                 new Images());
 
             PrimaryForms primaryForms = new PrimaryForms(this, new QueueSearchForm());
