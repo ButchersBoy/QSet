@@ -180,8 +180,9 @@ namespace Mulholland.QSet.Application
 			MenuItemBag.QSetCtxNewMessage.Visible = state.IsQSetActiveItemQueue;							
 			MenuItemBag.QSetCtxAddActiveQueueToSet.Visible = false;
 			//MenuItemBag.QSetCtxAddActiveQueueToSet.Visible = (state.IsQSetOpen && (state.IsQSetActiveItemFolder || state.IsQSetActiveItemQSet) && !state.IsQSetActiveItemMachine && state.IsMessageBrowserActive && !state.IsMessageBrowserQueueChildOfActiveQSetItem);
-			MenuItemBag.QSetCtxDeleteItem.Visible = (state.IsQSetOpen && !state.IsQSetActiveItemQSet && !state.IsQSetParentItemMachine);			
-			MenuItemBag.QSetCtxDeleteQueue.Visible = state.IsQSetActiveItemQueue;			
+			MenuItemBag.QSetCtxDeleteItem.Visible = (state.IsQSetOpen && !state.IsQSetActiveItemQSet && !state.IsQSetParentItemMachine);
+            MenuItemBag.QSetCtxPurgeAllQueues.Visible = (state.IsQSetOpen && !state.IsQSetActiveItemQSet && !state.IsQSetParentItemMachine);
+            MenuItemBag.QSetCtxDeleteQueue.Visible = state.IsQSetActiveItemQueue;			
 			MenuItemBag.QSetCtxNewFolder.Visible = (state.IsQSetOpen && (state.IsQSetActiveItemFolder || state.IsQSetActiveItemQSet) && !state.IsQSetActiveItemMachine);
 			MenuItemBag.QSetCtxRenameFolder.Visible = (state.IsQSetOpen && (state.IsQSetActiveItemFolder || state.IsQSetActiveItemQSet || state.IsQSetActiveItemWebService) && !state.IsQSetActiveItemMachine);
 			MenuItemBag.QSetCtxPurgeQueue.Visible = state.IsQSetActiveItemQueue;

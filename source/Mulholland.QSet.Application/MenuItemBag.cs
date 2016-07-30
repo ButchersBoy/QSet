@@ -80,6 +80,7 @@ namespace Mulholland.QSet.Application
         public static TD.SandBar.MenuButtonItem QSetCtxNewFolder;
         public static TD.SandBar.MenuButtonItem QSetCtxRenameFolder;
         public static TD.SandBar.MenuButtonItem QSetCtxDeleteItem;
+        public static TD.SandBar.MenuButtonItem QSetCtxPurgeAllQueues;
         public static TD.SandBar.MenuButtonItem QSetCtxDeleteQueue;		
         public static TD.SandBar.MenuButtonItem QSetCtxPurgeQueue;	
         public static TD.SandBar.MenuButtonItem QSetCtxNewMessage;

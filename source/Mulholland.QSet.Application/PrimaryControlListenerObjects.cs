@@ -329,27 +329,29 @@ namespace Mulholland.QSet.Application
 		/// <param name="e"></param>
 		private void QSetContextMenuItem_Activate(object sender, EventArgs e)
 		{
-			if (sender == MenuItemBag.QSetCtxNewMessage)
-			{
-				if (base.PrimaryControls.QSetExplorer.ActiveItem != null && base.PrimaryControls.QSetExplorer.ActiveItem is QSet.Model.QSetQueueItem)
-					base.TaskManager.QueueTaskManager.SendNewMessage((QSet.Model.QSetQueueItem)base.PrimaryControls.QSetExplorer.ActiveItem);
-				else
-					base.TaskManager.QueueTaskManager.SendNewMessage();
-			}
-			else if (sender == MenuItemBag.QSetCtxAddActiveQueueToSet)
-				base.TaskManager.AddActiveQueueToQSet();
-			else if (sender == MenuItemBag.QSetCtxNewFolder)
-				base.TaskManager.AddNewFolderToQSet();
-			else if (sender == MenuItemBag.QSetCtxRenameFolder)
-				base.TaskManager.EditActiveQSetFolder();
-			else if (sender == MenuItemBag.QSetCtxDeleteItem)
-				base.TaskManager.DeleteActiveItemFromQSet();
-			else if (sender == MenuItemBag.QSetCtxDeleteQueue)
-				base.TaskManager.QueueTaskManager.DeleteActiveQueue();
-			else if (sender == MenuItemBag.QSetCtxPurgeQueue)
-				base.TaskManager.PurgeActiveQSetExplorerQueue();
-			else if (sender == MenuItemBag.QSetCtxNewWebServiceClient)
-				base.TaskManager.WebTaskManager.AddNewWebServiceClient();
+            if (sender == MenuItemBag.QSetCtxNewMessage)
+            {
+                if (base.PrimaryControls.QSetExplorer.ActiveItem != null && base.PrimaryControls.QSetExplorer.ActiveItem is QSet.Model.QSetQueueItem)
+                    base.TaskManager.QueueTaskManager.SendNewMessage((QSet.Model.QSetQueueItem)base.PrimaryControls.QSetExplorer.ActiveItem);
+                else
+                    base.TaskManager.QueueTaskManager.SendNewMessage();
+            }
+            else if (sender == MenuItemBag.QSetCtxAddActiveQueueToSet)
+                base.TaskManager.AddActiveQueueToQSet();
+            else if (sender == MenuItemBag.QSetCtxNewFolder)
+                base.TaskManager.AddNewFolderToQSet();
+            else if (sender == MenuItemBag.QSetCtxRenameFolder)
+                base.TaskManager.EditActiveQSetFolder();
+            else if (sender == MenuItemBag.QSetCtxDeleteItem)
+                base.TaskManager.DeleteActiveItemFromQSet();
+            else if (sender == MenuItemBag.QSetCtxPurgeAllQueues)
+                base.TaskManager.PurgeAllQueuesFromQSet();
+            else if (sender == MenuItemBag.QSetCtxDeleteQueue)
+                base.TaskManager.QueueTaskManager.DeleteActiveQueue();
+            else if (sender == MenuItemBag.QSetCtxPurgeQueue)
+                base.TaskManager.PurgeActiveQSetExplorerQueue();
+            else if (sender == MenuItemBag.QSetCtxNewWebServiceClient)
+                base.TaskManager.WebTaskManager.AddNewWebServiceClient();
 		}
 
 		/// <summary>

@@ -101,7 +101,8 @@ namespace Mulholland.QSet.Application
 		private TD.SandBar.MenuButtonItem qSetCtxNewFolder;
 		private TD.SandBar.MenuButtonItem qSetCtxRenameFolder;
 		private TD.SandBar.MenuButtonItem qSetCtxDeleteItem;
-		private TD.SandBar.MenuButtonItem qSetCtxDeleteQueue;
+		private TD.SandBar.MenuButtonItem qSetCtxPurgeAllQueues;
+        private TD.SandBar.MenuButtonItem qSetCtxDeleteQueue;
 		private TD.SandBar.MenuBarItem messageMenuBar;
 		private TD.SandBar.MenuButtonItem messageNewMenuButton;
 		private TD.SandBar.MenuButtonItem messageForwardMenuButton;
@@ -193,6 +194,7 @@ namespace Mulholland.QSet.Application
             this.qSetCtxNewFolder = new TD.SandBar.MenuButtonItem();
             this.qSetCtxRenameFolder = new TD.SandBar.MenuButtonItem();
             this.qSetCtxDeleteItem = new TD.SandBar.MenuButtonItem();
+            this.qSetCtxPurgeAllQueues = new TD.SandBar.MenuButtonItem();
             this.qSetCtxSendMessage = new TD.SandBar.MenuButtonItem();
             this.qSetCtxNewWebServiceClient = new TD.SandBar.MenuButtonItem();
             this.qSetCtxPurgeQueue = new TD.SandBar.MenuButtonItem();
@@ -515,6 +517,7 @@ namespace Mulholland.QSet.Application
             this.qSetCtxNewFolder,
             this.qSetCtxRenameFolder,
             this.qSetCtxDeleteItem,
+            this.qSetCtxPurgeAllQueues,
             this.qSetCtxSendMessage,
             this.qSetCtxNewWebServiceClient,
             this.qSetCtxPurgeQueue,
@@ -542,6 +545,11 @@ namespace Mulholland.QSet.Application
             // 
             this.qSetCtxDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("qSetCtxDeleteItem.Image")));
             this.qSetCtxDeleteItem.Text = "Delete Item";
+            // 
+            // qSetCtxPurgeAllQueues
+            // 
+            this.qSetCtxPurgeAllQueues.Icon = ((System.Drawing.Icon)(resources.GetObject("qSetCtxPurgeQueue.Icon")));
+            this.qSetCtxPurgeAllQueues.Text = "Purge All Queues";
             // 
             // qSetCtxSendMessage
             // 
@@ -1168,7 +1176,8 @@ namespace Mulholland.QSet.Application
 			MenuItemBag.QSetCtxNewFolder = qSetCtxNewFolder;
 			MenuItemBag.QSetCtxRenameFolder = qSetCtxRenameFolder;
 			MenuItemBag.QSetCtxDeleteItem = qSetCtxDeleteItem;
-			MenuItemBag.QSetCtxDeleteQueue = qSetCtxDeleteQueue;
+            MenuItemBag.QSetCtxPurgeAllQueues = qSetCtxPurgeAllQueues;
+            MenuItemBag.QSetCtxDeleteQueue = qSetCtxDeleteQueue;
 			MenuItemBag.QSetCtxNewMessage = qSetCtxSendMessage;
 			MenuItemBag.QSetCtxPurgeQueue = qSetCtxPurgeQueue;
 			MenuItemBag.QSetCtxNewWebServiceClient = qSetCtxNewWebServiceClient;
