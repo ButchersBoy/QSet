@@ -64,14 +64,14 @@ namespace Mulholland.QSet.Application
             var queueSetExplorerForm = new QueueSetExplorerForm();
             queueSetExplorerForm.Show(this.dockPanel, DockState.DockLeft);
 
-            var queueSetMonitorForm = new QueueSetMonitorForm();
-            queueSetMonitorForm.Show(this.dockPanel, DockState.DockBottom);
-
             var propertyGridForm = new PropertyGridForm();
             propertyGridForm.Show(this.dockPanel, DockState.DockLeft);
 
             var messageViewerForm = new MessageViewerForm(license);
             messageViewerForm.Show(this.dockPanel, DockState.DockBottom);
+
+            var queueSetMonitorForm = new QueueSetMonitorForm();
+            queueSetMonitorForm.Show(this.dockPanel, DockState.DockBottom);
 
             PrimaryMenus primaryMenus = new PrimaryMenus(
                 MenuItemBag.FileMenu,

@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageViewerForm));
             this.messageViewer = new Mulholland.QSet.Application.Controls.MessageViewer();
             this.SuspendLayout();
             // 
-            // messageViewer1
+            // messageViewer
             // 
             this.messageViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.messageViewer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageViewer.License = null;
             this.messageViewer.Location = new System.Drawing.Point(0, 0);
             this.messageViewer.Name = "messageViewer";
             this.messageViewer.Size = new System.Drawing.Size(284, 261);
@@ -48,6 +50,7 @@
             this.Controls.Add(this.messageViewer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MessageViewerForm";
             this.Text = "Message Viewer";
             this.ResumeLayout(false);
