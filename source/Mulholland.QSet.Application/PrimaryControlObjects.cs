@@ -2,6 +2,7 @@ using System;
 using System.Collections.Specialized;
 using System.Windows.Forms;
 using Mulholland.QSet.Application.Controls;
+using Mulholland.QSet.Application.DockForms;
 using Mulholland.QSet.Application.WebServices;
 using Mulholland.QSet.Resources;
 using Mulholland.WinForms;
@@ -306,7 +307,7 @@ namespace Mulholland.QSet.Application
 		/// <param name="documentContainer">Primary DocumentContainer.</param>
 		/// <param name="images">Images component.</param>
 		public PrimaryControls(
-			QSetExplorer qSetExplorer,
+            QSetExplorer qSetExplorer,
 			QSetMonitor qSetMonitor,
 			PropertyGrid propertyGrid,
 			MessageViewer messageViewer,

@@ -6,7 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Mulholland.QSet.Application.DockForms;
+using Mulholland.QSet.Resources;
 using Mulholland.WinForms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Mulholland.QSet.Application
 {
@@ -55,6 +58,15 @@ namespace Mulholland.QSet.Application
 
             Licensing.License license = new Licensing.License();
 
+            var queueSetExplorerForm = new QueueSetExplorerForm();
+            queueSetExplorerForm.Show(this.dockPanel, DockState.DockLeft);
+
+            var queueSetMonitorForm = new QueueSetMonitorForm();
+            queueSetMonitorForm.Show(this.dockPanel, DockState.DockBottom);
+
+            var propertyGridForm = new PropertyGridForm();
+            propertyGridForm.Show(this.dockPanel, DockState.DockLeft);
+
             //queueSetExplorer = new Mulholland.QSet.Application.Controls.QSetExplorer();
             //queueSetExplorer.Dock = DockStyle.Fill;
             //qSetExplorerDock.Controls.Add(queueSetExplorer);
@@ -80,13 +92,13 @@ namespace Mulholland.QSet.Application
 
             //mainDocumentContainer.Manager = new TD.SandDock.SandDockManager();
 
-            //PrimaryControls primaryControls = new PrimaryControls(
-            //    queueSetExplorer,
-            //    qSetMonitor,
-            //    propertyGrid,
-            //    defaultMessageViewer,
-            //    mainDocumentContainer,
-            //    new Images());
+            PrimaryControls primaryControls = new PrimaryControls(
+                queueSetExplorerForm.QSetExplorer,
+                queueSetMonitorForm.QSetMonitor,
+                propertyGridForm.PropertyGrid,
+                defaultMessageViewer,
+                mainDocumentContainer,
+                new Images());
 
             PrimaryForms primaryForms = new PrimaryForms(this, new QueueSearchForm());
 
@@ -94,8 +106,8 @@ namespace Mulholland.QSet.Application
             PrimaryObjects primaryObjects = new PrimaryObjects(new ProcessVisualizer(this), userSettings, license);
             primaryObjects.ProcessVisualizer.StatusBarPanel = this.workingStatusBarPanel;
 
-            //_environmentCoordinator = new EnvironmentCoordinator(primaryMenus, primaryControls, primaryForms, primaryObjects);
-            //_environmentCoordinator.SetUp();
+            _environmentCoordinator = new EnvironmentCoordinator(primaryMenus, primaryControls, primaryForms, primaryObjects);
+            _environmentCoordinator.SetUp();
         }
 
 

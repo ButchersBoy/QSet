@@ -226,6 +226,24 @@
     <Compile Include="Controls\WebServiceClientControlCollection.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DockForms\PropertyGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\PropertyGridForm.Designer.cs">
+      <DependentUpon>PropertyGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\QueueSetMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\QueueSetMonitorForm.Designer.cs">
+      <DependentUpon>QueueSetMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\QueueSetExplorerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\QueueSetExplorerForm.Designer.cs">
+      <DependentUpon>QueueSetExplorerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnvironmentCoordinator.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -333,6 +351,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\WebServiceClientControl.resx">
       <DependentUpon>WebServiceClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\PropertyGridForm.resx">
+      <DependentUpon>PropertyGridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\QueueSetMonitorForm.resx">
+      <DependentUpon>QueueSetMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\QueueSetExplorerForm.resx">
+      <DependentUpon>QueueSetExplorerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licensing\LicenseAboutForm.resx">
       <DependentUpon>LicenseAboutForm.cs</DependentUpon>
