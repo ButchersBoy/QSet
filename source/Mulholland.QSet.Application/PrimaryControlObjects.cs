@@ -569,7 +569,7 @@ namespace Mulholland.QSet.Application
         private void QSetExplorerForm_VisibleChanged(object sender, EventArgs e)
         {
             var form = (QueueSetExplorerForm)sender;
-            if (!form.Visible)
+            if (form.VisibleState == DockState.Hidden)
             {
                 if (QSetExplorerClosed != null)
                 {
@@ -581,7 +581,7 @@ namespace Mulholland.QSet.Application
         private void PropertyGridForm_VisibleChanged(object sender, EventArgs e)
         {
             var form = (PropertyGridForm)sender;
-            if (!form.Visible)
+            if (form.VisibleState == DockState.Hidden)
             {
                 if (PropertyGridClosed != null)
                 {
@@ -593,7 +593,7 @@ namespace Mulholland.QSet.Application
         private void MessageViewerForm_VisibleChanged(object sender, EventArgs e)
         {
             var form = (MessageViewerForm)sender;
-            if (!form.Visible)
+            if (form.VisibleState == DockState.Hidden)
             {
                 if (MessageViewerClosed != null)
                 {
@@ -605,7 +605,7 @@ namespace Mulholland.QSet.Application
         private void QSetMonitorForm_VisibleChanged(object sender, EventArgs e)
         {
             var form = (QueueSetMonitorForm)sender;
-            if (!form.Visible)
+            if (form.VisibleState == DockState.Hidden)
             {
                 if (QSetMonitorClosed != null)
                 {
@@ -613,99 +613,6 @@ namespace Mulholland.QSet.Application
                 }
             }
         }
-
-        ///// <summary>
-        ///// Gets the environment's primary QSetExplorer.
-        ///// </summary>
-        //public QSetExplorer QSetExplorer
-        //{
-        //    get
-        //    {
-        //        return _qSetExplorerForm.QSetExplorer;
-        //    }
-        //}
-
-
-        ///// <summary>
-        ///// Gets the environment's primary QSetMonitor.
-        ///// </summary>
-        //public QSetMonitor QSetMonitor
-        //{
-        //    get
-        //    {
-        //        return _qSetMonitorForm.QSetMonitor;
-        //    }
-        //}
-
-
-        ///// <summary>
-        ///// Gets the environment's property grid.
-        ///// </summary>
-        //public PropertyGrid PropertyGrid
-        //{
-        //    get
-        //    {
-        //        return _propertyGridForm.PropertyGrid;
-        //    }
-        //}
-
-
-        ///// <summary>
-        ///// Gets the environment's primary MessageViewer.
-        ///// </summary>
-        //public MessageViewer MessageViewer
-        //{
-        //    get
-        //    {
-        //        return _messageViewerForm.MessageViewer;
-        //    }
-        //}
-
-
-        //public DockPanel DockPanel
-        //{
-        //    get
-        //    {
-        //        return _dockPanel;
-        //    }
-        //}
-
-
-        ///// <summary>
-        ///// Gets the main message browser collection.
-        ///// </summary>
-        //public MessageBrowserCollection MessageBrowserCollection
-        //{
-        //    get
-        //    {
-        //        return _messageBrowserCollection;
-        //    }
-        //}
-
-
-        ///// <summary>
-        ///// Gets the main web service client control collection.
-        ///// </summary>
-        //public WebServiceClientControlCollection WebServiceClientControlCollection
-        //{
-        //    get
-        //    {
-        //        return _webServiceClientControlCollection;
-        //    }
-        //}
-
-
-        ///// <summary>
-        ///// Gets the main application Images component.
-        ///// </summary>
-        //public Images Images
-        //{			
-        //    get 
-        //    {
-        //        return _images;
-        //    }
-        //}
-
     }
 
     #endregion

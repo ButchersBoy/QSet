@@ -534,7 +534,7 @@ namespace Mulholland.QSet.Application
 
             _primaryControls.ToggleQSetExplorerDisplay(show);
 
-            _primaryObjects.UserSettings.ShowQSetExplorerWindow = MenuItemBag.ViewQSetExplorer.Checked;
+            _primaryObjects.UserSettings.ShowQSetExplorerWindow = show;
         }
 
 
@@ -548,7 +548,7 @@ namespace Mulholland.QSet.Application
 
             _primaryControls.TogglePropertiesGridDisplay(show);
 
-            _primaryObjects.UserSettings.ShowPropertiesWindow = MenuItemBag.ViewProperties.Checked;
+            _primaryObjects.UserSettings.ShowPropertiesWindow = show;
         }
 
 
@@ -562,7 +562,7 @@ namespace Mulholland.QSet.Application
 
             _primaryControls.ToggleMessageViewerDisplay(show);
 
-            _primaryObjects.UserSettings.ShowMessageViewerWindow = MenuItemBag.ViewMessageViewer.Checked;
+            _primaryObjects.UserSettings.ShowMessageViewerWindow = show;
         }
 
 
@@ -576,7 +576,7 @@ namespace Mulholland.QSet.Application
 
             _primaryControls.ToggleMonitorDisplay(show);
 
-            _primaryObjects.UserSettings.ShowQSetMonitorWindow = MenuItemBag.ViewQSetMonitor.Checked;
+            _primaryObjects.UserSettings.ShowQSetMonitorWindow = show;
         }
 
 
