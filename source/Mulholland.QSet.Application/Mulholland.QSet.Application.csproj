@@ -295,6 +295,9 @@
     <Compile Include="NewMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NewMessageForm.Designer.cs">
+      <DependentUpon>NewMessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewQueueForm.cs">
       <SubType>Form</SubType>
     </Compile>
