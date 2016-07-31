@@ -290,7 +290,9 @@
             // 
             // viewQSetExplorerMenuButton
             // 
+            this.viewQSetExplorerMenuButton.Checked = true;
             this.viewQSetExplorerMenuButton.CheckOnClick = true;
+            this.viewQSetExplorerMenuButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewQSetExplorerMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("viewQSetExplorerMenuButton.Image")));
             this.viewQSetExplorerMenuButton.Name = "viewQSetExplorerMenuButton";
             this.viewQSetExplorerMenuButton.Size = new System.Drawing.Size(174, 22);
@@ -298,7 +300,9 @@
             // 
             // viewPropertiesWindowMenuButton
             // 
+            this.viewPropertiesWindowMenuButton.Checked = true;
             this.viewPropertiesWindowMenuButton.CheckOnClick = true;
+            this.viewPropertiesWindowMenuButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewPropertiesWindowMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("viewPropertiesWindowMenuButton.Image")));
             this.viewPropertiesWindowMenuButton.Name = "viewPropertiesWindowMenuButton";
             this.viewPropertiesWindowMenuButton.Size = new System.Drawing.Size(174, 22);
@@ -306,7 +310,9 @@
             // 
             // viewMessageViewerMenuButton
             // 
+            this.viewMessageViewerMenuButton.Checked = true;
             this.viewMessageViewerMenuButton.CheckOnClick = true;
+            this.viewMessageViewerMenuButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewMessageViewerMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("viewMessageViewerMenuButton.Image")));
             this.viewMessageViewerMenuButton.Name = "viewMessageViewerMenuButton";
             this.viewMessageViewerMenuButton.Size = new System.Drawing.Size(174, 22);
@@ -314,7 +320,9 @@
             // 
             // viewQSetMonitorMenuButton
             // 
+            this.viewQSetMonitorMenuButton.Checked = true;
             this.viewQSetMonitorMenuButton.CheckOnClick = true;
+            this.viewQSetMonitorMenuButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewQSetMonitorMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("viewQSetMonitorMenuButton.Image")));
             this.viewQSetMonitorMenuButton.Name = "viewQSetMonitorMenuButton";
             this.viewQSetMonitorMenuButton.Size = new System.Drawing.Size(174, 22);
@@ -545,7 +553,7 @@
             this.messageDeleteToolButton});
             this.mainToolBar.Location = new System.Drawing.Point(3, 24);
             this.mainToolBar.Name = "mainToolBar";
-            this.mainToolBar.Size = new System.Drawing.Size(664, 25);
+            this.mainToolBar.Size = new System.Drawing.Size(610, 25);
             this.mainToolBar.TabIndex = 0;
             this.mainToolBar.Text = "toolStrip1";
             // 

@@ -1,6 +1,6 @@
 ﻿namespace Mulholland.QSet.Application.DockForms
 {
-    partial class MessageViewerForm
+    partial class MessageBrowserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageViewerForm));
-            this.messageViewer = new Mulholland.QSet.Application.Controls.MessageViewer();
+            Mulholland.QSet.Application.UserSettings userSettings1 = new Mulholland.QSet.Application.UserSettings();
+            this.messageBrowser = new Mulholland.QSet.Application.Controls.MessageBrowser();
             this.SuspendLayout();
             // 
-            // messageViewer
+            // messageBrowser
             // 
-            this.messageViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageViewer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageViewer.License = null;
-            this.messageViewer.Location = new System.Drawing.Point(0, 0);
-            this.messageViewer.Name = "messageViewer";
-            this.messageViewer.Size = new System.Drawing.Size(284, 261);
-            this.messageViewer.TabIndex = 0;
+            this.messageBrowser.AllowDrop = true;
+            this.messageBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageBrowser.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageBrowser.ImageList = null;
+            this.messageBrowser.Location = new System.Drawing.Point(0, 0);
+            this.messageBrowser.Name = "messageBrowser";
+            this.messageBrowser.QSetQueueItem = null;
+            this.messageBrowser.Size = new System.Drawing.Size(284, 261);
+            this.messageBrowser.TabIndex = 0;
+            userSettings1.RecentFileListMaximumEntries = -1;
+            userSettings1.ShowMessageViewerWindow = true;
+            userSettings1.ShowPropertiesWindow = true;
+            userSettings1.ShowQSetExplorerWindow = true;
+            userSettings1.ShowQSetMonitorWindow = true;
+            this.messageBrowser.UserSettings = userSettings1;
             // 
-            // MessageViewerForm
+            // MessageBrowserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.messageViewer);
+            this.Controls.Add(this.messageBrowser);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.HideOnClose = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MessageViewerForm";
-            this.Text = "Message Viewer";
+            this.Name = "MessageBrowserForm";
+            this.Text = "Message Browser";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Controls.MessageViewer messageViewer;
+        private Controls.MessageBrowser messageBrowser;
     }
 }

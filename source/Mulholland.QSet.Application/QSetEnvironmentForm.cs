@@ -61,18 +61,6 @@ namespace Mulholland.QSet.Application
 
             Licensing.License license = new Licensing.License();
 
-            var queueSetExplorerForm = new QueueSetExplorerForm();
-            queueSetExplorerForm.Show(this.dockPanel, DockState.DockLeft);
-
-            var propertyGridForm = new PropertyGridForm();
-            propertyGridForm.Show(this.dockPanel, DockState.DockLeft);
-
-            var messageViewerForm = new MessageViewerForm(license);
-            messageViewerForm.Show(this.dockPanel, DockState.DockBottom);
-
-            var queueSetMonitorForm = new QueueSetMonitorForm();
-            queueSetMonitorForm.Show(this.dockPanel, DockState.DockBottom);
-
             PrimaryMenus primaryMenus = new PrimaryMenus(
                 MenuItemBag.FileMenu,
                 MenuItemBag.ViewMenu,
@@ -85,10 +73,7 @@ namespace Mulholland.QSet.Application
                 MenuItemBag.QSetCtxMenu);
 
             PrimaryControls primaryControls = new PrimaryControls(
-                queueSetExplorerForm.QSetExplorer,
-                queueSetMonitorForm.QSetMonitor,
-                propertyGridForm.PropertyGrid,
-                messageViewerForm.MessageViewer,
+                license,
                 this.dockPanel,
                 new Images());
 

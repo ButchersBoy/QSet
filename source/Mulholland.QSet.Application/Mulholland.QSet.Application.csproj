@@ -229,6 +229,12 @@
     <Compile Include="Controls\MessageViewer.Designer.cs">
       <DependentUpon>MessageViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockForms\MessageBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\MessageBrowserForm.Designer.cs">
+      <DependentUpon>MessageBrowserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockForms\MessageViewerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,12 @@
     </Compile>
     <Compile Include="DockForms\QueueSetExplorerForm.Designer.cs">
       <DependentUpon>QueueSetExplorerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\WebServiceClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\WebServiceClientForm.Designer.cs">
+      <DependentUpon>WebServiceClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EnvironmentCoordinator.cs">
       <SubType>Code</SubType>
@@ -361,6 +373,9 @@
     <EmbeddedResource Include="Controls\MessageViewer.resx">
       <DependentUpon>MessageViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\MessageBrowserForm.resx">
+      <DependentUpon>MessageBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockForms\MessageViewerForm.resx">
       <DependentUpon>MessageViewerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockForms\QueueSetExplorerForm.resx">
       <DependentUpon>QueueSetExplorerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\WebServiceClientForm.resx">
+      <DependentUpon>WebServiceClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licensing\LicenseAboutForm.resx">
       <DependentUpon>LicenseAboutForm.cs</DependentUpon>
