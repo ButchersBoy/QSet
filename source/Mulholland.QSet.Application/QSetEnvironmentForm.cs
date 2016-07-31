@@ -276,5 +276,25 @@ namespace Mulholland.QSet.Application
         {
             messageDeleteMenuButton.PerformClick();
         }
+
+        private void viewQSetExplorerMenuButton_CheckedChanged(object sender, EventArgs e)
+        {
+            viewQSetExplorerToolButton.Checked = viewQSetExplorerMenuButton.Checked;
+        }
+
+        private void viewPropertiesWindowMenuButton_CheckedChanged(object sender, EventArgs e)
+        {
+            viewPropertiesWindowToolButton.Checked = viewPropertiesWindowMenuButton.Checked;
+        }
+
+        private void viewMessageViewerMenuButton_CheckedChanged(object sender, EventArgs e)
+        {
+            viewMessageViewerToolButton.Checked = viewMessageViewerMenuButton.Checked;
+        }
+
+        private void viewQSetMonitorMenuButton_CheckedChanged(object sender, EventArgs e)
+        {
+            viewQSetMonitorToolButton.Checked = viewQSetMonitorMenuButton.Checked;
+        }
     }
 }

@@ -297,6 +297,7 @@
             this.viewQSetExplorerMenuButton.Name = "viewQSetExplorerMenuButton";
             this.viewQSetExplorerMenuButton.Size = new System.Drawing.Size(174, 22);
             this.viewQSetExplorerMenuButton.Text = "Q Set Explorer";
+            this.viewQSetExplorerMenuButton.CheckedChanged += new System.EventHandler(this.viewQSetExplorerMenuButton_CheckedChanged);
             // 
             // viewPropertiesWindowMenuButton
             // 
@@ -307,6 +308,7 @@
             this.viewPropertiesWindowMenuButton.Name = "viewPropertiesWindowMenuButton";
             this.viewPropertiesWindowMenuButton.Size = new System.Drawing.Size(174, 22);
             this.viewPropertiesWindowMenuButton.Text = "Properties Window";
+            this.viewPropertiesWindowMenuButton.CheckedChanged += new System.EventHandler(this.viewPropertiesWindowMenuButton_CheckedChanged);
             // 
             // viewMessageViewerMenuButton
             // 
@@ -317,6 +319,7 @@
             this.viewMessageViewerMenuButton.Name = "viewMessageViewerMenuButton";
             this.viewMessageViewerMenuButton.Size = new System.Drawing.Size(174, 22);
             this.viewMessageViewerMenuButton.Text = "Message Viewer";
+            this.viewMessageViewerMenuButton.CheckedChanged += new System.EventHandler(this.viewMessageViewerMenuButton_CheckedChanged);
             // 
             // viewQSetMonitorMenuButton
             // 
@@ -327,6 +330,7 @@
             this.viewQSetMonitorMenuButton.Name = "viewQSetMonitorMenuButton";
             this.viewQSetMonitorMenuButton.Size = new System.Drawing.Size(174, 22);
             this.viewQSetMonitorMenuButton.Text = "Q Set Monitor";
+            this.viewQSetMonitorMenuButton.CheckedChanged += new System.EventHandler(this.viewQSetMonitorMenuButton_CheckedChanged);
             // 
             // qSetMenuBar
             // 
@@ -625,6 +629,8 @@
             // 
             // viewQSetExplorerToolButton
             // 
+            this.viewQSetExplorerToolButton.Checked = true;
+            this.viewQSetExplorerToolButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewQSetExplorerToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.viewQSetExplorerToolButton.Image = ((System.Drawing.Image)(resources.GetObject("viewQSetExplorerToolButton.Image")));
             this.viewQSetExplorerToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -635,6 +641,8 @@
             // 
             // viewPropertiesWindowToolButton
             // 
+            this.viewPropertiesWindowToolButton.Checked = true;
+            this.viewPropertiesWindowToolButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewPropertiesWindowToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.viewPropertiesWindowToolButton.Image = ((System.Drawing.Image)(resources.GetObject("viewPropertiesWindowToolButton.Image")));
             this.viewPropertiesWindowToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -645,6 +653,8 @@
             // 
             // viewMessageViewerToolButton
             // 
+            this.viewMessageViewerToolButton.Checked = true;
+            this.viewMessageViewerToolButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewMessageViewerToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.viewMessageViewerToolButton.Image = ((System.Drawing.Image)(resources.GetObject("viewMessageViewerToolButton.Image")));
             this.viewMessageViewerToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -656,6 +666,8 @@
             // 
             // viewQSetMonitorToolButton
             // 
+            this.viewQSetMonitorToolButton.Checked = true;
+            this.viewQSetMonitorToolButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewQSetMonitorToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.viewQSetMonitorToolButton.Image = ((System.Drawing.Image)(resources.GetObject("viewQSetMonitorToolButton.Image")));
             this.viewQSetMonitorToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
