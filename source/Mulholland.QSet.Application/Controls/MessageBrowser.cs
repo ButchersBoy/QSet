@@ -451,7 +451,10 @@ namespace Mulholland.QSet.Application.Controls
                     Action x = delegate { if (workingPanel.Visible) workingPanel.Visible = false; };
 
 					OnAfterMessageListLoaded(new VisualizableProcessEventArgs(_workingProcess));
-					workingPanel.Invoke(x);
+                    if (!workingPanel.IsDisposed)
+                    {
+                        workingPanel.Invoke(x);
+                    }
 					_messageLoadThread = null;				
 				}
 			}
