@@ -15,6 +15,8 @@ namespace Mulholland.QSet.Application.DockForms
         public MessageBrowserForm()
         {
             InitializeComponent();
+
+            this.messageBrowser.ContextMenuStrip = MenuItemBag.MessageBrowserCtxMenu;
         }
 
         internal MessageBrowser MessageBrowser

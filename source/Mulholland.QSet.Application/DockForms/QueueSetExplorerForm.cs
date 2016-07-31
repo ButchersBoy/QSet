@@ -15,6 +15,8 @@ namespace Mulholland.QSet.Application.DockForms
         public QueueSetExplorerForm()
         {
             InitializeComponent();
+
+            this.queueSetExplorer.ContextMenuStrip = MenuItemBag.QSetCtxMenu;
         }
         internal QSetExplorer QSetExplorer { get { return this.queueSetExplorer; } }
     }
