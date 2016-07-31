@@ -1,7 +1,4 @@
-using System;
 using Mulholland.QSet.Model;
-using Mulholland.QSet.Application.Controls;
-using TD.SandDock;
 
 namespace Mulholland.QSet.Application
 {

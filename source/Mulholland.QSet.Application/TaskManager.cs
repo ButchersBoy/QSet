@@ -1,15 +1,11 @@
 using System;
 using System.IO;
 using System.Messaging;
-using System.Reflection;
 using System.Windows.Forms;
 using Mulholland.QSet.Application.Controls;
 using Mulholland.QSet.Model;
 using Mulholland.QSet.Resources;
-using Mulholland.Core;
 using Mulholland.Core.Xml;
-using Mulholland.WinForms;
-using TD.SandDock;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace Mulholland.QSet.Application

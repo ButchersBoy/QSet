@@ -1,6 +1,5 @@
 using System;
 using System.Windows.Forms;
-using TD.SandBar;
 
 namespace Mulholland.QSet.Application
 {

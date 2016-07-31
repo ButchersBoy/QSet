@@ -1,12 +1,9 @@
 using System;
 using System.Windows.Forms;
-using TD.SandBar;
-using TD.SandDock;
 using Mulholland.QSet.Application.Controls;
 using Mulholland.QSet.Model;
 using Mulholland.QSet.Resources;
 using Mulholland.WinForms;
-using WeifenLuo.WinFormsUI.Docking;
 
 namespace Mulholland.QSet.Application
 {
@@ -362,7 +359,7 @@ namespace Mulholland.QSet.Application
         /// <param name="e"></param>
         private void RecentFileListItem_Activate(object sender, EventArgs e)
         {
-            base.TaskManager.OpenQSet((string)((MenuButtonItem)sender).Tag);
+            base.TaskManager.OpenQSet((string)((ToolStripMenuItem)sender).Tag);
         }
 
 

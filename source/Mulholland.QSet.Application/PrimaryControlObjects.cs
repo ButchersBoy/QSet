@@ -521,7 +521,7 @@ namespace Mulholland.QSet.Application
             }
             else
             {
-                _qSetExplorerForm.Close();
+                _qSetExplorerForm.Hide();
             }
         }
 
@@ -533,7 +533,7 @@ namespace Mulholland.QSet.Application
             }
             else
             {
-                _propertyGridForm.Close();
+                _propertyGridForm.Hide();
             }
         }
 
@@ -545,7 +545,7 @@ namespace Mulholland.QSet.Application
             }
             else
             {
-                _messageViewerForm.Close();
+                _messageViewerForm.Hide();
             }
         }
 
@@ -557,7 +557,7 @@ namespace Mulholland.QSet.Application
             }
             else
             {
-                _qSetMonitorForm.Close();
+                _qSetMonitorForm.Hide();
             }
         }
 
