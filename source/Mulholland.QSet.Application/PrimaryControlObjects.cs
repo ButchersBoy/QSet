@@ -480,12 +480,15 @@ namespace Mulholland.QSet.Application
             var messageForm = new MessageBrowserForm();
             messageForm.MessageBrowser.UserSettings = primaryObjects.UserSettings;
             messageForm.MessageBrowser.ImageList = this.GetSize16Icons();
-            MessageBrowserCollection.Add(qsetQueueItem.ID.ToString(), messageForm.MessageBrowser);
 
             try
             {
                 messageForm.MessageBrowser.QSetQueueItem = qsetQueueItem;
                 messageForm.Show(_dockPanel, DockState.Document);
+
+                MessageBrowserCollection.Add(qsetQueueItem.ID.ToString(), messageForm.MessageBrowser);
+
+                messageForm.FormClosed += MessageForm_FormClosed;
             }
             catch (Exception exc)
             {
@@ -494,6 +497,13 @@ namespace Mulholland.QSet.Application
                 primaryObjects.ProcessVisualizer.ReleaseCursor();
                 messageForm.Close();
             }
+        }
+
+        private void MessageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var form = (MessageBrowserForm)sender;
+            form.FormClosed -= MessageForm_FormClosed;
+            MessageBrowserCollection.Remove(form.MessageBrowser.QSetQueueItem.ID.ToString());
         }
 
         public void SetQSetExplorerActiveItemWithEdit(QSetModel qSet)
