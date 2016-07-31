@@ -290,13 +290,13 @@ namespace Mulholland.QSet.Application
         private void ViewMenuItem_Activate(object sender, EventArgs e)
         {			
             if (sender == MenuItemBag.ViewQSetExplorer)
-                base.TaskManager.ToggleQSetExplorer(!MenuItemBag.ViewQSetExplorer.Checked);
+                base.TaskManager.ToggleQSetExplorer(MenuItemBag.ViewQSetExplorer.Checked);
             else if (sender == MenuItemBag.ViewProperties)
-                base.TaskManager.TogglePropertiesWindow(!MenuItemBag.ViewProperties.Checked);
+                base.TaskManager.TogglePropertiesWindow(MenuItemBag.ViewProperties.Checked);
             else if (sender == MenuItemBag.ViewMessageViewer)
-                base.TaskManager.ToggleMessageViewer(!MenuItemBag.ViewMessageViewer.Checked);
+                base.TaskManager.ToggleMessageViewer(MenuItemBag.ViewMessageViewer.Checked);
             else if (sender == MenuItemBag.ViewQSetMonitor)
-                base.TaskManager.ToggleQSetMonitor(!MenuItemBag.ViewQSetMonitor.Checked);
+                base.TaskManager.ToggleQSetMonitor(MenuItemBag.ViewQSetMonitor.Checked);
         }
 
 
