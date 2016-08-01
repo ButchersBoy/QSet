@@ -304,8 +304,14 @@ namespace Mulholland.QSet.Application.Controls
         private void viewButtonItem_Activate(object sender, System.EventArgs e)
         {
 
-            foreach (ToolStripButton button in toolStrip.Items)
-                button.Checked = (button == sender);
+            foreach (ToolStripItem item in toolStrip.Items)
+            {
+                ToolStripButton button = item as ToolStripButton;
+                if (button != null)
+                {
+                    button.Checked = (button == sender);
+                }
+            }
 
             ConfigureView();
         }

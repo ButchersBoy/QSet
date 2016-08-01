@@ -127,6 +127,8 @@
             this.dataViewButtonItem.Size = new System.Drawing.Size(23, 22);
             this.dataViewButtonItem.Text = "Data View";
             this.dataViewButtonItem.ToolTipText = "Data View";
+            this.dataViewButtonItem.Checked = true;
+            this.dataViewButtonItem.Click += new System.EventHandler(this.viewButtonItem_Activate);
             // 
             // xsltViewButtonItem
             // 
@@ -137,6 +139,7 @@
             this.xsltViewButtonItem.Size = new System.Drawing.Size(23, 22);
             this.xsltViewButtonItem.Text = "Transform View";
             this.xsltViewButtonItem.ToolTipText = "Transform View";
+            this.xsltViewButtonItem.Click += new System.EventHandler(this.viewButtonItem_Activate);
             // 
             // binaryViewButtonItem
             // 
@@ -146,6 +149,7 @@
             this.binaryViewButtonItem.Name = "binaryViewButtonItem";
             this.binaryViewButtonItem.Size = new System.Drawing.Size(23, 22);
             this.binaryViewButtonItem.Text = "Binary View";
+            this.binaryViewButtonItem.Click += new System.EventHandler(this.viewButtonItem_Activate);
             // 
             // toolStripSeparator1
             // 
@@ -160,6 +164,7 @@
             this.saveButtonItem.Name = "saveButtonItem";
             this.saveButtonItem.Size = new System.Drawing.Size(23, 22);
             this.saveButtonItem.Text = "Save";
+            this.saveButtonItem.Click += new System.EventHandler(this.saveButtonItem_Activate);
             // 
             // MessageViewerForm
             // 
