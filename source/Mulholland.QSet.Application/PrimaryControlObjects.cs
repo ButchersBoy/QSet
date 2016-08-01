@@ -576,6 +576,11 @@ namespace Mulholland.QSet.Application
             return _dockPanel.Documents;
         }
 
+        public void SetQSetExplorerData(QSetModel qSet)
+        {
+            _qSetExplorerForm.QSetExplorer.QSet = qSet;
+        }
+
         private void QSetExplorerForm_VisibleChanged(object sender, EventArgs e)
         {
             var form = (QueueSetExplorerForm)sender;

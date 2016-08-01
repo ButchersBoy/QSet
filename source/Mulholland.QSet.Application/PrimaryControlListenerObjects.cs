@@ -172,8 +172,15 @@ namespace Mulholland.QSet.Application
         /// </summary>
         private void WireUpRecentFileListEvents()
         {
-            //foreach(MenuItemBase menuItem in MenuItemBag.FileRecentFileList.Items)
-            //	menuItem.Activate += new EventHandler(RecentFileListItem_Activate);
+            foreach (ToolStripItem item in MenuItemBag.FileRecentFileList.DropDownItems)
+            {
+                var menuItem = item as ToolStripMenuItem;
+                if (menuItem != null)
+                {
+                    menuItem.Click -= RecentFileListItem_Activate;
+                    menuItem.Click += RecentFileListItem_Activate;
+                }
+            }
         }
 
 

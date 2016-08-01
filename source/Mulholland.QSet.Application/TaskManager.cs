@@ -696,7 +696,7 @@ namespace Mulholland.QSet.Application
                         QSetModel qSet = QSetModel.CreateQSet(qsetFileContent);
                         qSet.FileName = file;
                         DoCloseQSet();
-                        _primaryControls.SetQSetMonitorData(qSet);
+                        _primaryControls.SetQSetExplorerData(qSet);
                     }
                     else
                     {									
