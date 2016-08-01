@@ -289,5 +289,60 @@ namespace Mulholland.QSet.Application
         {
             viewQSetMonitorToolButton.Checked = viewQSetMonitorMenuButton.Checked;
         }
+
+        private void queueOpenMenuButton_VisibleChanged(object sender, EventArgs e)
+        {
+            queueOpenToolButton.Visible = queueOpenMenuButton.Visible;
+        }
+
+        private void queueOpenMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            queueOpenToolButton.Enabled = queueOpenMenuButton.Enabled;
+        }
+
+        private void queueBrowseMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            queueBrowseToolButton.Enabled = queueBrowseMenuButton.Enabled;
+        }
+
+        private void queueCreateMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            queueCreateToolButton.Enabled = queueCreateMenuButton.Enabled;
+        }
+
+        private void queueDeleteMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+             queueDeleteToolButton.Enabled = queueDeleteMenuButton.Enabled;
+        }
+
+        private void queueRefreshMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            queueRefreshToolButton.Enabled = queueRefreshMenuButton.Enabled;
+        }
+
+        private void queuePurgeMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            queuePurgeToolButton.Enabled = queuePurgeMenuButton.Enabled;
+        }
+
+        private void messageNewMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            messageNewToolButton.Enabled = messageNewMenuButton.Enabled;
+        }
+
+        private void messageForwardMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            messageForwardToolButton.Enabled = messageForwardMenuButton.Enabled;
+        }
+
+        private void messageMoveMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            messageMoveToolButton.Enabled = messageMoveMenuButton.Enabled;
+        }
+
+        private void messageDeleteMenuButton_EnabledChanged(object sender, EventArgs e)
+        {
+            messageDeleteToolButton.Enabled = messageDeleteMenuButton.Enabled;
+        }
     }
 }

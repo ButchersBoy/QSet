@@ -398,48 +398,55 @@
             // 
             this.queueOpenMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("queueOpenMenuButton.Image")));
             this.queueOpenMenuButton.Name = "queueOpenMenuButton";
-            this.queueOpenMenuButton.Size = new System.Drawing.Size(118, 22);
+            this.queueOpenMenuButton.Size = new System.Drawing.Size(152, 22);
             this.queueOpenMenuButton.Text = "Open...";
+            this.queueOpenMenuButton.EnabledChanged += new System.EventHandler(this.queueOpenMenuButton_EnabledChanged);
+            this.queueOpenMenuButton.VisibleChanged += new System.EventHandler(this.queueOpenMenuButton_VisibleChanged);
             // 
             // queueBrowseMenuButton
             // 
             this.queueBrowseMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("queueBrowseMenuButton.Image")));
             this.queueBrowseMenuButton.Name = "queueBrowseMenuButton";
-            this.queueBrowseMenuButton.Size = new System.Drawing.Size(118, 22);
+            this.queueBrowseMenuButton.Size = new System.Drawing.Size(152, 22);
             this.queueBrowseMenuButton.Text = "Search...";
+            this.queueBrowseMenuButton.EnabledChanged += new System.EventHandler(this.queueBrowseMenuButton_EnabledChanged);
             // 
             // queueCreateMenuButton
             // 
             this.queueCreateMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("queueCreateMenuButton.Image")));
             this.queueCreateMenuButton.Name = "queueCreateMenuButton";
-            this.queueCreateMenuButton.Size = new System.Drawing.Size(118, 22);
+            this.queueCreateMenuButton.Size = new System.Drawing.Size(152, 22);
             this.queueCreateMenuButton.Text = "Create...";
+            this.queueCreateMenuButton.EnabledChanged += new System.EventHandler(this.queueCreateMenuButton_EnabledChanged);
             // 
             // queueDeleteMenuButton
             // 
             this.queueDeleteMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("queueDeleteMenuButton.Image")));
             this.queueDeleteMenuButton.Name = "queueDeleteMenuButton";
-            this.queueDeleteMenuButton.Size = new System.Drawing.Size(118, 22);
+            this.queueDeleteMenuButton.Size = new System.Drawing.Size(152, 22);
             this.queueDeleteMenuButton.Text = "Delete...";
+            this.queueDeleteMenuButton.EnabledChanged += new System.EventHandler(this.queueDeleteMenuButton_EnabledChanged);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(115, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(149, 6);
             // 
             // queueRefreshMenuButton
             // 
             this.queueRefreshMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("queueRefreshMenuButton.Image")));
             this.queueRefreshMenuButton.Name = "queueRefreshMenuButton";
-            this.queueRefreshMenuButton.Size = new System.Drawing.Size(118, 22);
+            this.queueRefreshMenuButton.Size = new System.Drawing.Size(152, 22);
             this.queueRefreshMenuButton.Text = "Refresh";
+            this.queueRefreshMenuButton.EnabledChanged += new System.EventHandler(this.queueRefreshMenuButton_EnabledChanged);
             // 
             // queuePurgeMenuButton
             // 
             this.queuePurgeMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("queuePurgeMenuButton.Image")));
             this.queuePurgeMenuButton.Name = "queuePurgeMenuButton";
-            this.queuePurgeMenuButton.Size = new System.Drawing.Size(118, 22);
+            this.queuePurgeMenuButton.Size = new System.Drawing.Size(152, 22);
             this.queuePurgeMenuButton.Text = "Purge";
+            this.queuePurgeMenuButton.EnabledChanged += new System.EventHandler(this.queuePurgeMenuButton_EnabledChanged);
             // 
             // messageMenuBar
             // 
@@ -456,29 +463,33 @@
             // 
             this.messageNewMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("messageNewMenuButton.Image")));
             this.messageNewMenuButton.Name = "messageNewMenuButton";
-            this.messageNewMenuButton.Size = new System.Drawing.Size(126, 22);
+            this.messageNewMenuButton.Size = new System.Drawing.Size(152, 22);
             this.messageNewMenuButton.Text = "New...";
+            this.messageNewMenuButton.EnabledChanged += new System.EventHandler(this.messageNewMenuButton_EnabledChanged);
             // 
             // messageForwardMenuButton
             // 
             this.messageForwardMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("messageForwardMenuButton.Image")));
             this.messageForwardMenuButton.Name = "messageForwardMenuButton";
-            this.messageForwardMenuButton.Size = new System.Drawing.Size(126, 22);
+            this.messageForwardMenuButton.Size = new System.Drawing.Size(152, 22);
             this.messageForwardMenuButton.Text = "Forward...";
+            this.messageForwardMenuButton.EnabledChanged += new System.EventHandler(this.messageForwardMenuButton_EnabledChanged);
             // 
             // messageMoveMenuButton
             // 
             this.messageMoveMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("messageMoveMenuButton.Image")));
             this.messageMoveMenuButton.Name = "messageMoveMenuButton";
-            this.messageMoveMenuButton.Size = new System.Drawing.Size(126, 22);
+            this.messageMoveMenuButton.Size = new System.Drawing.Size(152, 22);
             this.messageMoveMenuButton.Text = "Move...";
+            this.messageMoveMenuButton.EnabledChanged += new System.EventHandler(this.messageMoveMenuButton_EnabledChanged);
             // 
             // messageDeleteMenuButton
             // 
             this.messageDeleteMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("messageDeleteMenuButton.Image")));
             this.messageDeleteMenuButton.Name = "messageDeleteMenuButton";
-            this.messageDeleteMenuButton.Size = new System.Drawing.Size(126, 22);
+            this.messageDeleteMenuButton.Size = new System.Drawing.Size(152, 22);
             this.messageDeleteMenuButton.Text = "Delete...";
+            this.messageDeleteMenuButton.EnabledChanged += new System.EventHandler(this.messageDeleteMenuButton_EnabledChanged);
             // 
             // toolsMenuBar
             // 
