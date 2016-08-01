@@ -344,5 +344,40 @@ namespace Mulholland.QSet.Application
         {
             messageDeleteToolButton.Enabled = messageDeleteMenuButton.Enabled;
         }
+
+        private void fileRecentFilesMenuButton_VisibleChanged(object sender, EventArgs e)
+        {
+            fileRecentFilesMenuSeparator.Visible = fileRecentFilesMenuButton.Visible;
+        }
+
+        private void toolsNewWebServiceClientMenuButton_VisibleChanged(object sender, EventArgs e)
+        {
+            toolsNewServiceClientMenuSeparator.Visible = toolsNewWebServiceClientMenuButton.Visible;
+        }
+
+        private void qSetCtxAddActiveQueueToSet_VisibleChanged(object sender, EventArgs e)
+        {
+            qSetCtxAddActiveQueueToSetMenuSeparator.Visible = qSetCtxAddActiveQueueToSet.Visible;
+        }
+
+        private void qSetCtxSendMessage_VisibleChanged(object sender, EventArgs e)
+        {
+            qSetCtxSendMessageMenuSeparator.Visible = qSetCtxSendMessage.Visible;
+        }
+
+        private void qSetCtxNewWebServiceClient_VisibleChanged(object sender, EventArgs e)
+        {
+            qSetCtxNewWebServiceClientMenuSeparator.Visible = qSetCtxNewWebServiceClient.Visible;
+        }
+
+        private void qSetCtxPurgeAllQueues_VisibleChanged(object sender, EventArgs e)
+        {
+            qSetItemsMenuSeparator.Visible = qSetCtxPurgeAllQueues.Visible || qSetCtxRenameFolder.Visible;
+        }
+
+        private void qSetCtxRenameFolder_VisibleChanged(object sender, EventArgs e)
+        {
+            qSetItemsMenuSeparator.Visible = qSetCtxPurgeAllQueues.Visible || qSetCtxRenameFolder.Visible;
+        }
     }
 }

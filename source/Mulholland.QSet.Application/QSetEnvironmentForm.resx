@@ -120,45 +120,10 @@
   <metadata name="mainMenuBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="messageNewMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAJxJREFUOE/FkssNgEAIBemJnuiJnrYnBAJmUYx48sW5EN/sR4F5yRUgEZjGCqKP
-        EzEBsrK4EJWaU7DFdxCgaDnpRC7oomMTLC0kuyjq74JctWMk0GttQaaZoNwBguPHmQqIUF9GL7GWaSSw
-        UQoWOXmRSRVEYcf+g+sOHgX24hPd6kVgsU/CPkRfccfmHTdBnnVKEeSWPqGdqP8agAPbVTZNOt6PigAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="messageForwardMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAIhJREFUOE/VjsEVwCAIQ9mJnRjFHVjDObw7jhWrLbXU6qGH5r1/ARICnwoDp566
-        GuswJIO3IFmGATqoWk6VgwXkHrz3yTmXYoz7QtcdUJ4xXVu0VCK8gYy7CaFwBPQNSkAgE9lxNpMO0Jpp
-        oFlq0JsFswFn+u8yszAbWN+fuDVotabJ99X6XwFsjSWWeEk5xWUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="messageMoveMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAHdJREFUOE/tjtsNwCAIRdmJnRjFHViDOfx3HCo+Gqs00c8mvcn5Ee8Dfj0VIyse
-        YP9BRDSEoCmletA9ShmTtu6qnkqEC8hYTQiFO2BeUAIiudiNs5nGgFE7C0aOFsxmw13Ambnd3jzcBV77
-        G8uCPmub/L9ZvyuACz0DUCXYA3uiAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="messageDeleteMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAANhJREFUOE/NkEEOwjAMBPMn/8l/8q0HxDt6Rrn3DxUH+gKz2zglNAiRG4tWtaKd
-        xUka1bquHuOYCKqai2VflmWs5IAlF+tAyQ4LYQcIJxTQv2zCgIB6h1GmPMtuKIlor3meC0zoDKu44UoR
-        7TVNF6xofr09sH6AjfkeES3SjMPGLMA7uYf3N6gw5sBeInT+1Q1YkGHemfC2bZ8LNONuJjC/dS4l+Y4C
-        PNhHmDJugAIF1LqcsRz/jtKI92IBN+gLDOsXc454r3qFM9yamYj3Ogq+WOCI/5VSegIVtj7yUYJZLgAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="mainToolBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="fileNewQSetMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -315,6 +280,41 @@
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAADtJREFUOE9jGAVUBGfOzPw/E4iJoUNDQ/9DtUEASALKJAhgmlENGXAD0mZS6gIg
         ABlCLMbQPAooAQwMAAvGXNe1pZipAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="messageNewMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAJxJREFUOE/FkssNgEAIBemJnuiJnrYnBAJmUYx48sW5EN/sR4F5yRUgEZjGCqKP
+        EzEBsrK4EJWaU7DFdxCgaDnpRC7oomMTLC0kuyjq74JctWMk0GttQaaZoNwBguPHmQqIUF9GL7GWaSSw
+        UQoWOXmRSRVEYcf+g+sOHgX24hPd6kVgsU/CPkRfccfmHTdBnnVKEeSWPqGdqP8agAPbVTZNOt6PigAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="messageForwardMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAIhJREFUOE/VjsEVwCAIQ9mJnRjFHVjDObw7jhWrLbXU6qGH5r1/ARICnwoDp566
+        GuswJIO3IFmGATqoWk6VgwXkHrz3yTmXYoz7QtcdUJ4xXVu0VCK8gYy7CaFwBPQNSkAgE9lxNpMO0Jpp
+        oFlq0JsFswFn+u8yszAbWN+fuDVotabJ99X6XwFsjSWWeEk5xWUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="messageMoveMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAHdJREFUOE/tjtsNwCAIRdmJnRjFHViDOfx3HCo+Gqs00c8mvcn5Ee8Dfj0VIyse
+        YP9BRDSEoCmletA9ShmTtu6qnkqEC8hYTQiFO2BeUAIiudiNs5nGgFE7C0aOFsxmw13Ambnd3jzcBV77
+        G8uCPmub/L9ZvyuACz0DUCXYA3uiAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="messageDeleteMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAANhJREFUOE/NkEEOwjAMBPMn/8l/8q0HxDt6Rrn3DxUH+gKz2zglNAiRG4tWtaKd
+        xUka1bquHuOYCKqai2VflmWs5IAlF+tAyQ4LYQcIJxTQv2zCgIB6h1GmPMtuKIlor3meC0zoDKu44UoR
+        7TVNF6xofr09sH6AjfkeES3SjMPGLMA7uYf3N6gw5sBeInT+1Q1YkGHemfC2bZ8LNONuJjC/dS4l+Y4C
+        PNhHmDJugAIF1LqcsRz/jtKI92IBN+gLDOsXc454r3qFM9yamYj3Ogq+WOCI/5VSegIVtj7yUYJZLgAA
+        AABJRU5ErkJggg==
 </value>
   </data>
   <data name="toolsNewWebServiceClientMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
