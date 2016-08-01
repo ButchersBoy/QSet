@@ -370,7 +370,12 @@ namespace Mulholland.QSet.Application
 
         public MessageBrowser GetActiveMessageBrowser()
         {
-            return ((MessageBrowserForm)_dockPanel.ActiveDocument).MessageBrowser;
+            var form = (_dockPanel.ActiveDocument as MessageBrowserForm);
+            if (form != null)
+            {
+                return form.MessageBrowser;
+            }
+            return null;
         }
 
         public bool IsQSetExplorerOpen
