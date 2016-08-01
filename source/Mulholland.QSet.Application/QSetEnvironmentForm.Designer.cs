@@ -1049,7 +1049,7 @@
             this.qSetCtxMenu.ResumeLayout(false);
             this.messageBrowserCtxMenu.ResumeLayout(false);
             this.ResumeLayout(false);
-
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.QSetEnvironmentForm_Closing);
         }
 
         #endregion
