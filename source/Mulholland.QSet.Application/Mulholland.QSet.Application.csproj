@@ -147,16 +147,6 @@
       <Project>{8E56C2C6-046B-44D9-956E-8FAB58595519}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <Reference Include="SandBar, Version=1.4.2.1, Culture=neutral, PublicKeyToken=75b7ec17dd7c14c3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\3rdPartyControls\Bin\SandBar.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SandDock, Version=3.0.6.1, Culture=neutral, PublicKeyToken=75b7ec17dd7c14c3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\3rdPartyControls\Bin\SandDock.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -187,6 +177,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DockPanelSuite.2.10.0\lib\net20\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutForm.cs">
@@ -207,9 +201,6 @@
     <Compile Include="Controls\MessageBrowserCollection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controls\MessageViewer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Controls\QSetExplorer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -221,6 +212,48 @@
     </Compile>
     <Compile Include="Controls\WebServiceClientControlCollection.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer.Designer.cs">
+      <DependentUpon>MessageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\MessageBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\MessageBrowserForm.Designer.cs">
+      <DependentUpon>MessageBrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\MessageViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\MessageViewerForm.Designer.cs">
+      <DependentUpon>MessageViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\PropertyGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\PropertyGridForm.Designer.cs">
+      <DependentUpon>PropertyGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\QueueSetMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\QueueSetMonitorForm.Designer.cs">
+      <DependentUpon>QueueSetMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\QueueSetExplorerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\QueueSetExplorerForm.Designer.cs">
+      <DependentUpon>QueueSetExplorerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockForms\WebServiceClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockForms\WebServiceClientForm.Designer.cs">
+      <DependentUpon>WebServiceClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EnvironmentCoordinator.cs">
       <SubType>Code</SubType>
@@ -252,6 +285,9 @@
     <Compile Include="NewMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NewMessageForm.Designer.cs">
+      <DependentUpon>NewMessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewQueueForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,8 +306,16 @@
     <Compile Include="PrimaryObjects.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QSetEnvironmentForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSetEnvironmentForm.Designer.cs">
+      <DependentUpon>QSetEnvironmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="QueueSearchForm.cs">
       <SubType>Form</SubType>
@@ -310,9 +354,6 @@
     <EmbeddedResource Include="Controls\MessageBrowser.resx">
       <DependentUpon>MessageBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\MessageViewer.resx">
-      <DependentUpon>MessageViewer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\QSetExplorer.resx">
       <DependentUpon>QSetExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +362,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\WebServiceClientControl.resx">
       <DependentUpon>WebServiceClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageViewer.resx">
+      <DependentUpon>MessageViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\MessageBrowserForm.resx">
+      <DependentUpon>MessageBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\MessageViewerForm.resx">
+      <DependentUpon>MessageViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\PropertyGridForm.resx">
+      <DependentUpon>PropertyGridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\QueueSetMonitorForm.resx">
+      <DependentUpon>QueueSetMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\QueueSetExplorerForm.resx">
+      <DependentUpon>QueueSetExplorerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockForms\WebServiceClientForm.resx">
+      <DependentUpon>WebServiceClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licensing\LicenseAboutForm.resx">
       <DependentUpon>LicenseAboutForm.cs</DependentUpon>
@@ -340,7 +402,10 @@
     <EmbeddedResource Include="OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="QSetEnvironmentForm.resx">
       <DependentUpon>QSetEnvironmentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +417,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Mulholland.Applications.QSet.exe.manifest" />
+    <None Include="packages.config" />
     <None Include="SignReleaseExe.bat" />
     <None Include="Version History.txt" />
   </ItemGroup>

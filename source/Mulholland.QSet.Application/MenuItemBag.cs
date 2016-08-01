@@ -1,5 +1,5 @@
 using System;
-using TD.SandBar;
+using System.Windows.Forms;
 
 namespace Mulholland.QSet.Application
 {
@@ -15,76 +15,76 @@ namespace Mulholland.QSet.Application
         static MenuItemBag() {}
 
         //File menu
-        public static TD.SandBar.MenuBarItem FileMenu;		
-        public static TD.SandBar.MenuButtonItem FileNewQSet;
-        public static TD.SandBar.MenuButtonItem FileOpenQSet;
-        public static TD.SandBar.MenuButtonItem FileCloseQSet;
-        public static TD.SandBar.MenuButtonItem FileSaveQSet;
-        public static TD.SandBar.MenuButtonItem FileSaveQSetAs;
-        public static TD.SandBar.MenuButtonItem FileRecentFileList;
-        public static TD.SandBar.MenuButtonItem FileExit;
-        public static TD.SandBar.MenuButtonItem FileNewMessage;
+        public static ToolStripMenuItem FileMenu;		
+        public static ToolStripMenuItem FileNewQSet;
+        public static ToolStripMenuItem FileOpenQSet;
+        public static ToolStripMenuItem FileCloseQSet;
+        public static ToolStripMenuItem FileSaveQSet;
+        public static ToolStripMenuItem FileSaveQSetAs;
+        public static ToolStripMenuItem FileRecentFileList;
+        public static ToolStripMenuItem FileExit;
+        public static ToolStripMenuItem FileNewMessage;
 
         //View menu
-        public static TD.SandBar.MenuBarItem ViewMenu;		
-        public static TD.SandBar.MenuButtonItem ViewQSetExplorer;
-        public static TD.SandBar.MenuButtonItem ViewProperties;
-        public static TD.SandBar.MenuButtonItem ViewMessageViewer;
-        public static TD.SandBar.MenuButtonItem ViewQSetMonitor;
+        public static ToolStripMenuItem ViewMenu;		
+        public static ToolStripMenuItem ViewQSetExplorer;
+        public static ToolStripMenuItem ViewProperties;
+        public static ToolStripMenuItem ViewMessageViewer;
+        public static ToolStripMenuItem ViewQSetMonitor;
         
         //Q Set menu
-        public static TD.SandBar.MenuBarItem QSetMenu;
-        public static TD.SandBar.MenuButtonItem QSetAddActiveQueue;
-        public static TD.SandBar.MenuButtonItem QSetNewFolder;
-        public static TD.SandBar.MenuButtonItem QSetRenameFolder;
-        public static TD.SandBar.MenuButtonItem QSetDeleteItem;
-        public static TD.SandBar.MenuButtonItem QSetPurgeAllQueues;
+        public static ToolStripMenuItem QSetMenu;
+        public static ToolStripMenuItem QSetAddActiveQueue;
+        public static ToolStripMenuItem QSetNewFolder;
+        public static ToolStripMenuItem QSetRenameFolder;
+        public static ToolStripMenuItem QSetDeleteItem;
+        public static ToolStripMenuItem QSetPurgeAllQueues;
 
         //Queue menu
-        public static TD.SandBar.MenuBarItem QueueMenu;
-        public static TD.SandBar.MenuButtonItem QueueOpen;
-        public static TD.SandBar.MenuButtonItem QueueBrowse;
-        public static TD.SandBar.MenuButtonItem QueueCreate;
-        public static TD.SandBar.MenuButtonItem QueueDelete;
-        public static TD.SandBar.MenuButtonItem QueueRefresh;
-        public static TD.SandBar.MenuButtonItem QueuePurge;
+        public static ToolStripMenuItem QueueMenu;
+        public static ToolStripMenuItem QueueOpen;
+        public static ToolStripMenuItem QueueBrowse;
+        public static ToolStripMenuItem QueueCreate;
+        public static ToolStripMenuItem QueueDelete;
+        public static ToolStripMenuItem QueueRefresh;
+        public static ToolStripMenuItem QueuePurge;
 
         //Message Menu
-        public static TD.SandBar.MenuBarItem MessageMenu;
-        public static TD.SandBar.MenuButtonItem MessageNew;
-        public static TD.SandBar.MenuButtonItem MessageForward;
-        public static TD.SandBar.MenuButtonItem MessageMove;
-        public static TD.SandBar.MenuButtonItem MessageDelete;
+        public static ToolStripMenuItem MessageMenu;
+        public static ToolStripMenuItem MessageNew;
+        public static ToolStripMenuItem MessageForward;
+        public static ToolStripMenuItem MessageMove;
+        public static ToolStripMenuItem MessageDelete;
 
         //Tools menu
-        public static TD.SandBar.MenuBarItem ToolsMenu;
-        public static TD.SandBar.MenuButtonItem ToolsOptions;
-        public static TD.SandBar.MenuButtonItem ToolsNewWebServiceClient;
+        public static ToolStripMenuItem ToolsMenu;
+        public static ToolStripMenuItem ToolsOptions;
+        public static ToolStripMenuItem ToolsNewWebServiceClient;
 
         //Help menu
-        public static TD.SandBar.MenuBarItem HelpMenu;
-        public static TD.SandBar.MenuButtonItem HelpAbout;
+        public static ToolStripMenuItem HelpMenu;
+        public static ToolStripMenuItem HelpAbout;
 
         //Message Browser context menu
-        public static TD.SandBar.ContextMenuBarItem MessageBrowserCtxMenu;
+        public static ContextMenuStrip MessageBrowserCtxMenu;
 
-        public static TD.SandBar.MenuButtonItem MessageBrowserCtxForwardMessage;
-        public static TD.SandBar.MenuButtonItem MessageBrowserCtxMoveMessage;
-        public static TD.SandBar.MenuButtonItem MessageBrowserCtxDeleteMessage;
-        public static TD.SandBar.MenuButtonItem MessageBrowserCtxRefreshMessages;
-        public static TD.SandBar.MenuButtonItem MessageBrowserCtxPurgeQueue;
+        public static ToolStripMenuItem MessageBrowserCtxForwardMessage;
+        public static ToolStripMenuItem MessageBrowserCtxMoveMessage;
+        public static ToolStripMenuItem MessageBrowserCtxDeleteMessage;
+        public static ToolStripMenuItem MessageBrowserCtxRefreshMessages;
+        public static ToolStripMenuItem MessageBrowserCtxPurgeQueue;
         
         //Q Set context menu
-        public static TD.SandBar.ContextMenuBarItem QSetCtxMenu;
-        public static TD.SandBar.MenuButtonItem QSetCtxAddActiveQueueToSet;
-        public static TD.SandBar.MenuButtonItem QSetCtxNewFolder;
-        public static TD.SandBar.MenuButtonItem QSetCtxRenameFolder;
-        public static TD.SandBar.MenuButtonItem QSetCtxDeleteItem;
-        public static TD.SandBar.MenuButtonItem QSetCtxPurgeAllQueues;
-        public static TD.SandBar.MenuButtonItem QSetCtxDeleteQueue;		
-        public static TD.SandBar.MenuButtonItem QSetCtxPurgeQueue;	
-        public static TD.SandBar.MenuButtonItem QSetCtxNewMessage;
-        public static TD.SandBar.MenuButtonItem QSetCtxNewWebServiceClient;
+        public static ContextMenuStrip QSetCtxMenu;
+        public static ToolStripMenuItem QSetCtxAddActiveQueueToSet;
+        public static ToolStripMenuItem QSetCtxNewFolder;
+        public static ToolStripMenuItem QSetCtxRenameFolder;
+        public static ToolStripMenuItem QSetCtxDeleteItem;
+        public static ToolStripMenuItem QSetCtxPurgeAllQueues;
+        public static ToolStripMenuItem QSetCtxDeleteQueue;		
+        public static ToolStripMenuItem QSetCtxPurgeQueue;	
+        public static ToolStripMenuItem QSetCtxNewMessage;
+        public static ToolStripMenuItem QSetCtxNewWebServiceClient;
 
     }
 }
