@@ -6,7 +6,7 @@ It's a pretty comprehensive tool for working with MSMQ whether you are in develo
 
 The code is pretty clean and tidy but I wrote it a long time ago so make no apology for the lack of what might be considered common design patterns.
 
-Also, there are a couple of libraries in use which you wont have licenses for and indeed you cannot get licenses any more.  I will try and track down the original author of those to see if there's anything that can be done in this regard.
+A big thank-you to https://github.com/dandrejvv for removing the licenced 3rd party libs and replacing with free versions, making this tool fully open source and entirely free to use.
 
 This is a C#/WinForms project.
 
