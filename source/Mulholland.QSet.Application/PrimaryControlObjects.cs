@@ -297,6 +297,8 @@ namespace Mulholland.QSet.Application
         private MessageBrowserCollection _messageBrowserCollection;
         private WebServiceClientControlCollection _webServiceClientControlCollection;
         private Images _images;
+        private Action<DockContent> _wireupActionForTabbedDocuments;
+        private Action<DockContent> _wiredownActionForTabbedDocuments;
 
         /// <summary>
         /// Constructs the object with all of the environments primary controls.
@@ -361,14 +363,14 @@ namespace Mulholland.QSet.Application
 
         public bool HasActiveMessageBrowser()
         {
-            return _dockPanel.ActiveDocument != null &&
-                _dockPanel.ActiveDocument.DockHandler.PanelPane.Controls.Count > 0 &&
-                _dockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] is MessageBrowser;
+            var result = _dockPanel.ActiveDocument != null && _dockPanel.ActiveDocument is MessageBrowserForm;
+
+            return result;
         }
 
         public MessageBrowser GetActiveMessageBrowser()
         {
-            return ((MessageBrowser)_dockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0]);
+            return ((MessageBrowserForm)_dockPanel.ActiveDocument).MessageBrowser;
         }
 
         public bool IsQSetExplorerOpen
@@ -455,7 +457,20 @@ namespace Mulholland.QSet.Application
         {
             if (_dockPanel.ActiveDocument != null)
             {
-                IQSetItemControl itemControl = _dockPanel.ActiveDocument.DockHandler.PanelPane.Controls[0] as IQSetItemControl;
+                var messageBrowserForm = _dockPanel.ActiveDocument as MessageBrowserForm;
+                var webServiceForm = _dockPanel.ActiveDocument as WebServiceClientForm;
+
+                IQSetItemControl itemControl = null;
+
+                if (messageBrowserForm != null)
+                {
+                    itemControl = messageBrowserForm.MessageBrowser;
+                }
+                else if(webServiceForm != null)
+                {
+                    itemControl = webServiceForm.WebServiceClientControl;
+                }
+
                 if (itemControl != null)
                     _qSetExplorerForm.QSetExplorer.ActiveItem = itemControl.QSetItem;
             }
@@ -473,6 +488,23 @@ namespace Mulholland.QSet.Application
             WebServiceClientControlCollection.Add(webServiceItem.ID.ToString(), webForm.WebServiceClientControl);
 
             webForm.Show(_dockPanel, DockState.Document);
+
+            webForm.FormClosed += WebForm_FormClosed;
+
+            if (_wireupActionForTabbedDocuments != null)
+            {
+                _wireupActionForTabbedDocuments(webForm);
+            }
+        }
+
+        private void WebForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var form = (WebServiceClientForm)sender;
+            form.FormClosed -= WebForm_FormClosed;
+            if (_wiredownActionForTabbedDocuments != null)
+            {
+                _wiredownActionForTabbedDocuments(form);
+            }
         }
 
         public void AddTabbedDocumentMessageBrowser(QSetQueueItem qsetQueueItem, PrimaryObjects primaryObjects)
@@ -488,6 +520,10 @@ namespace Mulholland.QSet.Application
 
                 MessageBrowserCollection.Add(qsetQueueItem.ID.ToString(), messageForm.MessageBrowser);
 
+                if (_wireupActionForTabbedDocuments != null)
+                {
+                    _wireupActionForTabbedDocuments(messageForm);
+                }
                 messageForm.FormClosed += MessageForm_FormClosed;
             }
             catch (Exception exc)
@@ -504,6 +540,10 @@ namespace Mulholland.QSet.Application
             var form = (MessageBrowserForm)sender;
             form.FormClosed -= MessageForm_FormClosed;
             MessageBrowserCollection.Remove(form.MessageBrowser.QSetQueueItem.ID.ToString());
+            if (_wiredownActionForTabbedDocuments != null)
+            {
+                _wiredownActionForTabbedDocuments(form);
+            }
         }
 
         public void SetQSetExplorerActiveItemWithEdit(QSetModel qSet)
@@ -511,6 +551,13 @@ namespace Mulholland.QSet.Application
             _qSetExplorerForm.QSetExplorer.QSet = qSet;
             _qSetExplorerForm.QSetExplorer.ActiveItem = qSet;
             _qSetExplorerForm.QSetExplorer.BeginEditActiveItem();
+        }
+
+        
+        public void WireupNewTabbedDocuments(Action<DockContent> wireupAction, Action<DockContent> wiredownAction)
+        {
+            _wireupActionForTabbedDocuments = wireupAction;
+            _wiredownActionForTabbedDocuments = wiredownAction;
         }
 
         public void QSetExplorerEditActiveItem()

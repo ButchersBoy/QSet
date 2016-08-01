@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using Mulholland.QSet.Application.Controls;
+using Mulholland.QSet.Application.DockForms;
 using Mulholland.QSet.Model;
 using Mulholland.QSet.Resources;
 using Mulholland.WinForms;
@@ -424,6 +425,24 @@ namespace Mulholland.QSet.Application
                 dp.ActiveDocumentChanged += DocumentContainer_ActiveDocumentChanged;
                 dp.MouseDown += DocumentContainer_MouseDown;
             });
+
+            base.PrimaryControls.WireupNewTabbedDocuments(
+                doc => 
+                {
+                    var messageBrowser = doc as MessageBrowserForm;
+                    if (messageBrowser != null)
+                    {
+                        messageBrowser.MessageBrowser.MouseDown += DocumentContainer_MouseDown;
+                    }
+                },
+                doc => 
+                {
+                    var messageBrowser = doc as MessageBrowserForm;
+                    if (messageBrowser != null)
+                    {
+                        messageBrowser.MessageBrowser.MouseDown -= DocumentContainer_MouseDown;
+                    }
+                });
 
             base.PrimaryControls.MessageBrowserCollection.ItemAdded += MessageBrowserCollection_ItemAdded;
             base.PrimaryControls.MessageBrowserCollection.ItemRemoved += MessageBrowserCollection_ItemRemoved;
