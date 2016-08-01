@@ -415,21 +415,28 @@ namespace Mulholland.QSet.Application.Controls
                     FinishMessageLoad(true);
 
                 messagesListView.Items.Clear();
-                workingPanel.Visible = true;                
+
+                if (_qSetQueueItem != null)
+                {
+                    workingPanel.Visible = true;
+                }
 
                 //create the required column headers
                 messagesListView.Clear();
                 foreach (string columnName in _userSettings.MessageBrowserColumnListCollection)
-                    messagesListView.Columns.Add(columnName, (messagesListView.Width - 10) / _userSettings.MessageBrowserColumnListCollection.Count, HorizontalAlignment.Left);			
+                    messagesListView.Columns.Add(columnName, (messagesListView.Width - 10) / _userSettings.MessageBrowserColumnListCollection.Count, HorizontalAlignment.Left);
 
-                //start the worker thread
-                _startedEvent.Reset();
-                ThreadPool.QueueUserWorkItem(new WaitCallback(GetSnapShotCallBack));
-                _startedEvent.WaitOne();
+                if (_qSetQueueItem != null)
+                {
+                    //start the worker thread
+                    _startedEvent.Reset();
+                    ThreadPool.QueueUserWorkItem(new WaitCallback(GetSnapShotCallBack));
+                    _startedEvent.WaitOne();
 
-                //set up the visualisable process
-                _workingProcess = new VisualizableProcess(Locale.UserMessages.RetrievingMessages, true);
-                OnBeforeMessageListLoaded(new VisualizableProcessEventArgs(_workingProcess));	
+                    //set up the visualisable process
+                    _workingProcess = new VisualizableProcess(Locale.UserMessages.RetrievingMessages, true);
+                    OnBeforeMessageListLoaded(new VisualizableProcessEventArgs(_workingProcess));
+                }
             }
         }
 

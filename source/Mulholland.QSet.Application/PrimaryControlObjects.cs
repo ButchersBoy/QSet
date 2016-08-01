@@ -488,27 +488,16 @@ namespace Mulholland.QSet.Application
         public void AddTabbedDocumentWebService(QSetWebServiceItem webServiceItem)
         {
             var webForm = new WebServiceClientForm();
-            webForm.WebServiceClientControl.QSetWebServiceItem = webServiceItem;
-
             WebServiceClientControlCollection.Add(webServiceItem.ID.ToString(), webForm.WebServiceClientControl);
 
             webForm.Show(_dockPanel, DockState.Document);
+            webForm.WebServiceClientControl.QSetWebServiceItem = webServiceItem;
 
             webForm.FormClosed += WebForm_FormClosed;
 
             if (_wireupActionForTabbedDocuments != null)
             {
                 _wireupActionForTabbedDocuments(webForm);
-            }
-        }
-
-        private void WebForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            var form = (WebServiceClientForm)sender;
-            form.FormClosed -= WebForm_FormClosed;
-            if (_wiredownActionForTabbedDocuments != null)
-            {
-                _wiredownActionForTabbedDocuments(form);
             }
         }
 
@@ -520,8 +509,8 @@ namespace Mulholland.QSet.Application
 
             try
             {
-                messageForm.MessageBrowser.QSetQueueItem = qsetQueueItem;
                 messageForm.Show(_dockPanel, DockState.Document);
+                messageForm.MessageBrowser.QSetQueueItem = qsetQueueItem;
 
                 MessageBrowserCollection.Add(qsetQueueItem.ID.ToString(), messageForm.MessageBrowser);
 
@@ -537,17 +526,6 @@ namespace Mulholland.QSet.Application
                 MessageBox.Show(exc.Message, Locale.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 primaryObjects.ProcessVisualizer.ReleaseCursor();
                 messageForm.Close();
-            }
-        }
-
-        private void MessageForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            var form = (MessageBrowserForm)sender;
-            form.FormClosed -= MessageForm_FormClosed;
-            MessageBrowserCollection.Remove(form.MessageBrowser.QSetQueueItem.ID.ToString());
-            if (_wiredownActionForTabbedDocuments != null)
-            {
-                _wiredownActionForTabbedDocuments(form);
             }
         }
 
@@ -623,14 +601,85 @@ namespace Mulholland.QSet.Application
             }
         }
 
-        public IEnumerable<IDockContent> GetOpenDocuments()
-        {
-            return _dockPanel.Documents;
-        }
-
         public void SetQSetExplorerData(QSetModel qSet)
         {
             _qSetExplorerForm.QSetExplorer.QSet = qSet;
+        }
+
+        public void ClearOpenedDocuments()
+        {
+            foreach (IDockContent dockControl in new List<IDockContent>(_dockPanel.Documents))
+            {
+                var messageBrowserForm = dockControl as MessageBrowserForm;
+                var webServiceForm = dockControl as WebServiceClientForm;
+
+                if (messageBrowserForm != null)
+                {
+                    messageBrowserForm.Close();
+                }
+                else if (webServiceForm != null)
+                {
+                    webServiceForm.Close();
+                }
+            }
+        }
+
+        public IDockContent FindOpenDocumentForItem(QSetItemBase item)
+        {
+            foreach (IDockContent dockControl in _dockPanel.Documents)
+            {
+                var messageBrowserForm = dockControl as MessageBrowserForm;
+                var webServiceForm = dockControl as WebServiceClientForm;
+
+                if (messageBrowserForm != null)
+                {
+                    if (messageBrowserForm.MessageBrowser.QSetItem == item)
+                    {
+                        return dockControl;
+                    }
+                }
+                else if (webServiceForm != null)
+                {
+                    if (webServiceForm.WebServiceClientControl.QSetItem == item)
+                    {
+                        return dockControl;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private void MessageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var form = (MessageBrowserForm)sender;
+            RemoveTabbedMessageBrowser(form);
+        }
+
+        private void RemoveTabbedMessageBrowser(MessageBrowserForm form)
+        {
+            form.FormClosed -= MessageForm_FormClosed;
+            MessageBrowserCollection.Remove(form.MessageBrowser.QSetQueueItem.ID.ToString());
+            if (_wiredownActionForTabbedDocuments != null)
+            {
+                _wiredownActionForTabbedDocuments(form);
+            }
+        }
+
+        private void WebForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var form = (WebServiceClientForm)sender;
+            RemoveTabbedWebServiceForm(form);
+        }
+
+        private void RemoveTabbedWebServiceForm(WebServiceClientForm form)
+        {
+            form.FormClosed -= WebForm_FormClosed;
+            WebServiceClientControlCollection.Remove(form.WebServiceClientControl.QSetWebServiceItem.ID.ToString());
+            if (_wiredownActionForTabbedDocuments != null)
+            {
+                _wiredownActionForTabbedDocuments(form);
+            }
         }
 
         private void QSetExplorerForm_VisibleChanged(object sender, EventArgs e)

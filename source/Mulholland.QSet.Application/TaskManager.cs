@@ -6,6 +6,7 @@ using Mulholland.QSet.Application.Controls;
 using Mulholland.QSet.Model;
 using Mulholland.QSet.Resources;
 using Mulholland.Core.Xml;
+using Mulholland.QSet.Application.DockForms;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace Mulholland.QSet.Application
@@ -613,8 +614,21 @@ namespace Mulholland.QSet.Application
         /// </summary>
         private void DoCloseQSet()
         {
-            foreach (IDockContent dockControl in _primaryControls.GetOpenDocuments())
+            _primaryControls.ClearOpenedDocuments();
+            /*foreach (IDockContent dockControl in _primaryControls.GetOpenDocuments())
             {
+                var messageBrowserForm = dockControl as MessageBrowserForm;
+                var webServiceForm = dockControl as WebServiceClientForm;
+
+                if (messageBrowserForm != null)
+                {
+                    _primaryControls.Remove
+                }
+                else if (webServiceForm != null)
+                {
+                    
+                }
+
                 MessageBrowser messageBrowser = dockControl.DockHandler.PanelPane.Controls[0] as MessageBrowser;
                 if (messageBrowser != null)
                 {
@@ -633,8 +647,8 @@ namespace Mulholland.QSet.Application
                         dockControl.DockHandler.Close();
                     }
                 }
-            }
-            _primaryControls.SetQSetMonitorData(null);
+            }*/
+            _primaryControls.SetQSetExplorerData(null);
         }
 
 
@@ -772,19 +786,7 @@ namespace Mulholland.QSet.Application
         /// <returns>DockControl if found, else null.</returns>
         public IDockContent FindDocument(QSetItemBase item)
         {
-            IDockContent result = null;
-
-            foreach(IDockContent dockControl in _primaryControls.GetOpenDocuments())				
-            {
-                IQSetItemControl itemControl = dockControl.DockHandler.PanelPane.Controls[0] as IQSetItemControl;
-                if (itemControl != null && itemControl.QSetItem == item)
-                {					
-                    result = dockControl;					
-                    break;
-                }
-            }
-
-            return result;
+            return _primaryControls.FindOpenDocumentForItem(item);
         }
 
         #endregion
