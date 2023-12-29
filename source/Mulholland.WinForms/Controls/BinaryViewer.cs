@@ -136,8 +136,13 @@ namespace Mulholland.WinForms.Controls
 					}					
 				}
 
-				//add the new row								
-				byteRow.SubItems.Add(hexBuilder.ToString());
+				//add the new row		
+        if (byteRow == null)
+        {
+          continue;
+        }
+
+        byteRow.SubItems.Add(hexBuilder.ToString());
 				byteRow.SubItems.Add(textBuilder.ToString());
 				binaryListView.Items.Add(byteRow);				
 			}		

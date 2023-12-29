@@ -501,6 +501,13 @@ namespace Mulholland.QSet.Application
             }
         }
 
+
+        private string ShortQueueTextName(QSetQueueItem qsetQueueItem)
+        {
+          var nameSplit = qsetQueueItem.Name.Split('\\');
+          return nameSplit[nameSplit.Length - 1];
+        }
+
         public void AddTabbedDocumentMessageBrowser(QSetQueueItem qsetQueueItem, PrimaryObjects primaryObjects)
         {
             var messageForm = new MessageBrowserForm();
@@ -509,6 +516,7 @@ namespace Mulholland.QSet.Application
 
             try
             {
+                messageForm.Text = ShortQueueTextName(qsetQueueItem);
                 messageForm.Show(_dockPanel, DockState.Document);
                 messageForm.MessageBrowser.QSetQueueItem = qsetQueueItem;
 
